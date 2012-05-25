@@ -10,3 +10,9 @@
 *.lai
 *.la
 *.a
+
+#  Latex compiling files
+*.dvi
+*.log
+*.aux
+*.synctex.gz
