@@ -1,0 +1,135 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,pdftex]{geometry}
+\setlength{\oddsidemargin}{5mm}
+\setlength{\evensidemargin}{5mm}
+\usepackage[english]{babel}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{subfig}
+\usepackage{wrapfig}
+\usepackage{comment}
+\usepackage{url}
+\usepackage{qtree}
+\usepackage{lastpage}
+\usepackage{multirow}
+\urlstyle{same}
+
+% Page numbering
+\lhead{Bachelor Thesis - Camiel Verschoor}
+\rhead{page \thepage/\pageref{LastPage}}
+\cfoot{}
+\rfoot{\thepage}
+
+% TITLE FORMAT
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\makeatletter
+\def\printtitle{
+    {\centering \@title\par}}
+\makeatother                  
+
+\makeatletter
+\def\printauthor{
+    {\centering \large \@author}}
+\makeatother
+
+% TITLE
+\title{
+\HRule{0.5pt} \\
+\LARGE \textbf{\textsc{Bachelor Thesis}}\\[0.5cm]
+\normalsize \textsc{Integrating vision-based algorithms on an Asctec Pelican to autonomously follow linear shaped structures in a landscape.}
+\HRule{2pt}\\ [0.5cm]
+\normalsize
+\today\\[1cm]
+}
+
+\author{
+Camiel Verschoor (10017321)\\
+Artificial Intelligence\\
+Faculty of Science\\
+Universiteit van Amsterdam\\[0.5cm]
+\begin{tabular}{l l}
+Supervised by: &\\
+dr. A. Visser & Universiteit van Amsterdam\\
+drs. G. Poppinga & National Aerospace Lab NLR\\
+\end{tabular}\\[0.5cm]
+}
+
+% BEGIN DOCUMENT
+\begin{document}
+
+% TITLE PAGE
+\thispagestyle{empty}
+\printtitle                  
+\printauthor
+\vfill
+\newpage
+
+% TABLEOFCONTENTS
+\setcounter{page}{1}
+%\tableofcontents
+%\newpage
+% CONTENT
+\section{Supervisors}
+\begin{description}
+\item[Dr. Arnoud Visser] Universiteit van Amsterdam.
+\item[Drs. Gerald Poppinga] Nederlands Luchtvaart en Ruimtevaartlaboratorium.
+\end{description}
+\section{Research Title}
+Integrating vision-based algorithms on an Asctec Pelican to autonomously follow linear shaped structures in a landscape.
+\section{Research Question}
+What vision-based algorithms perform successful in autonomously following linear shaped structures in a landscape with an Asctec Pelican?
+\section{Research Goal}
+The goal of this research project is to develop a algorithm on an Unmanned Aerial Vehichle that in the end can navigate autonomously over infrastructure (ie. power lines, railways and roads). 
+\section{Research Plan}
+\begin{enumerate}
+\item Research relevant literature.
+\item Define tasks.\\
+Starting with a easily recognizable model and then gradually fade the preconditions away. This gives the following set of tasks:
+\begin{enumerate}
+\item Follow a bright orange clothesline laying on the ground.
+\item Follow a bright orange clothesline hanging in the air.
+\item Follow a lighter orange clothesline hanging in the air.
+\item Follow a white clothesline hanging in the air.
+\item (If possible) Follow a white clothesline hanging in the air, while moving spirals around it.
+\item (If possible) Follow linear shaped structures in a landscape such as, highways, rivers and fences.
+\end{enumerate}
+\item Create a dataset of tasks (a), (b), (c) and (d), to test vision-based algorithms.
+\item Design vision-based algorithms.
+\begin{itemize}
+\item Prior knowledge techniques.
+\item Machine learning techniques.
+\end{itemize}
+\item Test vision-based algorithms in simulation experiments (various tasks). Before testing on the Astec Pelican I will test the algorithms on a dataset made by the Asctec Pelican.
+\item Test vision-based algorithms on the Asctec Pelican in experiments (various tasks).
+\item Based on the results either increase the difficulty of the task or improve the algorithms.
+\item Compare algorithms.
+\item Write research paper.
+\end{enumerate}
+\section{Integration Plan}
+In short the integration plan is:
+\begin{enumerate}
+\item Initial design, determine the camera application that should be integrated (ie. Optical or Multispectral).
+\item Structural integration, attach the camera application to the Asctec Pelican.
+\item Algorithm and Data processing, determine the algorithm that should process the visual information. By experimenting in simulation and on the Asctec Pelican platform.
+\item Intergrating software with the Flight Control System, integrate the algorithm with the Flight Control System and fly autonomously.
+\item Interfacing with the Ground Control System, create a interface for the new algorithm on the Ground Control System.
+\end{enumerate}
+
+\section{Relevant Literature}
+\subsection{\cite{Bosch2006}}
+This paper describes an approach to detect safe landing areas for a flying robot, on the basis of a sequence of monocular images. The approach does not require precise position and altitude sensors as it exploits the relations between 2D image homographies and 3D planes.
+\subsection{\cite{Cabellero2009}}
+This paper describes a vision-based position estimation method for Unmanned Aerial Vehicles. The method assumes a planar scene, approximation that usually holds when a vehicle is flying at a relatively high altitude. Furthermore the method uses monocular images to estimate the vehicle motion, but accumulative errors can make diverge the estimated position. The method uses an online-built mosaic to correct the drift associated to the planar motion estimation algorithm. Due to the mosaic the researchers can use previously recorded information for localization.
+\subsection{\cite{Feil2008}}
+This paper describes a compact Broadband 78 GHz Sensor, which is high sensitive, has simultaneous detection capabilities and can see small objects (ie. nuts).
+\subsection{\cite{Frew2004}}
+This paper describes the vision-based control of a small autonomous aircraft following a road. The computer vision system detects natural features of the scene and tracks the roadway in order to determine relative yaw and lateral displacement between the aircraft and the road. The method uses only vision measurements and onboard inertial sensors to make a control strategy to stabilize the aircraft and follow the road.
+\subsection{\cite{Katrasnik2010}}
+This paper discusses the most important achievement in power line inspection by mobile robots. The paper focuses on helicopter inspection, inspection with flying robots and inspection with climbing robots. The paper discusses the benefits and drawbacks in power line inspection.
+\subsection{More to come...}
+\bibliographystyle{apalike}
+\bibliography{references}
+\end{document}
