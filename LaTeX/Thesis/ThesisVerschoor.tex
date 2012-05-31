@@ -6,6 +6,7 @@
 \usepackage{epstopdf}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage{setspace}
 
 % Page margins
 %\setlength{\oddsidemargin}{5mm}
@@ -95,9 +96,10 @@ To be written.
 \newpage
 
 \section{Introduction}
-In robotics one of the main goals is to develop mobile robots that can operate autonomously in the real world environment. These autonomous robots have various purposes and are used for a wide range of applications such as inspection, exploration or rescue. In rescue the robot is expected to operate in dangerous environments without putting human lives in danger in example, during disasters or life rescue operations. Even though reasonable developments have been made in the robotics field, robots cannot operate autonomously in the real world yet.
+\onehalfspace
+In robotics one of the main goals is to develop mobile robots that can operate autonomously in the real world environment. These autonomous robots have various purposes and are used for a wide range of applications such as inspection, exploration and rescue. In rescue, robots are expected to operate in dangerous environments without putting human lives in danger in example, during disasters or life rescue operations. Even though reasonable developments have been made in the robotics field, robots cannot operate autonomously in the real world yet.
 
-One of the main requirements of an autonomous robot is the ability to navigate in the environment. The traditional approach to navigate through the outdoor environment is via pre-planned paths based on a Global Positioning System (GPS). The main shortcoming of GPS is that it cannot be used in every environment as it needs to receive a data signal from four different satellites. Inside buildings and in several outdoor areas GPS is not available. Especially in urban areas GPS is found to be unreliable. In order to navigate through these environments other sensors and navigation techniques should be applied. Since there are several linear structures in the environment like rivers, roads and power lines, line-following is a possible approach to navigate through an environment. Line-following is a classic technique in robotics as it has been used for ground robots successfully several times. For other robots and sensor configurations, open problems remain. One of them is navigation for micro aerial vehicles (MAVs), which have a limited sensor composition due to their limited payload.
+One of the main requirements of an autonomous robot is the ability to navigate in the environment. The traditional approach to navigate through the outdoor environment is via pre-planned paths based on a Global Positioning System (GPS). The main shortcoming of GPS is that it cannot be used in every environment as it needs to receive data signals from four different satellites. Inside buildings and in several outdoor areas GPS is not available. Especially, in urban areas GPS is found to be unreliable. In order to navigate through these environments other sensors and navigation techniques should be applied. Since there are several linear structures in the environment like rivers, roads and power lines, line-following is a possible approach to navigate through an environment. Line-following is a classic technique in robotics as it has been used for ground robots successfully numerous times. For other robots and sensor configurations, open problems remain. One of them is navigation for micro aerial vehicles (MAVs), which have a limited sensor composition due to their limited payload.
 
 \begin{figure}[!h]
 	\centering
@@ -106,20 +108,38 @@ One of the main requirements of an autonomous robot is the ability to navigate i
 	\label{blackwidow}
 \end{figure}
 
-A micro aerial vehicle (MAV) is a subclass of the Unmanned Aerial Vehicles. Due to their small size, the MAV can operate in numerous robotic applications. For instance, search \&  rescue, inspection and exploration. AeroVironment Black Widow (figure \ref{blackwidow}) is the first MAV operating in the field. Another type of MAV is the quadrotor, which is controlled by four rotors. Quadrotors provide  
-manoeuvrability and stability, which is quintessential for indoor and urban flights. As a result of recent developments, small quadrotors with on-board stabilization can be purchased conveniently. Due to this, the research regarding this platform is moving towards intelligent applications, which demand information of the surrounding environment. Nevertheless, the fast movements and the limited amount of sensor combination it is still a challenge to use navigation method for these platforms.
+A micro aerial vehicle (MAV) is a subclass of the Unmanned Aerial Vehicles. Due to their small size, the MAV can operate in numerous robotic applications. For instance, search \&  rescue, inspection and exploration. AeroVironment Black Widow (figure \ref{blackwidow}) is the first MAV operating in the field. Another type of MAV is the quadrotor, which is controlled by four rotors. Quadrotors provide manoeuvrability and stability, which is quintessential for indoor and urban flights. As a result of recent developments, small quadrotors with on-board stabilization can be purchased conveniently. Due to this, the research regarding this platform is moving towards intelligent applications, which demand information of the surrounding environment. Nevertheless, the fast movements and the limited amount of sensor combination it is still a challenge to develop navigation methods for these platforms.
 
-\subsection{Line following}
-Line following experiment.
+\subsection{Platform and Framework}
+The Ascending Technologies Pelican better known as the AscTec Pelican (figure \ref{pelican}) is a quadrotor containing a high payload capacity and a modular design. Therefore, this quadrotor can fly with a variety of sensors and, therefore, this platform is suitable for experimenting with different sensor configurations. The AscTec Pelican is equipped with an Intel Atom Processor board supplying high onboard processing power. For this reason, the door is open for the creation of autonomous intelligent applications without offboard processing.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/pelican.eps}
+	\caption{Ascending Technologies Pelican equipped with a camera and a laser scanner. The development is driven by commercial, government, research and military purposes. The small quadrotor allows remote observation of hazardous environments inaccesible for humans and ground robots.}
+	\label{pelican}
+\end{figure}
+
+AR.Drone SLAM is a framework for the Parrot AR.Drone, a quadrotor, developed and proposed by N. Dijkshoorn. This framework contains a realtime Simultaneous Localization and Mapping (SLAM) implementation based on a down-pointing camera. Therefore, it allows a MAV to know its position and movement in the environment by generating a feature map of the environment so the MAV can localize itself on this map. Furthermore, the framework contains a 3D mouse controller, a keyboard controller, a visual map and an elevation map. Due to the framework the robot acquires more information of the environment. This information can aid the robot in navigation.
+
 \subsection{Research questions and objectives}
-The main research question is to find a robust vision-based approach to autonomously navigate over linear shaped structures. This main research question is divided up in the following sub-questions:
+In robotics one goal is to develop mobile robots that can advance robustly and truly autonomously in real world situations. One of the main requirements is the ability to navigate autonomously. Since there is no GPS signal available in urban and indoor environment robots should rely on other sensors.
+
+Line-following is proven to be a simple navigation task for ground robots. However, this navigation task is not implemented yet on unmanned aerial vehicles. Since there are various linear structures in the environment, line-following should be a suitable navigation technique.
+
+Therefore, the main research question is to find a robust vision-based approach to autonomously navigate over linear shaped structures. This main research question is divided up in the following sub-questions:
 \begin{itemize}
-\item What vision-based algorithms are suitable for robust  
-\item Question
+\item What type of sensors should the AscTec Pelican carry?
+    \begin{itemize}
+        \item What type of down-pointing camera?
+        \item What other sensors?
+    \end{itemize}
+\item How to port the framework AR.Drone SLAM to the AscTec Pelican?
+\item How to detect and track a line?
+\item What is the performance and robustness of different vision-based methods to navigate over a linear structure?
+\item How should the vision-based algorithms be evaluated?
 \end{itemize}
-\subsection{Platform}
-Ascending Technologies Pelican.
-\subsection{Framework}
+In order to perform line-following navigation, first, a line should be detected. Secondly, the angle between the quadrotor and the line is calculated. Finally, the quadrotor adjusts its movements in order to navigate over the line. These steps are repeated until the end of the line has been reached.
 \subsection{Outline}
 Chapter X gives an overview about current used vision-based methods...
 To be written.
