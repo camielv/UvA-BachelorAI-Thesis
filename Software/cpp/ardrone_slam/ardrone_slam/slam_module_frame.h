@@ -1,0 +1,126 @@
+#pragma once
+
+#include "slam_visual_map.h"
+#include "opencv2/core/types_c.h"
+#include "opencv_ekf.h"
+#include "opencv2/features2d/features2d.hpp"
+
+#define SLAM_LOC_START 
+#define SLAM_LOC_END 
+
+#define SLAM_VISUALMOTION_START 
+#define SLAM_VISUALMOTION_END 
+
+struct bot_ardrone_frame;
+
+class slam;
+class slam_map;
+
+using namespace cv;
+
+class slam_module_frame
+{
+public:
+	slam_module_frame(slam *controller);
+	~slam_module_frame(void);
+	void set_camera();
+
+	void process(bot_ardrone_frame *f);
+	bool process_visual_motion();
+	bool process_visual_loc();
+	bool process_map(Mat& frame_state);
+
+	double find_robust_translation_rotation(InputArray p1, InputArray p2, InputArray t, vector<DMatch>& matches, vector<short>& inliers, cv::Mat& T, float& R, double maxInlierDist = 3.0);
+	int find_robust_translation_rotation_inliers(InputArray p1, InputArray p2, InputArray t, vector<DMatch>& matches, vector<short>& inliers, cv::Mat& T, float& R, double maxInlierDist = 3.0);
+	int slam_module_frame::find_robust_perspective_transformation(InputArray p1, InputArray p2, vector<DMatch>& matches, vector<short>& mask, int max, Mat& H, double maxInlierDist);
+	int slam_module_frame::find_robust_affine_transformation(InputArray p1, InputArray p2, vector<DMatch>& matches, vector<short>& mask, int max, Mat& H, double maxInlierDist);
+
+	void get_features(Mat& frame, vector<KeyPoint> &v);
+	void get_descriptors(Mat& frame, vector<KeyPoint> &v, Mat& descriptors);
+	void get_matches(Mat& q_descriptors, Mat& t_descriptors, vector<DMatch>& matches, bool use_unique = false, double max_distance = 0.12);
+
+	void store_prev_frame();
+	bool measurementSeemsOk();
+
+	void imagepoints_to_local3d(vector<Point2f>& src, vector<Point3f>& dst, Mat* state = NULL, bool fixed_xy = false);
+
+	void get_state(Mat& pos, Mat& or, Mat* state = NULL);
+	void get_localcam(Mat& pos, Mat& or, Mat* state = NULL);
+
+	// coordinate system helpers
+	void localcam_to_world(Mat& pos, Mat& or);
+	void world_to_localcam(Mat& pos, Mat& or);
+
+	void localvelocity_to_world(Mat& v);
+
+	static void add_noise(Mat &img);
+
+	// testing/experiments
+	/*
+	void descriptor_map_quality();
+	void get_local_descriptors(int x, int y, Mat& map_descriptors, int radius);
+	*/
+
+
+private:
+	slam *controller;
+	slam_map *map;
+
+	bot_ardrone_frame *f;
+
+	Mat frame;
+	Mat frame_gray;
+
+	Mat prev_frame_gray;
+	vector<KeyPoint> prev_keypoints;
+
+	Mat obj_pos;
+	Mat obj_or;
+	Mat new_pos;
+	Mat new_or;
+
+	// image corners
+	vector<Point2f> image_corners;
+
+	// current frame data
+	vector<KeyPoint> keypoints;
+	vector<Point2f> imagepoints;
+	Mat descriptors;
+	bool features_extracted;
+
+	// previous frame data
+	bool prev_frame_exists;
+	double prev_frame_time;
+	Mat prev_frame_descriptors;
+	//vector<Point2f> prev_frame_ip;
+	vector<Point3f> prev_frame_wc;
+
+	DescriptorExtractor *de;
+	BruteForceMatcher<L2<float>> dm;
+
+	Mat camera_matrix;
+	Mat camera_matrix_inv;
+
+	Mat world_plane;
+	Mat world_plane_normal;
+
+	Mat T;
+	Mat originH;
+
+	/* KF */
+	ExtendedKalmanFilter *EKF;
+	Mat *state;
+	Mat *cov;
+	Mat prev_state;
+
+	Mat measurement;
+
+	double difftime;
+
+	clock_t last_loc;
+
+	// tmp
+	FILE *loc_log;
+	int nr_visual_motion, nr_visual_motion_success;
+};
+

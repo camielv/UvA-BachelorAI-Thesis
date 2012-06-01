@@ -1,0 +1,5 @@
+#pragma once
+
+enum bot_state { BOT_STATE_LANDED, BOT_STATE_HOVER, BOT_STATE_FLY };
+
+enum bot_event { BOT_EVENT_CONTROL, BOT_EVENT_MEASUREMENT, BOT_EVENT_FRAME };
