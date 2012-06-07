@@ -6,7 +6,7 @@
 #include <ardrone_api.h>
 
 /* Uncomment to activate interesting printf's */
-#define DEBUG_NAVDATA_C
+//#define DEBUG_NAVDATA_C
 
 
 /********************************************************************
