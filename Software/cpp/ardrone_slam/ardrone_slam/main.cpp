@@ -22,13 +22,13 @@ int main(int argc, char *argv[])
 	/* bot 1: USARSim ARDRONE  */
 	// deployment location set in bot_ardrone_usarsim.cpp (top)
 	//bot_ardrone ardrone(0x00, BOT_ARDRONE_INTERFACE_USARSIM, 0 /* | SLAM_MODE_VISUALLOC*/  /*| SLAM_MODE_VEL_OR */);
-	bot_ardrone ardrone(0x01, BOT_ARDRONE_INTERFACE_ARDRONELIB, 0/*SLAM_MODE_VEL | SLAM_MODE_MAP*/ /* | SLAM_MODE_VEL  /*| SLAM_MODE_ELEVMAP /* | SLAM_MODE_ELEVMAP /*| SLAM_MODE_VEL_OR | SLAM_MODE_VISUALMOTION */);
+	bot_ardrone ardrone(0x01, BOT_ARDRONE_INTERFACE_ARDRONELIB, SLAM_MODE_VEL | SLAM_MODE_MAP /* | SLAM_MODE_VEL  /*| SLAM_MODE_ELEVMAP /* | SLAM_MODE_ELEVMAP /*| SLAM_MODE_VEL_OR | SLAM_MODE_VISUALMOTION */);
 	//bot_ardrone ardrone(0x01, BOT_ARDRONE_INTERFACE_NONE, SLAM_MODE_VISUALMOTION /* | SLAM_MODE_VISUALLOC*/);
 	bots[nr_bots++] = &ardrone;
 
 
 	//ardrone.set_record(); // AR.Drone pos: 3930, 850
-	ardrone.set_slam(true);
+	//ardrone.set_slam(true);
 	//ardrone.set_playback("thesis-exp1-run13");
 	//printf("saving map\n");
 	//ardrone.get_slam()->map.visual_map.save_canvas();
