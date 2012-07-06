@@ -67,7 +67,7 @@ main()
 		strcat( filename, itoa(counter++, buffer, 10) );
 		strcat( filename, ".png" );
 
-		//cv::imwrite( filename, image );
+		cv::imwrite( filename, image );
 
 		double t2 = (double) clock();
 		printf( "> Time: %g ms\n> FPS: %.2g\n", getTime(&t1, &t2), getFPS(&t1, &t2));
