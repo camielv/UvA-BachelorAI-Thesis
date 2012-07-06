@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="UserMacros">
+    <ARDroneLibDir>C:\Users\Nick\Documents\Thesis\code\ARDrone_SDK_Version_1_8_20110726\ARDroneLib</ARDroneLibDir>
+	<ARDroneWin32Dir>C:\Users\Nick\Documents\Thesis\code\cpp\ardrone_slam\ardronewin32</ARDroneWin32Dir>
+    <OpenCVDir>C:\Users\Nick\Documents\Thesis\code\OpenCV</OpenCVDir>
+    <SDLDir>C:\Users\Nick\Documents\Thesis\code\SDL-1.2.14</SDLDir>
+	<YAMLDir>C:\Users\Nick\Documents\Thesis\code\cpp\ardrone_slam\yaml-0.1.4</YAMLDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <BuildMacro Include="ARDroneLibDir">
+      <Value>$(ARDroneLibDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="ARDroneWin32Dir">
+      <Value>$(ARDroneWin32Dir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="OpenCVDir">
+      <Value>$(OpenCVDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="SDLDir">
+      <Value>$(SDLDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="YAMLDir">
+      <Value>$(YAMLDir)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

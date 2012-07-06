@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VLIB/Platform/x86
+END
+video_config.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VLIB/Platform/x86/video_config.h
+END
+video_utils_x86.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VLIB/Platform/x86/video_utils_x86.h
+END
+video_utils.c
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VLIB/Platform/x86/video_utils.c
+END
+video_utils.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VLIB/Platform/x86/video_utils.h
+END

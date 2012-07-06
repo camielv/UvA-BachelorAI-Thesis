@@ -1,0 +1,341 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008
+END
+run_scanner.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_scanner.vcproj
+END
+run_dumper.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_dumper.vcxproj.filters
+END
+run_dumper.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_dumper.vcproj
+END
+libyaml.sln
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/libyaml.sln
+END
+run_scanner.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_scanner.vcxproj.user
+END
+test_version.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/test_version.vcxproj.filters
+END
+test_version.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/test_version.vcproj
+END
+run_dumper.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_dumper.vcxproj.user
+END
+UpgradeLog.XML
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/UpgradeLog.XML
+END
+yamldll.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/yamldll.vcxproj
+END
+test_version.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/test_version.vcxproj.user
+END
+run_emitter.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_emitter.vcproj
+END
+yamldll.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/yamldll.vcxproj.filters
+END
+yamldll.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/yamldll.vcproj
+END
+test_reader.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/test_reader.vcproj
+END
+run_emitter.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_emitter.vcxproj.user
+END
+yamldll.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/yamldll.vcxproj.user
+END
+example_reformatter.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_reformatter.vcproj
+END
+example_reformatter_alt.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_reformatter_alt.vcproj
+END
+run_scanner.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_scanner.vcxproj
+END
+test_reader.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/test_reader.vcxproj.user
+END
+run_parser.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_parser.vcxproj
+END
+example_deconstructor.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_deconstructor.vcproj
+END
+example_deconstructor_alt.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_deconstructor_alt.vcproj
+END
+example_reformatter_alt.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_reformatter_alt.vcxproj.user
+END
+example_reformatter.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_reformatter.vcxproj.user
+END
+run_scanner.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_scanner.vcxproj.filters
+END
+example_deconstructor.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_deconstructor.vcxproj.user
+END
+example_deconstructor_alt.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_deconstructor_alt.vcxproj.user
+END
+run_parser.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_parser.vcxproj.filters
+END
+run_parser.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_parser.vcproj
+END
+run_loader.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_loader.vcxproj
+END
+run_emitter.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_emitter.vcxproj
+END
+run_parser.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_parser.vcxproj.user
+END
+run_loader.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_loader.vcxproj.filters
+END
+test_reader.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/test_reader.vcxproj
+END
+run_loader.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_loader.vcproj
+END
+yaml.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/yaml.vcxproj
+END
+run_emitter.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_emitter.vcxproj.filters
+END
+libyaml.suo
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/libyaml.suo
+END
+example_reformatter.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_reformatter.vcxproj
+END
+example_reformatter_alt.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_reformatter_alt.vcxproj
+END
+run_loader.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_loader.vcxproj.user
+END
+test_reader.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/test_reader.vcxproj.filters
+END
+example_deconstructor.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_deconstructor.vcxproj
+END
+example_deconstructor_alt.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_deconstructor_alt.vcxproj
+END
+yaml.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/yaml.vcxproj.filters
+END
+libyaml.sdf
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/libyaml.sdf
+END
+yaml.vcproj
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/yaml.vcproj
+END
+example_reformatter_alt.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_reformatter_alt.vcxproj.filters
+END
+example_reformatter.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_reformatter.vcxproj.filters
+END
+yaml.vcxproj.user
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/yaml.vcxproj.user
+END
+run_dumper.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/run_dumper.vcxproj
+END
+example_deconstructor.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_deconstructor.vcxproj.filters
+END
+example_deconstructor_alt.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/example_deconstructor_alt.vcxproj.filters
+END
+test_version.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/win32/vs2008/test_version.vcxproj
+END

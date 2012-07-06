@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/55/trunk/cpp/ardrone_slam/ardronewin32/Video
+END
+video_stage.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/55/trunk/cpp/ardrone_slam/ardronewin32/Video/video_stage.h
+END
+video_stage.c
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/55/trunk/cpp/ardrone_slam/ardronewin32/Video/video_stage.c
+END

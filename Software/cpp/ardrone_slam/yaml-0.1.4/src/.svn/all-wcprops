@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/src
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/src/Makefile.in
+END
+yaml_private.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/src/yaml_private.h
+END
+reader.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/src/reader.c
+END
+loader.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/src/loader.c
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/src/Makefile.am
+END
+api.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/src/api.c
+END
+emitter.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/src/emitter.c
+END
+scanner.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/src/scanner.c
+END
+dumper.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/src/dumper.c
+END
+parser.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/src/parser.c
+END
+writer.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/src/writer.c
+END

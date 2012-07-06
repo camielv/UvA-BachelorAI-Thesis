@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths
+END
+time.c
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/time.c
+END
+matrix3d.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/matrix3d.h
+END
+time.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/time.h
+END
+matrices.c
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/matrices.c
+END
+quaternions.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/quaternions.c
+END
+matrices.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/matrices.h
+END
+maths.c
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/maths.c
+END
+quaternions.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/quaternions.h
+END
+vision_math.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/vision_math.c
+END
+maths.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/maths.h
+END
+vision_math.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/vision_math.h
+END
+point3d.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/point3d.h
+END
+filter.c
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/filter.c
+END
+filter.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/filter.h
+END
+matrix3d.c
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/Maths/matrix3d.c
+END

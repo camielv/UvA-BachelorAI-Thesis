@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/55/trunk/cpp/ardrone_slam/ardronewin32/UI
+END
+gamepad.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/55/trunk/cpp/ardrone_slam/ardronewin32/UI/gamepad.cpp
+END
+ui.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/55/trunk/cpp/ardrone_slam/ardronewin32/UI/ui.h
+END
+gamepad.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/55/trunk/cpp/ardrone_slam/ardronewin32/UI/gamepad.h
+END
+ui.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/55/trunk/cpp/ardrone_slam/ardronewin32/UI/ui.c
+END

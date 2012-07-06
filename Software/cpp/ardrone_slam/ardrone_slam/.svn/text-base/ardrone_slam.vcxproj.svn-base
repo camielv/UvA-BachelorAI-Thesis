@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{587234C3-06EA-4431-8DD5-D12A75A4F73E}</ProjectGuid>
+    <RootNamespace>ardone_slam</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)/solution_properties.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(SolutionDir)/solution_properties.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(VCInstallDir)include;C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Include;C:\WinDDK\7600.16385.1\inc\api;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>C:\WinDDK\7600.16385.1\lib\win7\i386;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NO_ARDRONE_MAINLOOP;WIN32;YAML_DECLARE_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(YAMLDir)\include;$(ARDroneLibDir);$(ARDroneWin32Dir);$(ARDroneLibDir)\Soft\Common;$(ARDroneLibDir)\Soft\Lib;$(ARDroneLibDir)\VP_SDK;$(OpenCVDir)\include\opencv;$(OpenCVDir)\include;$(SolutionDir)\terrain3d\include</AdditionalIncludeDirectories>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>yaml.lib;ws2_32.lib;ardronewin32.lib;terrain3d.lib;opencv_core230d.lib;opencv_highgui230d.lib;opencv_features2d230d.lib;opencv_imgproc230d.lib;opencv_calib3d230d.lib;opencv_video230d.lib;hid.lib;setupapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <StackReserveSize>10000000</StackReserveSize>
+      <AdditionalLibraryDirectories>$(OutDir);$(SDLDir)\lib;$(OpenCVDir)\lib;$(MatlabDir)\lib\win32\microsoft</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="bot_ardrone_3dmouse.cpp" />
+    <ClCompile Include="bot_ardrone_ardronelib.cpp" />
+    <ClCompile Include="bot_ardrone_behavior.cpp" />
+    <ClCompile Include="bot_ardrone_keyboard.cpp" />
+    <ClCompile Include="bot_ardrone_recorder.cpp" />
+    <ClCompile Include="bot_ardrone_usarsim.cpp" />
+    <ClCompile Include="bot_ardrone.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mysocket.cpp" />
+    <ClCompile Include="opencv_ekf.cpp" />
+    <ClCompile Include="opencv_helpers.cpp" />
+    <ClCompile Include="slam.cpp" />
+    <ClCompile Include="slam_elevation_map.cpp" />
+    <ClCompile Include="slam_feature_map.cpp" />
+    <ClCompile Include="slam_map.cpp" />
+    <ClCompile Include="slam_module_frame.cpp" />
+    <ClCompile Include="slam_module_sensor.cpp" />
+    <ClCompile Include="slam_module_ui.cpp" />
+    <ClCompile Include="slam_visual_map.cpp" />
+    <ClCompile Include="usarsim_msgparser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bot.h" />
+    <ClInclude Include="botinterface.h" />
+    <ClInclude Include="bot_ardrone_3dmouse.h" />
+    <ClInclude Include="bot_ardrone_ardronelib.h" />
+    <ClInclude Include="bot_ardrone_behavior.h" />
+    <ClInclude Include="bot_ardrone_keyboard.h" />
+    <ClInclude Include="bot_ardrone_recorder.h" />
+    <ClInclude Include="bot_ardrone_usarsim.h" />
+    <ClInclude Include="bot_ardrone.h" />
+    <ClInclude Include="global.h" />
+    <ClInclude Include="mysocket.h" />
+    <ClInclude Include="opencv_ekf.h" />
+    <ClInclude Include="opencv_helpers.h" />
+    <ClInclude Include="slam.h" />
+    <ClInclude Include="slam_elevation_map.h" />
+    <ClInclude Include="slam_feature_map.h" />
+    <ClInclude Include="slam_map.h" />
+    <ClInclude Include="slam_module_frame.h" />
+    <ClInclude Include="slam_module_sensor.h" />
+    <ClInclude Include="slam_module_ui.h" />
+    <ClInclude Include="slam_queue.h" />
+    <ClInclude Include="slam_visual_map.h" />
+    <ClInclude Include="usarsim_msgparser.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

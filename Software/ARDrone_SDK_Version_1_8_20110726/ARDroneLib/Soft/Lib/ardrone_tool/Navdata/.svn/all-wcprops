@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/94/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/ardrone_tool/Navdata
+END
+navdata.c
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/ardrone_tool/Navdata/navdata.c
+END
+ardrone_general_navdata.c
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/ardrone_tool/Navdata/ardrone_general_navdata.c
+END
+ardrone_navdata_client.c
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/94/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/ardrone_tool/Navdata/ardrone_navdata_client.c
+END
+ardrone_navdata_file.c
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/ardrone_tool/Navdata/ardrone_navdata_file.c
+END
+ardrone_general_navdata.h
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/ardrone_tool/Navdata/ardrone_general_navdata.h
+END
+ardrone_navdata_client.h
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/ardrone_tool/Navdata/ardrone_navdata_client.h
+END
+ardrone_navdata_file.h
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/Soft/Lib/ardrone_tool/Navdata/ardrone_navdata_file.h
+END

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4
+END
+config.h.in
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/config.h.in
+END
+configure
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/configure
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/LICENSE
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/Makefile.in
+END
+configure.ac
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/configure.ac
+END
+yaml-0.1.pc.in
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/yaml-0.1.pc.in
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/Makefile.am
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/README
+END
+aclocal.m4
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/96/trunk/cpp/ardrone_slam/yaml-0.1.4/aclocal.m4
+END

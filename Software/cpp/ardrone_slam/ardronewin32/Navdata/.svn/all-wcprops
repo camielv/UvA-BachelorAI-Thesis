@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/55/trunk/cpp/ardrone_slam/ardronewin32/Navdata
+END
+navdata.c
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/89/trunk/cpp/ardrone_slam/ardronewin32/Navdata/navdata.c
+END
+navdata.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/89/trunk/cpp/ardrone_slam/ardronewin32/Navdata/navdata.h
+END

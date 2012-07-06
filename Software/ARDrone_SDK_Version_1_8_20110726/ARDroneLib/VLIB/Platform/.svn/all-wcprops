@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VLIB/Platform
+END
+video_config.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VLIB/Platform/video_config.h
+END
+video_utils.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VLIB/Platform/video_utils.h
+END

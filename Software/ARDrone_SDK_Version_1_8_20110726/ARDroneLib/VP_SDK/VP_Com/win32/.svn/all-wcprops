@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/94/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/win32
+END
+vp_com_config_itf.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/win32/vp_com_config_itf.h
+END
+vp_com_wifi.c
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/win32/vp_com_wifi.c
+END
+vp_com_serial.c
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/win32/vp_com_serial.c
+END
+vp_com.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/win32/vp_com.c
+END
+vp_com_config_itf.c
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/win32/vp_com_config_itf.c
+END
+vp_com_socket.c
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/94/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/win32/vp_com_socket.c
+END
+vp_com_socket_utils.c
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/win32/vp_com_socket_utils.c
+END

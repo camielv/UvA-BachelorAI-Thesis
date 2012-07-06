@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/linux
+END
+vp_com_config_itf.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/linux/vp_com_config_itf.h
+END
+bluez.c
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/linux/bluez.c
+END
+vp_com_wifi.c
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/linux/vp_com_wifi.c
+END
+vp_com_serial.c
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/linux/vp_com_serial.c
+END
+vp_com.c
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/linux/vp_com.c
+END
+bluez.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/linux/bluez.h
+END
+vp_com_bluetooth.c
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/linux/vp_com_bluetooth.c
+END
+vp_com_config_itf.c
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/linux/vp_com_config_itf.c
+END
+vp_com_wired.c
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/90/trunk/ARDrone_SDK_Version_1_8_20110726/ARDroneLib/VP_SDK/VP_Com/linux/vp_com_wired.c
+END
