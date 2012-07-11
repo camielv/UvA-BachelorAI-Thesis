@@ -183,21 +183,35 @@ The AR.Drone is a remote-controlled quadcopter developed by the french company P
 The AR.Drone has an on-board computer running a custom Linux operating system. A mini-USB connector is included on the system for software maintenance and additional external sensors (e.g. GPS sensor). The integrated wireless card provides network access for external devices that control the vehicle. The software of the AR.Drone is available for all platforms, however, the most supported software is written for iOS devices (ie. Apple iPhone). Nevertheless, it is possible to create controlling applications for the Windows and Linux platforms. Furthermore, the AR.Drone has a sensor suite containing an six degrees of freedom Inertial Measurement Unit (IMU), a bottom camera and a ultrasound altimeter used for automatic stabilization. The IMU consists of a three axis accelerometer, a two axis roll and pitch gyrometer and a single axis yaw gyrometer. The IMU reports on the system its velocity, orientation and gravitational forces. The ultrasound altimeter measure the altitude of the system and in combination with the bottom camera it calculates the optical flow of the system. All the above sensors contribute to the on-board stabilization module of the quadcopter, which allows the quadcopter to hover in one place. Additionally, the system carries a frontal camera to provide the operator with visual feedback.
 
 \subsection{Software Development Kit}
-Parrot created a open source Software Development Kit (SDK) providing developers the opportunity to create intelligent applications. The SDK comes with source code, multiplatform examples and documentation. The SDK does not provide software that is embedded on the AR.Drone. The SDK implements the following four ways to communicate with the drone:
+Parrot created a open source Software Development Kit (SDK) providing developers the opportunity to create intelligent applications. The SDK comes with source code, multiplatform examples and documentation. The SDK does not provide software that is embedded on the AR.Drone. The SDK implements the following four channels of communications with the platform:
 \begin{enumerate}
 \item Configuration and control of the platform.
 \item Status of the platform (ie. altitude, attitude and speed).
-\item Video stream
+\item Video stream.
 \item Control port for communication of critical data.
 \end{enumerate}
 
 \section{Framework: AR.Drone SLAM}
 
 \section{Computer Vision}
+\subsection{Basic Algorithm}
+\subsubsection{Color Filter}
+\subsubsection{Gaussian Smoothing}
+Gaussian Smoothing is the result of blurring an image by a Gaussian Function. Smoothing is applied to reduce noise and detail in the image. Gaussian smoothing is a well know technique mostly used in computer vision algorithms as a pre processing technique in order to enhance image structures at different scales. Gaussian Smoothing is the same as convolving the image with a gaussian function. The 2D gaussian smoothing function is represented by the following equation.
+\begin{equation}
+G(x,y) = \frac{1}{2\pi\sigma^2}e^{\frac{x^2 + y^2}{2\sigma^2}}
+\end{equation}
+\subsubsection{Canny Edge Detector}
+\subsection{Combined Algorithm}
+\subsubsection{Motion detector}
+\subsection{Probabilistic Hough Line Transform}
+\subsection{Tracking}
 
 \section{Navigation}
 
 \section{Results}
+
+\section{Discussion}
 
 \section{Conclusion}
 
