@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{url}
+\title{Line Following Algorithm}
+\author{Camiel Verschoor}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item Capture image
+\item Colour filter?
+\item Smoothing
+\item Edge Detection\footnote{\url{http://www.m-hikari.com/ams/ams-password-2008/ams-password29-32-2008/nadernejadAMS29-32-2008.pdf}}
+	\begin{itemize}
+	\item Canny Edge detection
+	\item Edge Drawing\footnote{\url{http://ceng.anadolu.edu.tr/CV/EdgeDrawing/}}
+	\item Marr-Hildreth Edge detection
+	\item The Local Threshold and Boolean Function Based Edge Detection
+	\item Color Edge Detection Using Euclidean Distance and Vector Angle
+	\item Color Edge Detection using the Canny Operator
+	\item Depth Edge Detection using Multi-Flash Imaging
+	\end{itemize}
+\item Edge thinning?
+\item Ridge detection?
+\item Line Segment Detection algorithms
+	\begin{itemize}
+	\item Hough Line Transform
+	\item EDLines\footnote{\url{http://ceng.anadolu.edu.tr/cv/EDLines/}}
+	\item Minimum Partition Consistent Subsystems  (MIN-PCS)\footnote{\url{http://infoscience.epfl.ch/record/86864/files/Mattavelli2001_880.pdf}}
+	\item Line Segment Detector\footnote{\url{http://www.ipol.im/pub/algo/gjmr_line_segment_detector/}}
+	\item On straight line detection \footnote{\url{http://www.cmla.ens-cachan.fr/fileadmin/Documentation/Prepublications/2007/CMLA2007-09.pdf}}
+	\end{itemize}
+\item Line Following
+	\begin{verbatim}
+while (	detectLine() ) 
+{
+  // Align with the line
+  // Move along the line by keeping the line in a virtual box and
+  // making adjustments are made to flight direction if the line
+  // direction changes
+}
+	\end{verbatim}
+\end{enumerate}
+
+
+\end{document}

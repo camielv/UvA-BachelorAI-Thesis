@@ -37,7 +37,7 @@
 \title{
 \HRule{0.5pt} \\
 \LARGE \textbf{\textsc{Sensor Fusion on a mini Unmanned Vehicle}}\\[0.5cm]
-\normalsize \textsc{Integrating vision-based algorithms on an AscTec Pelican to autonomously follow linear shaped structures in a landscape.}
+\normalsize \textsc{Integrating vision-based algorithms on an Parrot AR.Drone to autonomously follow linear shaped structures in a landscape.}
 \HRule{2pt}\\ [0.5cm]
 Camiel R. Verschoor\\
 10017321\\
@@ -66,8 +66,8 @@ Science Park 904\\
 \vspace{0.5cm}
 Drs. G. Poppinga\\
 \vspace{0.25cm}
-Aerospace Systems (ASD)\\
-Defense Systems (ASMO)\\
+Defense Systems\\
+Aerospace Systems\\
 National Aerospace Lab\\
 Anthony Fokkerweg 2\\
 1059 CM Amsterdam\\
@@ -109,19 +109,21 @@ One of the main requirements of an autonomous robot is the ability to navigation
 	\label{blackwidow}
 \end{figure}
 
-A micro aerial vehicle (MAV) is a subclass of the Unmanned Aerial Vehicles. Due to their small size, the MAV can operate in numerous robotic applications, for instance, search \&  rescue, inspection and exploration. AeroVironment Black Widow (figure \ref{blackwidow}) is the first MAV operating in the field. Another type of MAV is the quadrotor, which is controlled by four rotors. Quadrotors provide manoeuvrability and stability, which is suitable for indoor and urban flights. As a result of recent developments, small quadrotors with on-board stabilization can be purchased conveniently. Due to this, the research regarding this platform is moving towards intelligent applications, which demand information of the surrounding environment. Nevertheless, the fast movements and the limited amount of sensor combination mean that it is still a challenge to develop navigation methods for these platforms.
+A micro aerial vehicle (MAV) is a subclass of the Unmanned Aerial Vehicles. Due to their small size, the MAV can operate in numerous robotic applications, for instance, search \&  rescue, inspection and exploration. AeroVironment Black Widow (figure \ref{blackwidow}) is the first MAV operating in the field. Another type of MAV is the quadcopter, which is controlled by four rotors. Quadcopters provide manoeuvrability and stability, which is suitable for indoor and urban flights. As a result of recent developments, small quadcopters with on-board stabilization can be purchased conveniently. Due to this, the research regarding this platform is moving towards intelligent applications, which demand information of the surrounding environment. Nevertheless, the fast movements and the limited amount of sensor combination mean that it is still a challenge to develop navigation methods for these platforms.
 
 \subsection{Platform and Framework}
-The Ascending Technologies Pelican better known as the AscTec Pelican (figure \ref{pelican}) is a quadrotor containing a high payload capacity and a modular design. Therefore, this quadrotor can fly with a variety of sensors and, therefore, this platform is suitable for experimenting with different sensor configurations. The AscTec Pelican is equipped with an Intel Atom Processor board supplying high onboard processing power. For this reason, the door is open for the creation of autonomous intelligent applications without offboard processing.
+The Parrot AR.Drone (figure \ref{ardrone}) is a radio controlled flying quadcopter built by the French company Parrot. The quadcopter is made of plastic and foam and is about 30 centimetres long. It carries a horizontal and a vertical camera opening the door for the development of various visual application. The inertial measurement unit in combination with optical flow and a ultrasound sensor provide on-board stabilization during flights allowing the quadcopter to hover in the same place. 
+
+%a high payload capacity and a modular design. Therefore, this quadrotor can fly with a variety of sensors and, therefore, this platform is suitable for experimenting with different sensor configurations. The AscTec Pelican is equipped with an Intel Atom Processor board supplying high onboard processing power. For this reason, the door is open for the creation of autonomous intelligent applications without offboard processing.
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{images/pelican.eps}
-	\caption{Ascending Technologies Pelican equipped with a camera and a laser scanner. The development is driven by commercial, government, research and military purposes. The small quadrotor allows remote observation of hazardous environments inaccesible for humans and ground robots.}
-	\label{pelican}
+	\includegraphics[width=0.5\textwidth]{images/ardrone.jpg}
+	\caption{The Parrot AR.Drone is equipped with two cameras and several inertial sensors. The development is driven by commercial, government, research and military purposes. The small quadrotor allows remote observation of hazardous environments inaccesible for humans and ground robots.}
+	\label{ardrone}
 \end{figure}
 
-AR.Drone SLAM is a framework for the Parrot AR.Drone, a quadrotor, developed and proposed by N. Dijkshoorn. This framework contains a realtime Simultaneous Localization and Mapping (SLAM) implementation based on a down-pointing camera. Therefore, it allows a MAV to know its position and movement in the environment by generating a feature map of the environment so the MAV can localize itself on this map. Furthermore, the framework contains a 3D mouse controller, a keyboard controller, a visual map and an elevation map. Due to the framework the robot acquires more information of the environment. This information can aid the robot in navigation.
+AR.Drone SLAM is a framework for the Parrot AR.Drone, a quadcopter, developed and proposed by N. Dijkshoorn. This framework contains a realtime Simultaneous Localization and Mapping (SLAM) implementation based on a down-pointing camera. Therefore, it allows a MAV to know its position and movement in the environment by generating a feature map of the environment so the MAV can localize itself on this map. Furthermore, the framework contains a 3D mouse controller, a keyboard controller, a visual map and an elevation map. Due to the framework the robot acquires more information of the environment. This information can aid the robot in navigation.
 
 \subsection{Research questions and objectives}
 In robotics one goal is to develop mobile robots that can advance robustly and truly autonomously in real world situations. One of the main requirements is the ability to navigate autonomously. Since there is no GPS signal available in urban and indoor environment, robots need to rely on other sensors.
@@ -130,12 +132,11 @@ Line-following is proven to be a simple navigation task for ground robots. Howev
 
 Therefore, the main research question is to find a robust vision-based approach to autonomously navigate over linear shaped structures. This main research question is divided up in the following sub-questions:
 \begin{itemize}
-\item What type of sensors should the AscTec Pelican carry?
+\item What type of sensors does the AR.Drone carry?
     \begin{itemize}
         \item What type of down-pointing camera?
         \item What other sensors?
     \end{itemize}
-\item How to port the framework AR.Drone SLAM to the AscTec Pelican?
 \item How to detect and track a line?
 \item What is the performance and robustness of different vision-based methods to navigation over a linear structure?
 \item How should the vision-based algorithms be evaluated?
@@ -145,6 +146,45 @@ In order to perform line-following navigation, first, a line should be detected.
 Chapter X gives an overview about currently used vision-based methods...
 To be written.
 
+\section{Related Work}
+Wat is er allemaal al gedaan op het gebied?
 
+\section{Platform: Parrot AR.Drone}
+One of the basic steps for the development and testing of intelligent applications in robotics is to find applicable robot platform for the defined problem. A common choice is to use a quadcopter, which is  mainly designed to be a Unmanned Aerial Vehicle (UAV). The small size and manoeuvrability allows both indoor and outdoor flights. Moreover, quadcopters have a simple design due to the fact that they do not require mechanical connections to vary the pitch angle of rotor blade.
+
+As a result of the technological developments in aerospace engineering of UAV's, a small quadcopter with on-board stabilization can be purchased conveniently. Because of this, research regarding this platform is moving towards intelligent applications, which demand information of the surrounding environment. The specific platform selected for the experiments in this research is the Parrot AR.Drone quadcopter. The advantages of this platform are its on-board stabilization and the affordable costs of the platform. The AR.Drone is carrying a front and bottom camera that provide live video streaming through the data link. Additionally, it has an ultrasound sensor and an inertial measurement unit that measures the pitch, roll, yaw and accelerations of the platform. The platform is controlled via WiFi, which allows the user to send commands and receive data of the platform.
+
+In this section, the AR.Drone platform is described. The operational part of te platform is discussed, the hardware the platform contains is described and the intelligent on-board software is illustrated.
+
+\subsection{Quadcopter}
+A quadcopter consists of four rotors that are attached to a main frame, which commonly has a cross-shaped form (see figure \ref{quadcopter}). Every rotor produces thrust $T$ and torque $\tau$ over the center of rotation, whereas it also produces drag force $D_b$ in the opposite direction of flight. Thrust $T$ is the force that is generated by increasing and decreasing acceleration the mass in one direction. The acceleration of the mass will result in a force of equal magnitude but in the opposite direction of the platform. Torque $\tau$ is the force that rotates an object around its axis. Drag $D_b$ is the force that is in opposite direction to the motion of the aircraft through air. This force is inclined on the velocity of the quadcopter and de-acceleration will take place if insufficient thrust is generated. The rotors together should generate sufficient thrust to stay airborne during flights.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.25\textwidth]{images/quadcopter.png}
+	\caption{Diagram of the reaction torgues on each motor of quadcopter, due to the rotors. Rotors one and three are spinning clockwise, whereas rotor two and four spin counter-clockwise, causing opposing force for control}
+	\label{quadcopter}
+\end{figure}
+
+In order to fly the quadcopter relies on differences in thrust and torque. Pitch, roll and yaw (see figure \ref{plane}) is the naming of flight dynamics to indicate the rotation angles in three dimension of the center mass of the quadcopter. The opposing rotor pairs (pair 1, 3 and pair 2, 4) turn in the same direction. One of the pairs is turning clockwise, while the other pair turns counter-clockwise. This causes the platform to have no angular acceleration, when all rotor pairs have the same angular acceleration. Alternating the angular speed of the rotor pairs will cause angular acceleration about the yaw.
+
+\begin{figure}[!h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{images/plane.jpg}
+	\caption{Diagram of pitch, roll and yaw rotations on an aerial vehicle}
+	\label{plane}
+\end{figure}
+
+A vertical movement is accomplished by changing the thrust from each motor similarly causing the resulting thrust to change and the differential torque to remain zero.
+
+\section{Framework: AR.Drone SLAM}
+
+\section{Computer Vision}
+
+\section{Navigation}
+
+\section{Results}
+
+\section{Conclusion}
 
 \end{document}
