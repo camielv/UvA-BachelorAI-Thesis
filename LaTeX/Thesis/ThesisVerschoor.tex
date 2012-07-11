@@ -150,9 +150,9 @@ To be written.
 Wat is er allemaal al gedaan op het gebied?
 
 \section{Platform: Parrot AR.Drone}
-One of the basic steps for the development and testing of intelligent applications in robotics is to find applicable robot platform for the defined problem. A common choice is to use a quadcopter, which is  mainly designed to be a Unmanned Aerial Vehicle (UAV). The small size and manoeuvrability allows both indoor and outdoor flights. Moreover, quadcopters have a simple design due to the fact that they do not require mechanical connections to vary the pitch angle of rotor blade.
+One of the basic steps for the development and testing of intelligent applications in robotics is to find an applicable robot platform for the defined problem. A common choice is to use a quadcopter, which is  mainly designed to be a Unmanned Aerial Vehicle (UAV). The small size and manoeuvrability allows both indoor and outdoor flights. Moreover, quadcopters have a simple design due to the fact that they do not require mechanical connections to vary the pitch angle of rotor blade.
 
-As a result of the technological developments in aerospace engineering of UAV's, a small quadcopter with on-board stabilization can be purchased conveniently. Because of this, research regarding this platform is moving towards intelligent applications, which demand information of the surrounding environment. The specific platform selected for the experiments in this research is the Parrot AR.Drone quadcopter. The advantages of this platform are its on-board stabilization and the affordable costs of the platform. The AR.Drone is carrying a front and bottom camera that provide live video streaming through the data link. Additionally, it has an ultrasound sensor and an inertial measurement unit that measures the pitch, roll, yaw and accelerations of the platform. The platform is controlled via WiFi, which allows the user to send commands and receive data of the platform.
+As a result of the technological developments in aerospace engineering of UAV's, a small quadcopter with on-board stabilization can be purchased conveniently. Because of this, research regarding this platform is moving towards intelligent applications, which demand information of the surrounding environment. The specific platform selected for the experiments in this research is the Parrot AR.Drone quadcopter. The advantages of this platform are its on-board stabilization, lightweight and the affordable price of the platform. The AR.Drone is carrying a front and bottom camera that provide live video streaming through the data link. Additionally, it has an ultrasound sensor and an inertial measurement unit that measures the pitch, roll, yaw and accelerations of the platform. The platform is controlled via WiFi, which allows the user to send commands and receive data of the platform.
 
 In this section, the AR.Drone platform is described. The operational part of te platform is discussed, the hardware the platform contains is described and the intelligent on-board software is illustrated.
 
@@ -175,7 +175,21 @@ In order to fly the quadcopter relies on differences in thrust and torque. Pitch
 	\label{plane}
 \end{figure}
 
-A vertical movement is accomplished by changing the thrust from each motor similarly causing the resulting thrust to change and the differential torque to remain zero.
+Vertical movements are accomplished by changing the thrust from each rotor alike, which is causing the resulting thrust to change and the differential torque to remain zero. Moreover, when the thrust is kept constant the vertical velocity remains the same. Horizontal movements are caused by changing the pitch and roll angle. Angular accelerations over the pitch and roll angles can be generated independently. Each pair of opposing rotors controls either pitch or roll rotation of the platform. A torque balance is kept for yaw stability during differential torque over the roll and pitch by increasing the speed of one rotor, while decreasing the opposing rotor.
+
+\subsection{Hardware}
+The AR.Drone is a remote-controlled quadcopter developed by the french company Parrot SA for consumer use. The main frame is made of carbon fibre and high resistance plastic. The AR.Drone has an indoor and outdoor hull, which is used for protection of the system. The rotors are powered by motors, whom are connected to a lithium battery allowing the system to fly ten minutes.
+
+The AR.Drone has an on-board computer running a custom Linux operating system. A mini-USB connector is included on the system for software maintenance and additional external sensors (e.g. GPS sensor). The integrated wireless card provides network access for external devices that control the vehicle. The software of the AR.Drone is available for all platforms, however, the most supported software is written for iOS devices (ie. Apple iPhone). Nevertheless, it is possible to create controlling applications for the Windows and Linux platforms. Furthermore, the AR.Drone has a sensor suite containing an six degrees of freedom Inertial Measurement Unit (IMU), a bottom camera and a ultrasound altimeter used for automatic stabilization. The IMU consists of a three axis accelerometer, a two axis roll and pitch gyrometer and a single axis yaw gyrometer. The IMU reports on the system its velocity, orientation and gravitational forces. The ultrasound altimeter measure the altitude of the system and in combination with the bottom camera it calculates the optical flow of the system. All the above sensors contribute to the on-board stabilization module of the quadcopter, which allows the quadcopter to hover in one place. Additionally, the system carries a frontal camera to provide the operator with visual feedback.
+
+\subsection{Software Development Kit}
+Parrot created a open source Software Development Kit (SDK) providing developers the opportunity to create intelligent applications. The SDK comes with source code, multiplatform examples and documentation. The SDK does not provide software that is embedded on the AR.Drone. The SDK implements the following four ways to communicate with the drone:
+\begin{enumerate}
+\item Configuration and control of the platform.
+\item Status of the platform (ie. altitude, attitude and speed).
+\item Video stream
+\item Control port for communication of critical data.
+\end{enumerate}
 
 \section{Framework: AR.Drone SLAM}
 
