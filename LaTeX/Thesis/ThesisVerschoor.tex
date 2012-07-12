@@ -199,12 +199,49 @@ These four channels of communication can be used for designing intelligent appli
 \section{Computer Vision}
 \subsection{Basic Algorithm}
 \subsubsection{Colour Filter}
+
+
+% TODO: REWRITTEN
 \subsubsection{Gaussian Smoothing}
-Gaussian Smoothing is the result of blurring an image by a Gaussian Function. Smoothing is applied to reduce noise and detail in the image. Gaussian smoothing is a well know technique mostly used in computer vision algorithms as a pre processing technique in order to enhance image structures at different scales. Gaussian Smoothing is the same as convolving the image with a gaussian function. The 2D gaussian smoothing function is represented by the following equation.
-\begin{equation}
+This section provides a explanation for Gaussian Smoothing. The convolution technique is discussed first and then the Gaussian kernel of convolution is explained.
+
+\noindent\textbf{Convolution}\\
+Convolution is a mathematical way to combine two functions. The mathematical definition of convolution for the two scalar functions $f(x)$ and $g(x)$ is:
+\begin{equation*}
+h(x) = \int_{-\infty}^\infty f(u)g(x - u)du
+\end{equation*}
+
+The integral expresses the amount of overlap of function $g(x)$
+due the shift over the other function $f(x)$. This causes one function to blend with the other. The convolution operator contains the following algebraic properties: commutativity, associativity and distributivity. Convolution is commonly applied in computer vision in order to detect edges in a image.
+
+\noindent\textbf{Gaussian Kernel}\\
+The most suitable kernel for an optimal convolution is the Gaussian function due to the smoothing, derivatives and separability. The Gaussian function has the best smoothing properties as it has existing derivatives to any order at every point. Due to this every function can be smoothed as the derivative is always non-zero. In image processing the intensity is smooth smoothed intensity of a image this can be done by convolving the original image with the derivative of the Gaussian function. Gaussian Smoothing is the result of blurring an image by a Gaussian Function. Smoothing is applied to reduce noise and detail in the image. Gaussian smoothing is a well know technique mostly used in computer vision algorithms as a pre processing technique in order to enhance image structures at different scales. Gaussian Smoothing is the same as convolving the image with a Gaussian function. The 2D Gaussian smoothing function is represented by the following equation:
+\begin{equation*}
 G(x,y) = \frac{1}{2\pi\sigma^2}e^{\frac{x^2 + y^2}{2\sigma^2}}
-\end{equation}
+\end{equation*}
 \subsubsection{Canny Edge Detector}
+The Canny Edge Detector is an edge detection operator that uses a multi-stage algorithm to detect edges developed by J.F. Canny. The aim of Canny was to develop a edge detector algorithm that is optimal for the following aspects:
+\begin{description}
+\item[Good detection] by marking the most real edges in the image.
+\item[Good localization] by marking the edges as close to the real edge.
+\item[Minimal response] by only marking edges once.
+\end{description}
+Calculus of variations, a mathematical technique that finds the optimal function, was used to fulfil these requirements. The algorithm consists of the following four stages in order to reach edge detection: 
+\begin{itemize}
+\item Noise reduction
+\item Finding the intensity gradient
+\item Non-maximum suppression
+\item Hysteresis
+\end{itemize}
+These stages will be explained in the next sections.
+
+\noindent\textbf{Noise reduction}
+Noise reduction is applied to raw image data as the edge detector is sensitive to noise. Noise reduction can be realized by using convolution with a suitable kernel, which is previously discussed (section). The Canny edge detector uses a Gaussian kernel as this is a suitable kernel.
+
+The Canny edge detector is an optimal edge detection algorithm, which marks real edges in the image, locates the edge in the real image and marks them only once. This algorithm has the following three stages noise reduction,  finding the intensity gradient of every point and find all the edges by looking for zero crossings in the second derivative of the image. For noise reduction the optimal Gaussian blur is used. The Gaussian filters out
+the small distortions so these are not detected by the edge detector.
+Then the derivative is taken of the original image to find out the intensity change of every pixel in the image. The limits in the image are the edges of the image and show the steepness of the intensity change. In the Canny edge image the steepness of every edge is shown by the color, which represents the sharpness of the edges. To find all the limits of the ﬁrst derivative, the second derivative is taken and is searched for zero crossings, which are places in the second derivative image
+
 \subsection{Combined Algorithm}
 \subsubsection{Motion detector}
 \subsection{Probabilistic Hough Line Transform}
