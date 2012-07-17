@@ -179,18 +179,18 @@ In order to perform line-following navigation, first, a line should be detected.
 
 % TODO: BETER
 \subsection{Outline}
-Chapter two gives an overview of the the Computer Vision algorithms regarding this thesis. The navigation techniques will then be discussed in chapter three. Chapter four gives an overview is given over the related research regarding line-following on unmanned aerial vehicles. The robotic platform, Parrot AR.Drone, is discussed in chapter five. The construction of the platform is explained, the hardware it contains will be listed and the software development kit will be addressed. Chapter six will give an overview of the framework AR.Drone SLAM. The main architecture and functionalities will be briefly discussed. In chapter seven the experiments are illustrated and in chapter eight the results will be presented. Chapter nine will discuss the results found in the experiments and elaborate on them. Finally, in chapter ten the conclusion of this thesis will be presented and directions for future research will be proposed.
+Chapter two gives an overview of the the theory this thesis relies on. First, the Computer Vision algorithms this thesis is based on are explained and then the navigation techniques will be discussed. Chapter three gives an overview is given over the related research regarding line-following on unmanned aerial vehicles. The robotic platform, Parrot AR.Drone, is discussed in chapter four. The construction of the platform is explained, the hardware it contains will be listed and the software development kit will be addressed. Chapter five will give an overview of the framework AR.Drone SLAM. The main architecture and functionalities will be briefly discussed. In chapter six the experiments are illustrated and in chapter seven the results will be presented. Chapter eight will discuss the results found in the experiments and elaborate on them. Finally, in chapter nine the conclusion of this thesis will be presented and directions for future research will be proposed.
 
 \newpage
-\section{Computer Vision}
-In chapter two and three, the basics of the theory this thesis relies on is explained. The work presented in this thesis is based on previous research regarding vision-based algorithms on the AR.Drone \cite{Jurriaans2011} and the Open Source Computer Library (OpenCV) \cite{Bradski2008}, which provides real-time computer vision implementations. In chapter three the navigation techniques will be discussed. 
+\section{Theory: Vision and Navigation}
+In this chapter, the basics of the theory this thesis relies on is explained. The work presented in this thesis is based on previous research regarding vision-based algorithms on the AR.Drone \cite{Jurriaans2011} and the Open Source Computer Library (OpenCV) \cite{Bradski2008}, which provides real-time computer vision implementations. Lastly, the navigation techniques will be discussed that interpret the results of the navigation techniques.
 
 Over the years various Computer Vision techniques have been developed to detect objects in images. One of the fundamental problems is finding the most applicable algorithm for the defined problem as every algorithm has its advantages and disadvantages. In order to follow a line fast feedback from the camera is required in order for the system to adjust its trajectory. For this reason, a fast and real-time algorithm is favourable. Furthermore, the algorithm should be able to handle movement noise caused by the motions of the flying platform. This thesis will compare a edge-detection approach to a motion-detection approach. Both approaches performance will be tested in combination with a Probabilistic Hough Line Transform \cite{Kiryati1991}, a real-time pattern recognition algorithm to detect lines.
 
 This chapter provides an overview of theory of the Computer Vision algorithms this thesis is based on. A clear explanation will be given over the various algorithms applied in this thesis.
 
 \subsection{Edge Detector Algorithm}
-To be written.
+Edge detection is a tool in Computer Vision that is applied to detect identifying points in a image, where the image brightness discontinuities (see figure \ref{}). A line or linear structure is one of the elements of a image that causes these discontinuities (see figure). Due to the wide research over the years to edge detectors there are several implementations \cite{Ziou1998}. This thesis will focus on the Canny Edge detector as it is a suitable algorithm for edge detection. The edge detector will be applied in combination with a Colour Filter, which filters out any other colours. This is for the reason that we only want to find edges with the colour of the line.
 
 \subsubsection{Colour Filter}
 To be written.
@@ -224,12 +224,12 @@ Then the derivative is taken of the original image to find out the intensity cha
 \subsection{Probabilistic Hough Line Transform}
 \subsection{Tracking}
 
-\section{Navigation}
+\subsection{Navigation}
 
-
+\newpage
 \section{Related Work}
 One of the essential requirements of a autonomous robot is the ability of navigation in the real world environment. One of the main problems in navigation is that no sensor is reliable enough to function in every environment. The most commonly used sensor currently for outside navigation is the GPS. GPS receiver requires to receive data signals from four different satellites to be able to localize itself. Additionally, the measurements can contain errors due to the influences (ie. signal reflection) of the surrounding environment. Due to these restrictions GPS cannot operate inside buildings and in several outdoor urban environments. Therefore, to navigate through these environments other sensors and navigation techniques have to be investigated.
-
+\newpage
 \section{Platform: Parrot AR.Drone}
 \label{platform}
 One of the basic steps for the development and testing of intelligent applications in robotics is to find an applicable robot platform for the defined problem. A common choice is to use a quadcopter, which is  mainly designed to be a Unmanned Aerial Vehicle (UAV). The small size and manoeuvrability allows both indoor and outdoor flights. Moreover, quadcopters have a simple design due to the fact that they do not require mechanical connections to vary the pitch angle of rotor blade.

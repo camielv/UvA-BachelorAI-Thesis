@@ -50,4 +50,10 @@ Sampei, M., Tamura, T., Kobayashi, T., and Shibui, N. (1995).
 \newblock {\em Control Systems Technology, IEEE Transactions on}, 3(1):125
   --131.
 
+\bibitem[Ziou and Tabbone, 1998]{Ziou1998}
+Ziou, D. and Tabbone, S. (1998).
+\newblock Edge detection techniques - an overview.
+\newblock {\em International Journal of Pattern Recognition and Image
+  Analysis}, 8:537--559.
+
 \end{thebibliography}
