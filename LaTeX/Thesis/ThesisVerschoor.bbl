@@ -10,6 +10,12 @@ Bradski, G. and Kaehler, A. (2008).
 \newblock {\em Learning OpenCV}.
 \newblock O{\textquoteright}Reilly Media Inc.
 
+\bibitem[Canny, 1986]{Canny1986}
+Canny, J. (1986).
+\newblock A computational approach to edge detection.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, PAMI-8(6):679 --698.
+
 \bibitem[Dijkshoorn, 2012]{Dijkshoorn2012}
 Dijkshoorn, N. (2012).
 \newblock Simultaneous localization and mapping with the ar.drone.

@@ -2,44 +2,44 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: ThesisVerschoor.aux
 The style file: apalike.bst
 Database file #1: references.bib
-You've used 10 entries,
+You've used 11 entries,
             1935 wiz_defined-function locations,
-            541 strings with 5384 characters,
-and the built_in function-call counts, 3716 in all, are:
-= -- 358
-> -- 153
-< -- 6
-+ -- 52
-- -- 50
-* -- 302
-:= -- 660
-add.period$ -- 31
-call.type$ -- 10
-change.case$ -- 74
-chr.to.int$ -- 10
-cite$ -- 10
-duplicate$ -- 149
-empty$ -- 265
-format.name$ -- 66
-if$ -- 729
+            550 strings with 5537 characters,
+and the built_in function-call counts, 4082 in all, are:
+= -- 394
+> -- 160
+< -- 7
++ -- 56
+- -- 52
+* -- 333
+:= -- 722
+add.period$ -- 34
+call.type$ -- 11
+change.case$ -- 80
+chr.to.int$ -- 11
+cite$ -- 11
+duplicate$ -- 163
+empty$ -- 296
+format.name$ -- 69
+if$ -- 802
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 9
-newline$ -- 53
-num.names$ -- 30
-pop$ -- 74
+missing$ -- 10
+newline$ -- 58
+num.names$ -- 33
+pop$ -- 77
 preamble$ -- 1
-purify$ -- 75
+purify$ -- 81
 quote$ -- 0
-skip$ -- 101
+skip$ -- 112
 stack$ -- 0
-substring$ -- 220
-swap$ -- 13
+substring$ -- 258
+swap$ -- 14
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 58
+type$ -- 64
 warning$ -- 0
-while$ -- 26
+while$ -- 29
 width$ -- 0
-write$ -- 129
+write$ -- 142

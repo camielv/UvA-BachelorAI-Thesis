@@ -190,45 +190,65 @@ Over the years various Computer Vision techniques have been developed to detect 
 This chapter provides an overview of theory of the Computer Vision algorithms this thesis is based on. A clear explanation will be given over the various algorithms applied in this thesis.
 
 \subsection{Edge Detector Algorithm}
-Edge detection is a tool in Computer Vision that is applied to detect identifying points in a image, where the image brightness discontinuities (see figure \ref{}). A line or linear structure is one of the elements of a image that causes these discontinuities (see figure). Due to the wide research over the years to edge detectors there are several implementations \cite{Ziou1998}. This thesis will focus on the Canny Edge detector as it is a suitable algorithm for edge detection. The edge detector will be applied in combination with a Colour Filter, which filters out any other colours. This is for the reason that we only want to find edges with the colour of the line.
+Edge detection is a tool in Computer Vision that is applied to detect identifying points in a image, where the image brightness discontinuities (see figure \ref{}). A line or linear structure is one of the elements of a image that causes these discontinuities (see figure). Due to the wide research over the years to edge detectors there are several implementations \cite{Ziou1998}. This thesis will focus on the Canny Edge detector as it is a suitable algorithm for edge detection. The edge detector will be applied to the images in combination with a Colour Filter, which filters out the colours not in range of the filter. This for the reason that only edges containing the same colour as the line need to be detected.
 
+% APPENDIX?
 \subsubsection{Colour Filter}
-To be written.
+To filter the colour the colour-space is converted to a different representation, namely, Hue, Saturation and Value (HSV). The HSV colour-space (in figure \ref{hsv})  is a simple transformation of the Red, Green, Blue (RGB) model and a intuitive colour-space, where separate colours can be easily filtered. The Hue stands for the visual sensation according to which an area appears to be similar to one of the perceived colors: red, yellow, green, and blue, or to a combination of two of them. Saturation is the colourfulness of a stimulus relative to its own brightness. Value is the brightness relative to the brightness of a similarly illuminated white. The three parameters have the following ranges: Hue has a range of 0$^{\circ}$-360$^{\circ}$, Saturation a range of 0-100 and Value a range 0-100.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.3\textwidth]{images/hsv.png}
+\caption{The HSV model, a cone having three parameters: Hue, Saturation and Value.}
+\label{hsv}
+\end{figure}
+
+For filtering a certain colour in a image we define the ranges of the colour that has to be filtered. Every pixel is checked whether it is within this range, if so the pixel in the result image is set to 1 otherwise to 0. This result image is a binary image, where the colours in range of the colour are set to white. Colour filtering reduces the amount of noise caused by other colours in the image.
 
 % TODO: REWRITTEN
 \subsubsection{Canny Edge Detector}
-The Canny Edge Detector is an edge detection operator that uses a multi-stage algorithm to detect edges developed by J.F. Canny. The aim of Canny was to develop a edge detector algorithm that is optimal for the following aspects:
+The Canny Edge Detector \cite{Canny1986} is an edge detection operator that uses a multi-stage algorithm to detect edges. The aim of Canny was to develop a edge detector algorithm that is optimal for the following aspects:
 \begin{description}
 \item[Good detection] by marking the most real edges in the image.
 \item[Good localization] by marking the edges as close to the real edge.
 \item[Minimal response] by only marking edges once.
 \end{description}
-Calculus of variations, a mathematical technique that finds the optimal function, was used to fulfil these requirements. The algorithm consists of the following four stages in order to reach edge detection: 
-\begin{itemize}
-\item Noise reduction
-\item Finding the intensity gradient
-\item Non-maximum suppression
-\item Hysteresis
-\end{itemize}
-These stages will be explained in the next sections.
+Calculus of variations, a mathematical technique that finds the optimal function, was applied to fulfil these requirements. The algorithm consists of the following four stages in order to reach edge detection: Noise reduction, finding the intensity gradient, non-maximum suppression and hysteresis threshold. These stages will be explained in the next sections.\\
 
-\noindent\textbf{Noise reduction}
-Noise reduction is applied to raw image data as the edge detector is sensitive to noise. Noise reduction can be realized by using convolution with a suitable kernel, which is previously discussed (section). The Canny edge detector uses a Gaussian kernel as this is a suitable kernel.
+\noindent\textbf{Noise reduction}\\
+Noise reduction is applied to raw image data as the edge detector is sensitive to noise. Noise reduction can be realized by using convolution with a suitable kernel. The Canny edge detector uses a Gaussian kernel as this is a suitable kernel. This phenomenon is called Gaussian Smoothing (see appendix \ref{gaussiansmoothing}) and filters out the small distortions so these are not detected by the edge detector.\\
 
-The Canny edge detector is an optimal edge detection algorithm, which marks real edges in the image, locates the edge in the real image and marks them only once. This algorithm has the following three stages noise reduction,  finding the intensity gradient of every point and find all the edges by looking for zero crossings in the second derivative of the image. For noise reduction the optimal Gaussian blur is used. The Gaussian filters out
-the small distortions so these are not detected by the edge detector.
-Then the derivative is taken of the original image to find out the intensity change of every pixel in the image. The limits in the image are the edges of the image and show the steepness of the intensity change. In the Canny edge image the steepness of every edge is shown by the color, which represents the sharpness of the edges. To find all the limits of the first derivative, the second derivative is taken and is searched for zero crossings, which are places in the second derivative image
+\noindent\textbf{Finding the intensity gradient}\\
+To be written.\\
+
+\noindent\textbf{Non-maximum suppression}\\
+To be written.\\
+
+\noindent\textbf{Hysteresis threshold}\\
+To be written.
+
+%The Canny edge detector is an optimal edge detection algorithm, which marks real edges in the image, locates the edge in the real image and marks them only once. This algorithm has the following three stages noise reduction,  finding the intensity gradient of every point and find all the edges by looking for zero crossings in the second derivative of the image. For noise reduction the optimal Gaussian blur is used. The Gaussian filters out the small distortions so these are not detected by the edge detector. Then the derivative is taken of the original image to find out the intensity change of every pixel in the image. The limits in the image are the edges of the image and show the steepness of the intensity change. In the Canny edge image the steepness of every edge is shown by the color, which represents the sharpness of the edges. To find all the limits of the first derivative, the second derivative is taken and is searched for zero crossings, which are places in the second derivative image
 
 \subsection{Motion Detector Algorithm}
+To be written.
 \subsubsection{Motion detector}
+To be written.
 \subsection{Probabilistic Hough Line Transform}
+To be written.
 \subsection{Tracking}
-
+To be written.
 \subsection{Navigation}
-
+To be written.
 \newpage
 \section{Related Work}
-One of the essential requirements of a autonomous robot is the ability of navigation in the real world environment. One of the main problems in navigation is that no sensor is reliable enough to function in every environment. The most commonly used sensor currently for outside navigation is the GPS. GPS receiver requires to receive data signals from four different satellites to be able to localize itself. Additionally, the measurements can contain errors due to the influences (ie. signal reflection) of the surrounding environment. Due to these restrictions GPS cannot operate inside buildings and in several outdoor urban environments. Therefore, to navigate through these environments other sensors and navigation techniques have to be investigated.
+One of the essential requirements of a autonomous robot is the ability of navigation in the real world environment. One of the main problems in navigation is that no sensor is reliable enough to function in every environment. The most commonly used sensor currently for outside navigation is the GPS. GPS receiver requires to receive data signals from four different satellites to be able to localize itself. Additionally, the measurements can contain errors due to the influences (ie. signal reflection) of the surrounding environment. Due to these restrictions GPS cannot operate inside buildings and in several outdoor urban environments. Therefore, to navigate through these environments other sensors and navigation techniques have to be investigated.\\
+
+More to be written.
+Comments:
+Ik mis o.a. Bills et al ICRA 2011 (following corridors with an AR.Drone) en de artikelen die naar Bills verwijzen.
+Een andere mogelijkheid is het onderzoek gerelateerd aan UUV die pipelines volgen.
+Ik wil in ieder geval hier een opsomming van de artikelen die je wil gaan bespreken.
+
 \newpage
 \section{Platform: Parrot AR.Drone}
 \label{platform}
@@ -281,13 +301,15 @@ These four channels of communication can be used for designing intelligent appli
 
 \section{Framework: AR.Drone SLAM}
 \label{framework}
+To be written.
 \section{Experiments}
-
+To be written.
 \section{Results}
-
+To be written.
 \section{Discussion}
-
+To be written.
 \section{Conclusion}
+To be written.
 \newpage
 \begin{appendices}
 \section{Source code}
@@ -299,6 +321,7 @@ A research log can be found here:\\
 
 \newpage
 \section{Gaussian Smoothing}
+\label{gaussiansmoothing}
 % TODO: REWRITTEN
 This chapter provides a explanation for Gaussian Smoothing. The convolution technique is discussed first and then the Gaussian kernel of convolution is explained.\\
 
@@ -320,13 +343,14 @@ due the shift over the other function $f(x)$. This causes one function to blend 
 \end{figure}
 
 \noindent\textbf{Gaussian Kernel}\\
-The most suitable kernel for an optimal convolution is the Gaussian function due to the smoothing, derivatives and separability. The Gaussian function has the best smoothing properties as it has existing derivatives to any order at every point. Due to this every function can be smoothed as the derivative is always non-zero. In image processing the intensity is smooth smoothed intensity of a image this can be done by convolving the original image with the derivative of the Gaussian function. Gaussian Smoothing is the result of blurring an image by a Gaussian Function. Smoothing is applied to reduce noise and detail in the image. Gaussian smoothing is a well know technique mostly used in computer vision algorithms as a pre processing technique in order to enhance image structures at different scales. Gaussian Smoothing is the same as convolving the image with a Gaussian function. The 2D Gaussian smoothing function is represented by the following equation:
+The most suitable kernel for an optimal convolution is the Gaussian function due to the smoothing, derivatives and separability. The Gaussian function has the best smoothing properties as it has existing derivatives to any order at every point. Due to this every function can be smoothed as the derivative is always non-zero. In image processing the intensity is smooth smoothed intensity of a image this can be done by convolving the original image with the derivative of the Gaussian function. Gaussian Smoothing is the result of blurring an image by a Gaussian Function. Smoothing is applied to reduce noise and detail in the image. Gaussian smoothing is a well know technique mostly used in computer vision algorithms as a pre-processing technique in order to enhance image structures at different scales. Gaussian Smoothing is the same as convolving the image with a Gaussian function. The 2D Gaussian smoothing function is represented by the following equation:
 \begin{equation*}
 G(x,y) = \frac{1}{2\pi\sigma^2}e^{\frac{x^2 + y^2}{2\sigma^2}}
 \end{equation*}
 
 \section{Ascending Technologies Pelican}
 \label{pelican}
+To be written.
 \end{appendices}
 
 \newpage
