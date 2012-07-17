@@ -11,6 +11,7 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage[toc,page]{appendix}
+\usepackage[T1]{fontenc}   
 
 % Page margins
 %\setlength{\oddsidemargin}{5mm}
@@ -20,7 +21,7 @@
 \pagestyle{fancy}
 
 % Page numbering
-\lhead{Sensor Fusion on a mini Unmanned Vehicles - Camiel R. Verschoor}
+\lhead{Sensor Fusion on a mini Unmanned Vehicles}
 \cfoot{}
 \rfoot{\thepage}
 
@@ -117,7 +118,7 @@ Photo by: \href{http://ardrone.parrot.com/album/}{Parrot SA}
 \thispagestyle{empty}
 \section*{Abstract}
 To be written.
-\section*{Acknowledgments}
+\section*{Acknowledgements}
 To be written.
 \newpage
 
@@ -135,7 +136,7 @@ In robotics one of the main goals is to develop mobile robots that can operate a
 
 One of the main requirements of an autonomous robot is the ability to navigation in the environment. The traditional approach to navigate through the outdoor environment is via pre-planned paths based on a Global Positioning System (GPS). The main shortcoming of GPS is that it cannot be used in every environment as it needs to receive data signals from four different satellites \cite{Bajaj2002}. Inside buildings and in several outdoor areas GPS is not available. In urban areas GPS is found to be especially unreliable. In order to navigate through these environments other sensors and navigation techniques need to be applied. Since there are several linear structures in the environment such as rivers, roads and power lines, line-following is one possible approach to navigate through an environment. Line-following is a classic technique in robotics as it has been successfully used for ground robots numerous times \cite{Sampei1995, Dupuis2006}. For other robots and sensor configurations, open problems still remain. One of these is navigation for micro aerial vehicles (MAVs), which have a limited sensor composition due to their limited payload.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/blackwidow.eps}
 	\caption{The Black Widow \cite{Grasmeyer2001} was the first operating micro aerial vehicle system, a development which was finalized in 1999 by AeroVironment for Defense Advanced Research Projects Agency (DARPA). The Black Widow can fly for up to 20 minutes and carries a very small color video camera.}
@@ -148,16 +149,16 @@ A micro aerial vehicle (MAV) is a subclass of the Unmanned Aerial Vehicles. Due 
 The International Micro Aerial Vehicle (IMAV)\footnote{\url{http://www.imav2012.org/}} conference and competitions is an initiative that attempts to share and demonstrate new MAV technology. The competitions emphasizes on flight dynamics and autonomous flight. The IMAV consists of an indoor and outdoor competition, where these aspects are extensively tested in the various challenges. The high level of autonomy is stimulated in this competition as the rules give significantly more points to teams that operate autonomous flights. One of the problems participants have to solve is autonomous navigation through the environment. Even though teams are allowed to used visual aids (ie. markers) problems in this area remain. The contribution of this thesis to the IMAV competition is a possible vision-based navigation technique for following linear-shaped objects. This navigation technique can aid autonomous flights during the challenges of the IMAV.
 
 \subsection{Platform and Framework}
-The Parrot AR.Drone (figure \ref{ardrone}) is a wireless controlled flying quadcopter built by the French company Parrot SA\footnote{\url{http://www.parrot.com}}. The quadcopter is made of plastic and foam and is about 30 centimetres long. It carries a horizontal and a vertical camera opening the door for the development of various visual application. The inertial measurement unit in combination with optical flow and a ultrasound sensor provide on-board stabilization during flights allowing the quadcopter to hover in the same place. 
+The Parrot AR.Drone (figure \ref{ardrone}) is a wireless controlled flying quadcopter built by the French company Parrot SA\footnote{\url{http://www.parrot.com}}. The quadcopter is made of plastic and foam and is about 30 centimetres long. It carries a horizontal and a vertical camera opening the door for the development of various visual applications. The inertial measurement unit in combination with optical flow and a ultrasound sensor provide on-board stabilization during flights allowing the quadcopter to hover in the same place. 
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/ardrone.jpg}
-	\caption{The Parrot AR.Drone is equipped with two cameras and several inertial sensors. The development is driven by commercial, government, research and military purposes. The small quadrotor allows remote observation of hazardous environments inaccesible for humans and ground robots.}
+	\caption{The Parrot AR.Drone is equipped with two cameras and several inertial sensors. The development is driven by commercial, government, research and military purposes. The small quadrotor allows remote observation of hazardous environments inaccessible for humans and ground robots.}
 	\label{ardrone}
 \end{figure}
 
-AR.Drone SLAM \cite{Dijkshoorn2012} is a development framework for the Parrot AR.Drone, a quadcopter, developed and proposed by N. Dijkshoorn. This framework contains a real-time Simultaneous Localization and Mapping (SLAM) implementation based on a down-pointing camera. Therefore, it allows a MAV to know its position and movement in the environment by generating a feature map of the environment so the MAV can localize itself on this map. Furthermore, the framework contains a 3D mouse controller, a keyboard controller, a visual map and an elevation map. Due to the framework the robot acquires more information of the environment. This information can aid the robot in navigation. In section \ref{platform} and \ref{framework} the platform and framework will be explained.
+AR.Drone SLAM \cite{Dijkshoorn2012} is a development framework for the Parrot AR.Drone, a quadcopter, developed and proposed by N. Dijkshoorn. This framework contains a real-time Simultaneous Localization and Mapping (SLAM) implementation based on a down-pointing camera. Therefore, it allows a MAV to know its position and movement in the environment by generating a feature map of the environment so the MAV can localize itself on this map. Furthermore, the framework contains a 3D mouse controller, a keyboard controller, a visual map and an elevation map. Due to the framework the robot acquires more information of the environment. This information can aid the robot in navigation. In chapter \ref{platform} and \ref{framework} the platform and framework will be explained.
 
 \subsection{Research questions and objectives}
 In robotics one goal is to develop mobile robots that can advance robustly and truly autonomously in real world situations. One of the main requirements is the ability to navigate autonomously. Since there is no GPS signal available in urban and indoor environment, robots need to rely on other sensors.
@@ -178,14 +179,21 @@ In order to perform line-following navigation, first, a line should be detected.
 
 % TODO: BETER
 \subsection{Outline}
-Chapter two gives an overview of the the Computer Vision algorithms regarding this thesis. The navigation techniques will then be discussed in chapter three.
-Chapter four gives an overview is given over the related research regarding line-following on unmanned aerial vehicles. The robotic platform, Parrot AR.Drone, is discussed in chapter five. The construction of the platform is explained, the hardware it contains will be listed and the software development kit will be addressed. Chapter six will give an overview of the framework AR.Drone SLAM. The main architecture and functionalities will be briefly discussed. In chapter seven the experiments are illustrated and in chapter eight the results will be presented. Chapter nine will discuss the results found in the experiments and elaborate on them. Finally, in chapter ten the conclusion of this thesis will be presented and directions for future research will be proposed.
+Chapter two gives an overview of the the Computer Vision algorithms regarding this thesis. The navigation techniques will then be discussed in chapter three. Chapter four gives an overview is given over the related research regarding line-following on unmanned aerial vehicles. The robotic platform, Parrot AR.Drone, is discussed in chapter five. The construction of the platform is explained, the hardware it contains will be listed and the software development kit will be addressed. Chapter six will give an overview of the framework AR.Drone SLAM. The main architecture and functionalities will be briefly discussed. In chapter seven the experiments are illustrated and in chapter eight the results will be presented. Chapter nine will discuss the results found in the experiments and elaborate on them. Finally, in chapter ten the conclusion of this thesis will be presented and directions for future research will be proposed.
 
 \newpage
 \section{Computer Vision}
-\subsection{Basic Algorithm}
-\subsubsection{Colour Filter}
+In chapter two and three, the basics of the theory this thesis relies on is explained. The work presented in this thesis is based on previous research regarding vision-based algorithms on the AR.Drone \cite{Jurriaans2011} and the Open Source Computer Library (OpenCV) \cite{Bradski2008}, which provides real-time computer vision implementations. In chapter three the navigation techniques will be discussed. 
 
+Over the years various Computer Vision techniques have been developed to detect objects in images. One of the fundamental problems is finding the most applicable algorithm for the defined problem as every algorithm has its advantages and disadvantages. In order to follow a line fast feedback from the camera is required in order for the system to adjust its trajectory. For this reason, a fast and real-time algorithm is favourable. Furthermore, the algorithm should be able to handle movement noise caused by the motions of the flying platform. This thesis will compare a edge-detection approach to a motion-detection approach. Both approaches performance will be tested in combination with a Probabilistic Hough Line Transform \cite{Kiryati1991}, a real-time pattern recognition algorithm to detect lines.
+
+This chapter provides an overview of theory of the Computer Vision algorithms this thesis is based on. A clear explanation will be given over the various algorithms applied in this thesis.
+
+\subsection{Edge Detector Algorithm}
+To be written.
+
+\subsubsection{Colour Filter}
+To be written.
 
 % TODO: REWRITTEN
 \subsubsection{Canny Edge Detector}
@@ -211,7 +219,7 @@ The Canny edge detector is an optimal edge detection algorithm, which marks real
 the small distortions so these are not detected by the edge detector.
 Then the derivative is taken of the original image to find out the intensity change of every pixel in the image. The limits in the image are the edges of the image and show the steepness of the intensity change. In the Canny edge image the steepness of every edge is shown by the color, which represents the sharpness of the edges. To find all the limits of the first derivative, the second derivative is taken and is searched for zero crossings, which are places in the second derivative image
 
-\subsection{Combined Algorithm}
+\subsection{Motion Detector Algorithm}
 \subsubsection{Motion detector}
 \subsection{Probabilistic Hough Line Transform}
 \subsection{Tracking}
@@ -228,12 +236,12 @@ One of the basic steps for the development and testing of intelligent applicatio
 
 As a result of technological developments in aerospace engineering of UAV's, a small quadcopter with on-board stabilization can be purchased conveniently. Because of this, research regarding this platform is moving towards more intelligent applications, which demand information of the surrounding environment. The specific platform selected for the experiments in this research is the Parrot AR.Drone quadcopter. The advantages of this platform are its on-board stabilization, lightweight and the affordable price of the platform. The AR.Drone is carrying a front and bottom camera that provide live video streaming through the data link. Additionally, it has an ultrasound sensor and an inertial measurement unit that measures the pitch, roll, yaw and accelerations of the platform. The platform is controlled via WiFi, which allows the user to send commands and receive data of the platform.
 
-In this section, the AR.Drone platform is described. The operational part of te platform is discussed, the hardware the platform contains is described and the software development kit is briefly described.
+In this chapter, the AR.Drone platform is described. The operational part of te platform is discussed, the hardware the platform contains is described and the software development kit is briefly described.
 
 \subsection{Quadcopter}
 A quadcopter consists of four rotors that are attached to a main frame, which commonly has a cross-shaped form (see figure \ref{quadcopter}). Every rotor produces thrust $T$ and torque $\tau$ over the center of rotation, whereas it also produces drag force $D_b$ in the opposite direction of flight. Thrust $T$ is the force that is generated by increasing and decreasing acceleration the mass in one direction. The acceleration of the mass will result in a force of equal magnitude but in the opposite direction of the platform. Torque $\tau$ is the force that rotates an object around its axis. Drag $D_b$ is the force that is in opposite direction to the motion of the aircraft through air. This force is inclined on the velocity of the quadcopter and de-acceleration will take place if insufficient thrust is generated. The rotors together should generate sufficient thrust to stay airborne during flights.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.25\textwidth]{images/quadcopter.png}
 	\caption{Diagram of the reaction torgues on each motor of the quadcopter, due to the rotors. Rotors one and three are spinning clockwise, whereas rotor two and four spin counter-clockwise, causing opposing force for control}
@@ -242,7 +250,7 @@ A quadcopter consists of four rotors that are attached to a main frame, which co
 
 In order to fly the quadcopter relies on differences in thrust and torque. Pitch, roll and yaw (see figure \ref{plane}) is the naming of flight dynamics to indicate the rotation angles in three dimension of the center mass of the quadcopter. The opposing rotor pairs (pair 1, 3 and pair 2, 4) turn in the same direction. One of the pairs is turning clockwise, while the other pair turns counter-clockwise. This causes the platform to have no angular acceleration, when all rotor pairs have the same angular acceleration. Alternating the angular speed of the rotor pairs will cause angular acceleration about the yaw.
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/plane.jpg}
 	\caption{Diagram of pitch, roll and yaw rotations on an aerial vehicle}
@@ -254,15 +262,20 @@ Vertical movements are accomplished by changing the thrust from each rotor alike
 \subsection{Hardware}
 The AR.Drone is a remote-controlled quadcopter developed by the french company Parrot SA for consumer use. The main frame is made of carbon fibre and high resistance plastic. The AR.Drone has an indoor and outdoor hull, which is used for protection of the system. The rotors are powered by motors, whom are connected to a lithium battery allowing the system to fly ten minutes.
 
+\subsubsection{AR.Drone 1.0}
 The AR.Drone has an on-board computer running a custom Linux operating system. A mini-USB connector is included on the system for software maintenance and additional external sensors (e.g. GPS sensor). The integrated wireless card provides network access for external devices that control the vehicle. The software of the AR.Drone is available for all platforms, however, the most supported software is written for iOS devices (ie. Apple iPhone). Nevertheless, it is possible to create controlling applications for the Windows and Linux platforms. Furthermore, the AR.Drone has a sensor suite containing an six degrees of freedom Inertial Measurement Unit (IMU), a bottom camera and a ultrasound altimeter used for automatic stabilization. The IMU consists of a three axis accelerometer, a two axis roll and pitch gyrometer and a single axis yaw gyrometer. The IMU reports on the system its velocity, orientation and gravitational forces. The ultrasound altimeter measure the altitude of the system and in combination with the bottom camera it calculates the optical flow of the system. All the above sensors contribute to the on-board stabilization module of the quadcopter, which allows the quadcopter to hover in one place. Additionally, the system carries a frontal camera to provide the operator with visual feedback.
 
+The horizontal camera has approximately 75$^{\circ}$ x 60$^{\circ}$ field of view and provides 640 x 480 pixel color images. The bottom camera provides color images with 176 x 144 pixels and its field of view is approximately 45$^{\circ}$ x 35$^{\circ}$ \cite{Krajnik2011}.
+
+\subsubsection{AR.Drone 2.0}
+Recently, Parrot brought a new platform on the market, the AR.Drone 2.0. This new platform has a similar configuration as its predecessor, however, most of the components have been improved. The new on-board technology gives better stabilization and more precise sensor measurement comparing to their previous platform. The AR.Drone two carries a horizontal camera with a resolution of 1280 x 720 pixels and the vertical camera a resolution of 320 x 240 pixels. These improvements aid intelligent vision-based applications as more detailed images give more information about the environment.
+
 \subsection{Software Development Kit}
-Parrot created a open source Software Development Kit (SDK) providing developers the opportunity to create intelligent applications for their platform. The SDK comes with source code, multiplatform examples and documentation. The SDK does not provide software that is embedded on the AR.Drone itself. The SDK implements the following four channels of communications with the platform:
+Parrot created a open source Software Development Kit (SDK) providing developers the opportunity to create intelligent applications for their platform. The SDK comes with source code, multiplatform examples and documentation. The SDK does not provide software that is embedded on the AR.Drone itself. The SDK implements the following three channels of communications with the platform:
 \begin{enumerate}
 \item Configuration and control of the platform.
 \item Status of the platform (ie. altitude, attitude and speed).
 \item Video stream.
-\item Control port for communication of critical data.
 \end{enumerate}
 These four channels of communication can be used for designing intelligent applications for the AR.Drone.
 
@@ -287,7 +300,7 @@ A research log can be found here:\\
 \newpage
 \section{Gaussian Smoothing}
 % TODO: REWRITTEN
-This section provides a explanation for Gaussian Smoothing. The convolution technique is discussed first and then the Gaussian kernel of convolution is explained.\\
+This chapter provides a explanation for Gaussian Smoothing. The convolution technique is discussed first and then the Gaussian kernel of convolution is explained.\\
 
 \noindent\textbf{Convolution}\\
 Convolution is a mathematical way to combine two functions. The mathematical definition of convolution for the two scalar functions $f(x)$ and $g(x)$ is:
@@ -312,6 +325,8 @@ The most suitable kernel for an optimal convolution is the Gaussian function due
 G(x,y) = \frac{1}{2\pi\sigma^2}e^{\frac{x^2 + y^2}{2\sigma^2}}
 \end{equation*}
 
+\section{Ascending Technologies Pelican}
+\label{pelican}
 \end{appendices}
 
 \newpage

@@ -5,6 +5,11 @@ Bajaj, R., Ranaweera, S., and Agrawal, D. (2002).
 \newblock Gps: location-tracking technology.
 \newblock {\em Computer}, 35(4):92 --94.
 
+\bibitem[Bradski and Kaehler, 2008]{Bradski2008}
+Bradski, G. and Kaehler, A. (2008).
+\newblock {\em Learning OpenCV}.
+\newblock O{\textquoteright}Reilly Media Inc.
+
 \bibitem[Dijkshoorn, 2012]{Dijkshoorn2012}
 Dijkshoorn, N. (2012).
 \newblock Simultaneous localization and mapping with the ar.drone.
@@ -20,6 +25,23 @@ Dupuis, J. and Parizeau, M. (2006).
 Grasmeyer, J.~M., Keennon, M.~T., and Inc, A. (2001).
 \newblock Development of the black widow micro air vehicle.
 \newblock In {\em 39th AIAA Aerospace Sciences Meeting and Exhibit}.
+
+\bibitem[Jurriaans, 2011]{Jurriaans2011}
+Jurriaans, R. (2011).
+\newblock Flow based obstacle avoidance for real world autonomous aerial
+  navigation tasks.
+\newblock Bachelor's thesis, Universiteit van Amsterdam.
+
+\bibitem[Kiryati et~al., 1991]{Kiryati1991}
+Kiryati, N., Eldar, Y., and Bruckstein, A. (1991).
+\newblock A probabilistic hough transform.
+\newblock {\em Pattern Recognition}, 24(4):303 -- 316.
+
+\bibitem[Krajn{\'\i}k et~al., 2011]{Krajnik2011}
+Krajn{\'\i}k, T., Von{\' a}sek, V., Fi{\v s}er, D., and Faigl, J. (2011).
+\newblock {AR-Drone as a Robotic Platform for Research and Education}.
+\newblock In {\em {International Conference on Research and Education in
+  Robotics}}, Heidelberg. Springer.
 
 \bibitem[Sampei et~al., 1995]{Sampei1995}
 Sampei, M., Tamura, T., Kobayashi, T., and Shibui, N. (1995).
