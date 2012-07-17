@@ -1,3 +1,45 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: ThesisVerschoor.aux
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: ThesisVerschoor.aux
 The style file: apalike.bst
 Database file #1: references.bib
+You've used 5 entries,
+            1935 wiz_defined-function locations,
+            506 strings with 4564 characters,
+and the built_in function-call counts, 1902 in all, are:
+= -- 180
+> -- 79
+< -- 3
++ -- 26
+- -- 26
+* -- 154
+:= -- 337
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 38
+chr.to.int$ -- 5
+cite$ -- 5
+duplicate$ -- 79
+empty$ -- 137
+format.name$ -- 33
+if$ -- 376
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 4
+newline$ -- 28
+num.names$ -- 15
+pop$ -- 40
+preamble$ -- 1
+purify$ -- 38
+quote$ -- 0
+skip$ -- 53
+stack$ -- 0
+substring$ -- 106
+swap$ -- 9
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 30
+warning$ -- 0
+while$ -- 13
+width$ -- 0
+write$ -- 65

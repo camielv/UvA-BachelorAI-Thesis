@@ -1,27 +1,28 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Platform and Framework}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Research questions and objectives}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Outline}{section.1}% 4
-\BOOKMARK [1][-]{section.2}{Computer Vision}{}% 5
-\BOOKMARK [2][-]{subsection.2.1}{Basic Algorithm}{section.2}% 6
-\BOOKMARK [3][-]{subsubsection.2.1.1}{Colour Filter}{subsection.2.1}% 7
-\BOOKMARK [3][-]{subsubsection.2.1.2}{Canny Edge Detector}{subsection.2.1}% 8
-\BOOKMARK [2][-]{subsection.2.2}{Combined Algorithm}{section.2}% 9
-\BOOKMARK [3][-]{subsubsection.2.2.1}{Motion detector}{subsection.2.2}% 10
-\BOOKMARK [2][-]{subsection.2.3}{Probabilistic Hough Line Transform}{section.2}% 11
-\BOOKMARK [2][-]{subsection.2.4}{Tracking}{section.2}% 12
-\BOOKMARK [1][-]{section.3}{Navigation}{}% 13
-\BOOKMARK [1][-]{section.4}{Related Work}{}% 14
-\BOOKMARK [1][-]{section.5}{Platform: Parrot AR.Drone}{}% 15
-\BOOKMARK [2][-]{subsection.5.1}{Quadcopter}{section.5}% 16
-\BOOKMARK [2][-]{subsection.5.2}{Hardware}{section.5}% 17
-\BOOKMARK [2][-]{subsection.5.3}{Software Development Kit}{section.5}% 18
-\BOOKMARK [1][-]{section.6}{Framework: AR.Drone SLAM}{}% 19
-\BOOKMARK [1][-]{section.7}{Experiments}{}% 20
-\BOOKMARK [1][-]{section.8}{Results}{}% 21
-\BOOKMARK [1][-]{section.9}{Discussion}{}% 22
-\BOOKMARK [1][-]{section.10}{Conclusion}{}% 23
-\BOOKMARK [1][-]{section*.5}{Appendices}{}% 24
-\BOOKMARK [1][-]{Appendix.1.A}{Source code}{}% 25
-\BOOKMARK [1][-]{Appendix.1.B}{Gaussian Smoothing}{}% 26
-\BOOKMARK [1][-]{section.11}{Bibliography}{}% 27
+\BOOKMARK [1][-]{section.1}{Introduction}{}
+\BOOKMARK [2][-]{subsection.1.1}{International Micro Aerial Vehicle Conference and Competitions}{section.1}
+\BOOKMARK [2][-]{subsection.1.2}{Platform and Framework}{section.1}
+\BOOKMARK [2][-]{subsection.1.3}{Research questions and objectives}{section.1}
+\BOOKMARK [2][-]{subsection.1.4}{Outline}{section.1}
+\BOOKMARK [1][-]{section.2}{Computer Vision}{}
+\BOOKMARK [2][-]{subsection.2.1}{Basic Algorithm}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Colour Filter}{subsection.2.1}
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Canny Edge Detector}{subsection.2.1}
+\BOOKMARK [2][-]{subsection.2.2}{Combined Algorithm}{section.2}
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Motion detector}{subsection.2.2}
+\BOOKMARK [2][-]{subsection.2.3}{Probabilistic Hough Line Transform}{section.2}
+\BOOKMARK [2][-]{subsection.2.4}{Tracking}{section.2}
+\BOOKMARK [1][-]{section.3}{Navigation}{}
+\BOOKMARK [1][-]{section.4}{Related Work}{}
+\BOOKMARK [1][-]{section.5}{Platform: Parrot AR.Drone}{}
+\BOOKMARK [2][-]{subsection.5.1}{Quadcopter}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{Hardware}{section.5}
+\BOOKMARK [2][-]{subsection.5.3}{Software Development Kit}{section.5}
+\BOOKMARK [1][-]{section.6}{Framework: AR.Drone SLAM}{}
+\BOOKMARK [1][-]{section.7}{Experiments}{}
+\BOOKMARK [1][-]{section.8}{Results}{}
+\BOOKMARK [1][-]{section.9}{Discussion}{}
+\BOOKMARK [1][-]{section.10}{Conclusion}{}
+\BOOKMARK [1][-]{section*.5}{Appendices}{}
+\BOOKMARK [1][-]{Appendix.1.A}{Source code}{}
+\BOOKMARK [1][-]{Appendix.1.B}{Gaussian Smoothing}{}
+\BOOKMARK [1][-]{section.11}{Bibliography}{}

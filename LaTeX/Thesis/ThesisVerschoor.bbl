@@ -1,13 +1,31 @@
 \begin{thebibliography}{}
 
+\bibitem[Bajaj et~al., 2002]{Bajaj2002}
+Bajaj, R., Ranaweera, S., and Agrawal, D. (2002).
+\newblock Gps: location-tracking technology.
+\newblock {\em Computer}, 35(4):92 --94.
+
 \bibitem[Dijkshoorn, 2012]{Dijkshoorn2012}
 Dijkshoorn, N. (2012).
 \newblock Simultaneous localization and mapping with the ar.drone.
 \newblock Master's thesis, Universiteit van Amsterdam.
 
+\bibitem[Dupuis and Parizeau, 2006]{Dupuis2006}
+Dupuis, J. and Parizeau, M. (2006).
+\newblock Evolving a vision-based line-following robot controller.
+\newblock In {\em Computer and Robot Vision, 2006. The 3rd Canadian Conference
+  on}, page~75.
+
 \bibitem[Grasmeyer et~al., 2001]{Grasmeyer2001}
 Grasmeyer, J.~M., Keennon, M.~T., and Inc, A. (2001).
 \newblock Development of the black widow micro air vehicle.
 \newblock In {\em 39th AIAA Aerospace Sciences Meeting and Exhibit}.
+
+\bibitem[Sampei et~al., 1995]{Sampei1995}
+Sampei, M., Tamura, T., Kobayashi, T., and Shibui, N. (1995).
+\newblock Arbitrary path tracking control of articulated vehicles using
+  nonlinear control theory.
+\newblock {\em Control Systems Technology, IEEE Transactions on}, 3(1):125
+  --131.
 
 \end{thebibliography}

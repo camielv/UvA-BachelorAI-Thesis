@@ -17,7 +17,7 @@
 %\setlength{\evensidemargin}{5mm}
 
 % Page style
-\pagestyle{plain}
+\pagestyle{fancy}
 
 % Page numbering
 \lhead{Sensor Fusion on a mini Unmanned Vehicles - Camiel R. Verschoor}
@@ -117,12 +117,12 @@ Photo by: \href{http://ardrone.parrot.com/album/}{Parrot SA}
 \thispagestyle{empty}
 \section*{Abstract}
 To be written.
-\section*{Acknowledgements}
+\section*{Acknowledgments}
 To be written.
 \newpage
 
 % TABLE OF CONTENTS
-\thispagestyle{empty}
+%\thispagestyle{empty}
 \tableofcontents
 \newpage
 \setcounter{page}{1}
@@ -133,21 +133,22 @@ To be written.
 \section{Introduction}
 In robotics one of the main goals is to develop mobile robots that can operate autonomously in the real world environment. These autonomous robots have various purposes and are used for a wide range of applications such as inspection, exploration and rescue. In rescue, robots are expected to operate in dangerous environments without putting human lives at risk in example, during disasters or life rescue operations. Even though reasonable developments have been made in the robotics field, robots cannot operate autonomously in the real world yet.
 
-One of the main requirements of an autonomous robot is the ability to navigation in the environment. The traditional approach to navigate through the outdoor environment is via pre-planned paths based on a Global Positioning System (GPS). The main shortcoming of GPS is that it cannot be used in every environment as it needs to receive data signals from four different satellites. Inside buildings and in several outdoor areas GPS is not available. In urban areas GPS is found to be especially unreliable. In order to navigate through these environments other sensors and navigation techniques need to be applied. Since there are several linear structures in the environment such as rivers, roads and power lines, line-following is one possible approach to navigate through an environment. Line-following is a classic technique in robotics as it has been successfully used for ground robots numerous times. For other robots and sensor configurations, open problems still remain. One of these is navigation for micro aerial vehicles (MAVs), which have a limited sensor composition due to their limited payload.
+One of the main requirements of an autonomous robot is the ability to navigation in the environment. The traditional approach to navigate through the outdoor environment is via pre-planned paths based on a Global Positioning System (GPS). The main shortcoming of GPS is that it cannot be used in every environment as it needs to receive data signals from four different satellites \cite{Bajaj2002}. Inside buildings and in several outdoor areas GPS is not available. In urban areas GPS is found to be especially unreliable. In order to navigate through these environments other sensors and navigation techniques need to be applied. Since there are several linear structures in the environment such as rivers, roads and power lines, line-following is one possible approach to navigate through an environment. Line-following is a classic technique in robotics as it has been successfully used for ground robots numerous times \cite{Sampei1995, Dupuis2006}. For other robots and sensor configurations, open problems still remain. One of these is navigation for micro aerial vehicles (MAVs), which have a limited sensor composition due to their limited payload.
 
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/blackwidow.eps}
-	\caption{The Black Widow \cite{Grasmeyer2001} was the first operating micro aerial vehicle system developed by AeroVironment for Defense Advanced Research Projects Agency (DARPA). The Black Widow can fly for up to 20 minutes and carries a very small color video camera.}
+	\caption{The Black Widow \cite{Grasmeyer2001} was the first operating micro aerial vehicle system, a development which was finalized in 1999 by AeroVironment for Defense Advanced Research Projects Agency (DARPA). The Black Widow can fly for up to 20 minutes and carries a very small color video camera.}
 	\label{blackwidow}
 \end{figure}
 
 A micro aerial vehicle (MAV) is a subclass of the Unmanned Aerial Vehicles. Due to their small size, the MAV can operate in numerous robotic applications, for instance, search \&  rescue, inspection and exploration. AeroVironment Black Widow\cite{Grasmeyer2001} (figure \ref{blackwidow}) is the first MAV operating in the field. Another type of MAV is the quadcopter, which is controlled by four rotors. Quadcopters provide manoeuvrability and stability, which is suitable for indoor and urban flights. As a result of recent developments, small quadcopters with on-board stabilization can be purchased conveniently. Due to this, the research regarding this platform is moving towards intelligent applications, which demand information of the surrounding environment. Nevertheless, the fast movements and the limited amount of sensor combination mean that it is still a challenge to develop navigation methods for these platforms.
 
+\subsection{International Micro Aerial Vehicle Conference and Competitions}
 The International Micro Aerial Vehicle (IMAV)\footnote{\url{http://www.imav2012.org/}} conference and competitions is an initiative that attempts to share and demonstrate new MAV technology. The competitions emphasizes on flight dynamics and autonomous flight. The IMAV consists of an indoor and outdoor competition, where these aspects are extensively tested in the various challenges. The high level of autonomy is stimulated in this competition as the rules give significantly more points to teams that operate autonomous flights. One of the problems participants have to solve is autonomous navigation through the environment. Even though teams are allowed to used visual aids (ie. markers) problems in this area remain. The contribution of this thesis to the IMAV competition is a possible vision-based navigation technique for following linear-shaped objects. This navigation technique can aid autonomous flights during the challenges of the IMAV.
 
 \subsection{Platform and Framework}
-The Parrot AR.Drone (figure \ref{ardrone}) is a wireless controlled flying quadcopter built by the French company Parrot. The quadcopter is made of plastic and foam and is about 30 centimetres long. It carries a horizontal and a vertical camera opening the door for the development of various visual application. The inertial measurement unit in combination with optical flow and a ultrasound sensor provide on-board stabilization during flights allowing the quadcopter to hover in the same place. 
+The Parrot AR.Drone (figure \ref{ardrone}) is a wireless controlled flying quadcopter built by the French company Parrot SA\footnote{\url{http://www.parrot.com}}. The quadcopter is made of plastic and foam and is about 30 centimetres long. It carries a horizontal and a vertical camera opening the door for the development of various visual application. The inertial measurement unit in combination with optical flow and a ultrasound sensor provide on-board stabilization during flights allowing the quadcopter to hover in the same place. 
 
 \begin{figure}[!ht]
 	\centering
@@ -180,6 +181,7 @@ In order to perform line-following navigation, first, a line should be detected.
 Chapter two gives an overview of the the Computer Vision algorithms regarding this thesis. The navigation techniques will then be discussed in chapter three.
 Chapter four gives an overview is given over the related research regarding line-following on unmanned aerial vehicles. The robotic platform, Parrot AR.Drone, is discussed in chapter five. The construction of the platform is explained, the hardware it contains will be listed and the software development kit will be addressed. Chapter six will give an overview of the framework AR.Drone SLAM. The main architecture and functionalities will be briefly discussed. In chapter seven the experiments are illustrated and in chapter eight the results will be presented. Chapter nine will discuss the results found in the experiments and elaborate on them. Finally, in chapter ten the conclusion of this thesis will be presented and directions for future research will be proposed.
 
+\newpage
 \section{Computer Vision}
 \subsection{Basic Algorithm}
 \subsubsection{Colour Filter}
