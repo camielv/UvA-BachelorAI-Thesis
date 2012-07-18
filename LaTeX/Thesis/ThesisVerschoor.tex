@@ -198,7 +198,7 @@ To filter the colour the colour-space is converted to a different representation
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.3\textwidth]{images/hsv.png}
+%\includegraphics[width=0.3\textwidth]{images/hsv.png}
 \caption{The HSV model, a cone having three parameters: Hue, Saturation and Value.}
 \label{hsv}
 \end{figure}
@@ -219,7 +219,7 @@ Calculus of variations, a mathematical technique that finds the optimal function
 Noise reduction is applied to raw image data as the edge detector is sensitive to noise. Noise reduction can be realized by using convolution with a suitable kernel. The Canny edge detector uses a Gaussian kernel as this is a suitable kernel. This phenomenon is called Gaussian Smoothing (see appendix \ref{gaussiansmoothing}) and filters out the small distortions so these are not detected by the edge detector.\\
 
 \noindent\textbf{Finding the intensity gradient}\\
-To be written.\\
+After the noise reduction the directional change in color, gradient, for every pixel has to be found in the image. The gradient of every pixel in the image may point in a variety of directions. Therefore, the Canny Edge Detector uses four filters to detect horizontal, vertical and diagonal edges in the smoothed image. In order to find the gradient in the image the algorithm uses a edge detection operator, which takes the first derivative of the image that results in the gradient in horizontal direction $Gx$ and vertical direction $Gy$. There are a variety of edge detection operators and the one applied in this thesis is the Sobel operator\\
 
 \noindent\textbf{Non-maximum suppression}\\
 To be written.\\
@@ -227,7 +227,7 @@ To be written.\\
 \noindent\textbf{Hysteresis threshold}\\
 To be written.
 
-%The Canny edge detector is an optimal edge detection algorithm, which marks real edges in the image, locates the edge in the real image and marks them only once. This algorithm has the following three stages noise reduction,  finding the intensity gradient of every point and find all the edges by looking for zero crossings in the second derivative of the image. For noise reduction the optimal Gaussian blur is used. The Gaussian filters out the small distortions so these are not detected by the edge detector. Then the derivative is taken of the original image to find out the intensity change of every pixel in the image. The limits in the image are the edges of the image and show the steepness of the intensity change. In the Canny edge image the steepness of every edge is shown by the color, which represents the sharpness of the edges. To find all the limits of the first derivative, the second derivative is taken and is searched for zero crossings, which are places in the second derivative image
+%Then the derivative is taken of the original image to find out the intensity change of every pixel in the image. The limits in the image are the edges of the image and show the steepness of the intensity change. In the Canny edge image the steepness of every edge is shown by the color, which represents the sharpness of the edges. To find all the limits of the first derivative, the second derivative is taken and is searched for zero crossings, which are places in the second derivative image
 
 \subsection{Motion Detector Algorithm}
 To be written.
