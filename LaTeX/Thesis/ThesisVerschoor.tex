@@ -132,9 +132,9 @@ To be written.
 
 % INTRODUCTION
 \section{Introduction}
-In robotics one of the main goals is to develop mobile robots that can operate autonomously in the real world environment. These autonomous robots have various purposes and are used for a wide range of applications such as inspection, exploration and rescue. In rescue, robots are expected to operate in dangerous environments without putting human lives at risk in example, during disasters or life rescue operations. Even though reasonable developments have been made in the robotics field, robots cannot operate autonomously in the real world yet.
+In robotics one of the main goals is to develop mobile robots that can operate autonomously in the real world environment. These autonomous robots have various purposes and are used for a wide range of applications such as inspection, exploration and rescue. In rescue, robots are expected to operate in dangerous environments without putting human lives at risk for example, during disasters or life rescue operations. Even though reasonable developments have been made in the robotics field, robots cannot operate autonomously in the real world yet.
 
-One of the main requirements of an autonomous robot is the ability to navigation in the environment. The traditional approach to navigate through the outdoor environment is via pre-planned paths based on a Global Positioning System (GPS). The main shortcoming of GPS is that it cannot be used in every environment as it needs to receive data signals from four different satellites \cite{Bajaj2002}. Inside buildings and in several outdoor areas GPS is not available. In urban areas GPS is found to be especially unreliable. In order to navigate through these environments other sensors and navigation techniques need to be applied. Since there are several linear structures in the environment such as rivers, roads and power lines, line-following is one possible approach to navigate through an environment. Line-following is a classic technique in robotics as it has been successfully used for ground robots numerous times \cite{Sampei1995, Dupuis2006}. For other robots and sensor configurations, open problems still remain. One of these is navigation for micro aerial vehicles (MAVs), which have a limited sensor composition due to their limited payload.
+One of the main requirements of an autonomous robot is the ability to navigation in the operational environment. The traditional approach to navigate through the outdoor environment is via pre-planned paths based on a Global Positioning System (GPS). The main shortcoming of GPS is that it cannot be used in every environment as it needs to receive data signals from at least four different satellites \cite{Bajaj2002}. Inside buildings and in several outdoor areas GPS is not convenient for navigation. In urban areas GPS is found to be especially unreliable. In order to navigate through these environments other sensors and navigation techniques need to be applied. Since there are several linear structures in the environment such as rivers, roads and power lines, line-following is one possible approach to navigate through an environment. Line-following is a classic technique in robotics as it has been successfully used for ground robots numerous times \cite{Sampei1995, Dupuis2006}. For other robots and sensor configurations, open problems still remain. One of these is navigation for micro aerial vehicles (MAVs), which have a limited sensor composition due to their limited payload. For MAVs line-following is a greater challenge due to the extra dimension it can move in comparing to the average ground robot. Where the sensors of a ground robot can rely on the stability of the ground, while the sensors of a MAV have to count on the stability of the platform during a flight. Therefore, MAV are more likely to measure noisy data, which interpreting algorithms should resist.
 
 \begin{figure}[!ht]
 	\centering
@@ -146,7 +146,7 @@ One of the main requirements of an autonomous robot is the ability to navigation
 A micro aerial vehicle (MAV) is a subclass of the Unmanned Aerial Vehicles. Due to their small size, the MAV can operate in numerous robotic applications, for instance, search \&  rescue, inspection and exploration. AeroVironment Black Widow\cite{Grasmeyer2001} (figure \ref{blackwidow}) is the first MAV operating in the field. Another type of MAV is the quadcopter, which is controlled by four rotors. Quadcopters provide manoeuvrability and stability, which is suitable for indoor and urban flights. As a result of recent developments, small quadcopters with on-board stabilization can be purchased conveniently. Due to this, the research regarding this platform is moving towards intelligent applications, which demand information of the surrounding environment. Nevertheless, the fast movements and the limited amount of sensor combination mean that it is still a challenge to develop navigation methods for these platforms.
 
 \subsection{International Micro Aerial Vehicle Conference and Competitions}
-The International Micro Aerial Vehicle (IMAV)\footnote{\url{http://www.imav2012.org/}} conference and competitions is an initiative that attempts to share and demonstrate new MAV technology. The competitions emphasizes on flight dynamics and autonomous flight. The IMAV consists of an indoor and outdoor competition, where these aspects are extensively tested in the various challenges. The high level of autonomy is stimulated in this competition as the rules give significantly more points to teams that operate autonomous flights. One of the problems participants have to solve is autonomous navigation through the environment. Even though teams are allowed to used visual aids (ie. markers) problems in this area remain. The contribution of this thesis to the IMAV competition is a possible vision-based navigation technique for following linear-shaped objects. This navigation technique can aid autonomous flights during the challenges of the IMAV.
+The International Micro Aerial Vehicle (IMAV)\footnote{\url{http://www.imav2012.org/}} conference and competitions is an initiative that attempts to share and demonstrate new MAV technology. The competitions emphasizes on flight dynamics and autonomous flight. The IMAV consists of an indoor and outdoor competition, where these aspects are extensively tested in the various challenges. The high level of autonomy is stimulated in this competition as the rules give significantly more points to teams that operate autonomous flights. One of the problems participants have to solve is autonomous navigation through the environment. Although teams are allowed to used visual aids (ie. markers) problems in this area remain. The possible contribution of this thesis to the IMAV competition is a vision-based navigation technique for following linear-shaped objects. This navigation technique can aid autonomous flights during the challenges of the IMAV.
 
 \subsection{Platform and Framework}
 The Parrot AR.Drone (figure \ref{ardrone}) is a wireless controlled flying quadcopter built by the French company Parrot SA\footnote{\url{http://www.parrot.com}}. The quadcopter is made of plastic and foam and is about 30 centimetres long. It carries a horizontal and a vertical camera opening the door for the development of various visual applications. The inertial measurement unit in combination with optical flow and a ultrasound sensor provide on-board stabilization during flights allowing the quadcopter to hover in the same place. 
@@ -158,10 +158,10 @@ The Parrot AR.Drone (figure \ref{ardrone}) is a wireless controlled flying quadc
 	\label{ardrone}
 \end{figure}
 
-AR.Drone SLAM \cite{Dijkshoorn2012} is a development framework for the Parrot AR.Drone, a quadcopter, developed and proposed by N. Dijkshoorn. This framework contains a real-time Simultaneous Localization and Mapping (SLAM) implementation based on a down-pointing camera. Therefore, it allows a MAV to know its position and movement in the environment by generating a feature map of the environment so the MAV can localize itself on this map. Furthermore, the framework contains a 3D mouse controller, a keyboard controller, a visual map and an elevation map. Due to the framework the robot acquires more information of the environment. This information can aid the robot in navigation. In chapter \ref{platform} and \ref{framework} the platform and framework will be explained.
+AR.Drone SLAM \cite{Dijkshoorn2012} is a development framework for the Parrot AR.Drone, a quadcopter, developed and proposed by N. Dijkshoorn. This framework contains a real-time Simultaneous Localization and Mapping (SLAM) implementation based on a down-pointing camera. Therefore, it allows a MAV to know its position and movement in the environment by generating a feature map of the environment so the MAV can localize itself on this map. Furthermore, the framework contains a 3D mouse controller, a keyboard controller, a visual map and an elevation map. Due to the framework the robot acquires more information of the environment compared to the software of the manufacturer. This information can aid the robot in navigation. In chapter \ref{platform} and \ref{framework} the platform and framework will be explained.
 
 \subsection{Research questions and objectives}
-In robotics one goal is to develop mobile robots that can advance robustly and truly autonomously in real world situations. One of the main requirements is the ability to navigate autonomously. Since there is no GPS signal available in urban and indoor environment, robots need to rely on other sensors.
+In robotics one goal is to develop mobile robots that can advance robustly and truly autonomously in real world situations. One of the main requirements is the ability to navigate autonomously. Since there is no sufficient GPS signal available in urban and indoor environment, robots need to rely on other sensors.
 
 Line-following is proven to be a simple navigation task for ground robots. However, this navigation task is not implemented yet on unmanned aerial vehicles. Since there are various linear structures in the environment, line-following should be a suitable navigation technique.
 
@@ -216,13 +216,37 @@ The Canny Edge Detector \cite{Canny1986} is an edge detection operator that uses
 Calculus of variations, a mathematical technique that finds the optimal function, was applied to fulfil these requirements. The algorithm consists of the following four stages in order to reach edge detection: Noise reduction, finding the intensity gradient, non-maximum suppression and hysteresis threshold. These stages will be explained in the next sections.\\
 
 \noindent\textbf{Noise reduction}\\
-Noise reduction is applied to raw image data as the edge detector is sensitive to noise. Noise reduction can be realized by using convolution with a suitable kernel. The Canny edge detector uses a Gaussian kernel as this is a suitable kernel. This phenomenon is called Gaussian Smoothing (see appendix \ref{gaussiansmoothing}) and filters out the small distortions so these are not detected by the edge detector.\\
+Noise reduction is applied to raw image data as the edge detector is sensitive to noise. Noise reduction can be realized by using convolution with a suitable kernel. The Canny edge detector uses a Gaussian kernel as this is a suitable kernel. This phenomenon is called Gaussian Smoothing (see appendix \ref{gaussiansmoothing}) and filters out the small distortions so these are not detected by the edge detector. Gaussian Smoothing results into a smoothed image.\\
 
 \noindent\textbf{Finding the intensity gradient}\\
-After the noise reduction the directional change in color, gradient, for every pixel has to be found in the image. The gradient of every pixel in the image may point in a variety of directions. Therefore, the Canny Edge Detector uses four filters to detect horizontal, vertical and diagonal edges in the smoothed image. In order to find the gradient in the image the algorithm uses a edge detection operator, which takes the first derivative of the image that results in the gradient in horizontal direction $Gx$ and vertical direction $Gy$. There are a variety of edge detection operators and the one applied in this thesis is the Sobel operator\\
+After the noise reduction the directional change in intensity, the gradient, is calculated for every pixel  in the image. The gradient of every pixel in the image may point in a variety of directions. Therefore, the Canny Edge Detector uses four filters to detect horizontal, vertical and diagonal edges in the smoothed image. In order to find the gradient in the image the algorithm uses a edge detection operator, which takes the first derivative of the image that results in the gradient in horizontal direction $Gx$ and vertical direction $Gy$. There are a variety of edge detection operators and the one applied in this thesis is the Sobel operator. The Sobel operator convolves (see appendix \ref{gaussiansmoothing}) two $3\times3$ kernels with the image $A$ to find the horizontal $Gx$ and vertical  $Gy$ derivative, which is described in equation \ref{sobel}.
+\begin{equation}
+\label{sobel}
+Gx =
+\begin{bmatrix}
+-1 & 0 & 1\\
+-2 & 0 & 2\\
+-1 & 0 & 1
+\end{bmatrix}
+* A\ \ \ \ \ 
+Gy =
+\begin{bmatrix}
+-1 & -2 & -1\\
+0 & 0 & 0\\
+1 & 2 & 1
+\end{bmatrix}
+* A
+\end{equation}
+From the derivatives the gradient $G$ and direction $\Theta$ can be determined, this is illustrated in equation \ref{gradient}.
+\begin{equation}
+\label{gradient}
+G = \sqrt{G_x^2  + G_y^2}\ \ \ \ \ 
+\Theta = \arctan(\frac{G_x}{G_y})
+\end{equation}
+The directional angle is rounded to one of the four angles representing vertical, horizontal or the two diagonals in order to reduce computational costs of the algorithm.\\ 
 
 \noindent\textbf{Non-maximum suppression}\\
-To be written.\\
+Given the image gradient and direction estimates the algorithm seeks the local maxima in the gradient direction by looping over the image.\\
 
 \noindent\textbf{Hysteresis threshold}\\
 To be written.
