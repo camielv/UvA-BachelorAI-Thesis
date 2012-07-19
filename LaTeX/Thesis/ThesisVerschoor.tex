@@ -21,7 +21,7 @@
 \pagestyle{fancy}
 
 % Page numbering
-\lhead{Sensor Fusion on a mini Unmanned Vehicles}
+\lhead{Sensor Fusion on a mini Unmanned Vehicle}
 \cfoot{}
 \rfoot{\thepage}
 
@@ -273,7 +273,11 @@ Motion detection is a tool in Computer Vision that is applied to detect whether 
 Optical flow is the apparent motion between an observer and the environment. 
 \subsubsection{Background Subtraction}
 To be written.
-\subsection{Probabilistic Hough Line Transform}
+\subsection{Probabilistic Hough Transform}
+The Probabilistic Hough Transform \cite{Kiryati1991} is a feature extraction technique, which is similar to the Standard Hough Transform. After the pre-processing stage done in this case by a edge detector or a motion detector .
+
+
+
 To be written.
 \subsection{Tracking}
 To be written.
@@ -380,13 +384,43 @@ Integrating a new module in the framework is simple as this basically expands th
 
 \newpage
 \section{Experiments}
+\begin{itemize}
+\item Ontwerpbeslissing voor lijn vindenn
+\item Optimale configuratie camera
+\item Opstellingen
+\item Evaluatie criteria
+\begin{itemize}
+\item Frames met lijn
+\item Nauwkeurigheid directie van de lijn
+\end{itemize}
+\item Vaste datasets om goed te kunnen evaluaren zodat ik niet onnauwkeurigheid navigatie meeneem.
+\end{itemize}
+
 To be written.
 \section{Results}
-To be written.
+\begin{itemize}
+\item Tabellen met resultaten
+\item Gemiddelde afwijking
+\item Standaard derivatie
+\end{itemize}
 \section{Discussion}
-To be written.
+\begin{itemize}
+\item camera kijkt vooruit
+\item waarom resultaten zo zijn
+\end{itemize}
 \section{Conclusion}
-To be written.
+\begin{itemize}
+\item Optimaal algoritme bestaat niet
+\item Frame als indicatie gebruiken
+\item Future works
+\item Combinatie algoritme
+\item Testen in meer environments
+\item Meer algoritmes testen
+\item Meer Criteria
+\item Navigatie oplossen
+\item Tracking
+\item Evaluatie criterium navigatie
+\end{itemize}
 \newpage
 \begin{appendices}
 \section{Source code}
