@@ -8,7 +8,8 @@
 \BOOKMARK [3][-]{subsubsection.2.1.1}{Colour Filter}{subsection.2.1}
 \BOOKMARK [3][-]{subsubsection.2.1.2}{Canny Edge Detector}{subsection.2.1}
 \BOOKMARK [2][-]{subsection.2.2}{Motion Detector Algorithm}{section.2}
-\BOOKMARK [3][-]{subsubsection.2.2.1}{Motion detector}{subsection.2.2}
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Optical Flow}{subsection.2.2}
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Background Subtraction}{subsection.2.2}
 \BOOKMARK [2][-]{subsection.2.3}{Probabilistic Hough Line Transform}{section.2}
 \BOOKMARK [2][-]{subsection.2.4}{Tracking}{section.2}
 \BOOKMARK [2][-]{subsection.2.5}{Navigation}{section.2}
@@ -20,6 +21,8 @@
 \BOOKMARK [3][-]{subsubsection.4.2.2}{AR.Drone 2.0}{subsection.4.2}
 \BOOKMARK [2][-]{subsection.4.3}{Software Development Kit}{section.4}
 \BOOKMARK [1][-]{section.5}{Framework: AR.Drone SLAM}{}
+\BOOKMARK [2][-]{subsection.5.1}{Functionalities}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{Architecture}{section.5}
 \BOOKMARK [1][-]{section.6}{Experiments}{}
 \BOOKMARK [1][-]{section.7}{Results}{}
 \BOOKMARK [1][-]{section.8}{Discussion}{}

@@ -128,7 +128,7 @@ I would like to thank my supervisors Arnoud Visser and Gerald Poppinga for their
 \newpage
 \setcounter{page}{1}
 % SPACING
-\onehalfspace
+%\onehalfspace
 
 % INTRODUCTION
 \section{Introduction}
@@ -267,9 +267,11 @@ This is the final of the Canny Edge Detector and results into a boolean image re
 
 
 \subsection{Motion Detector Algorithm}
-Motion detection is a tool in Computer Vision that is applied to detect whether an object has changed its position relative to its surroundings or the surroundings have changed relative to an object. Motion can be detected by mechanical and electronic methods. Motion can be detected by various sensors such as: sound, ultrasonic and opacity. This thesis focuses on opacity as the platform has only a limited sensor suite (see chapter \ref{platform}). 
+Motion detection is a tool in Computer Vision that is applied to detect whether an object has changed its position relative to its surroundings or the surroundings have changed relative to an object. Motion can be detected by mechanical and electronic methods. This is done by various sensors such as: sound, ultrasonic and opacity. Motion can be detected electrically via optical or acoustical detection. This thesis focuses on optical motion detection from the front camera as the platform has only a limited sensor suite (see chapter \ref{platform}). This paper will focus on motion detection via optical flow and via background subtraction.
 
-\subsubsection{Motion detector}
+\subsubsection{Optical Flow}
+Optical flow is the apparent motion between an observer and the environment. 
+\subsubsection{Background Subtraction}
 To be written.
 \subsection{Probabilistic Hough Line Transform}
 To be written.
@@ -337,9 +339,46 @@ Parrot created a open source Software Development Kit (SDK) providing developers
 \end{enumerate}
 These four channels of communication can be used for designing intelligent applications for the AR.Drone.
 
+\newpage
 \section{Framework: AR.Drone SLAM}
 \label{framework}
-To be written.
+In this chapter, the functionality and architecture of the development framework AR.Drone SLAM \cite{Dijkshoorn2012} will be briefly described. The framework allows the performance of advanced tasks (ie. automated drone control) in real-time. The framework consists of an abstraction layer that allows the user to test methods in simulation and in real. The framework is built modular so new methods can be  easily integrated into the framework.
+\subsection{Functionalities}
+The framework has the following main functionalities:
+\begin{itemize}
+\item Object-oriented: the robot and the various methods are represented by objects.
+\item Abstraction: the framework can be used in a real and simulated environment.
+\item Replay: the framework is able to record and replay datasets.
+\item Independent sensor and data processing.
+\item Various controllers: keyboard and 3D mouse.
+\item Autonomous way-point navigation.
+\item Real-time 3D map visualization of the environment.
+\item Simple communication with AR.Drone
+\item Access to Computer Vision library OpenCV.
+\end{itemize}
+The simulated environment the framework has access to is  USARSim\footnote{\url{http://usarsim.sourceforge.net}}. USARSim is is a high-fidelity simulation of robots and environments based on the Unreal Tournament game engine. In USARSim a model of the AR.Drone is available and new environments can be created easily. Therefore, it allows methods to be evaluated in various environments. Furthermore, the framework has access to the AR.Drone via the provided SDK. This gives full control over the drone.
+
+Due to the functionalities of the framework it is suitable for developing and testing vision-based methods. This for the reason that a new module can simple be integrated into the framework. After the integration the method can then first be evaluated in simulation before testing it in real. This provides more certainty whether the developed method will work in real. Furthermore, the resources (ie. localization) the framework provides can aid the methods of navigation.
+
+\subsection{Architecture}
+The framework consists of several components, which are illustrated in figure \ref{frameworknick}. Here the various components will be described:
+\begin{description}
+\item[Main application] this is the place, where the configurations (ie. controller and environment) are set of the programme.
+\item[Bot] the main representation of a robot in the framework. The bot has access to all functionalities
+\item[Controllers] the behaviour, 3D mouse and keyboard controller are implemented here and control the drone.
+\item[Interfaces] the USARSim and ARDroneLib are the interfaces for the communication between the framework and the simulated or real AR.Drone.
+\item[Modules] the modules sensor, frame, modules and UI implement the various implemented functionalities of the framework.
+\item[Record/Playback] allows datasets to be recorded and replayed.
+\end{description}
+Integrating a new module in the framework is simple as this basically expands the functionality of the robot.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=\textwidth]{images/framework.png}
+\caption{Schematic overview \cite{Dijkshoorn2012} of the development framework AR.Drone SLAM}
+\label{frameworknick}
+\end{figure}
+
+\newpage
 \section{Experiments}
 To be written.
 \section{Results}
