@@ -274,18 +274,36 @@ Optical flow is the apparent motion between an observer and the environment.
 \subsubsection{Background Subtraction}
 To be written.
 \subsection{Probabilistic Hough Transform}
-The Probabilistic Hough Transform \cite{Kiryati1991} is a feature extraction technique, which is similar to the Standard Hough Transform. After the pre-processing stage done in this case by a edge detector or a motion detector .
-
-
-
-To be written.
+The Probabilistic Hough Transform (PHT) \cite{Kiryati1991} is a feature extraction technique, which is similar to the Standard Hough Transform (SHT). This method is applied after the pre-processing stage, which is in this case is done by a edge detector or a motion detector. Due to noise caused by the image data or pre-processing stage there may be missing points on the desired curve in the image. The goal of PHT is to address this problem by grouping edges into object candidates by performing a voting procedure over a set of parametrized image objects. In PHT lines are described in polar coordinates, distance $r$ and angle $\theta$. In the polar coordinate system $r$ is the length of the vector and $\theta$ is the angle between the origin and the vector pointing to the closest point on the line. The representation of the line in the polar coordinate system is as follows:
+\begin{equation}
+y = -\frac{\cos \theta}{sin \theta} x + \frac{r}{sin \theta}
+\end{equation}
+Every line is associated with a pair $(r,\theta)$, which is unique when $\theta \in [0, 2\pi]$ and $r \geq 0$. For every point (ie. $(x_0, y_0)$) in the image the lines that are go through are the following pairs $(r, \theta)$:
+\begin{equation}
+r(\theta) = x_0 \times \cos \theta + y_0 \times \sin \theta
+\end{equation}
+This results in a unique sinusoidal curve for every point in the $(r, \theta)$ plane. The sinusoidal curves of points that lay on the same line will have a joint intersection at the parameters for that line. All line candidates have to pass a threshold of intersections to be selected. In contrary with the SHT, PHT takes only a subset of the points found at the pre-processing stage. For this reason, PHT is computationally faster.
 \subsection{Tracking}
 To be written.
 \subsection{Navigation}
 To be written.
 \newpage
 \section{Related Work}
-One of the essential requirements of a autonomous robot is the ability of navigation in the real world environment. One of the main problems in navigation is that no sensor is reliable enough to function in every environment. The most commonly used sensor currently for outside navigation is the GPS. GPS receiver requires to receive data signals from four different satellites to be able to localize itself. Additionally, the measurements can contain errors due to the influences (ie. signal reflection) of the surrounding environment. Due to these restrictions GPS cannot operate inside buildings and in several outdoor urban environments. Therefore, to navigate through these environments other sensors and navigation techniques have to be investigated.\\
+This chapter gives an overview of the related research that has been done regarding autonomous navigation unmanned aerial vehicles. Small stable quadcopters have become affordable and research on this platform is moving towards more intelligent and autonomous applications. Various autonomous navigation methods have already been investigated in the field.
+
+\begin{description}
+\item[Corridor and Stair Following] Corridor following is a behaviour/task performed by robots for autonomous navigation in indoor environments (ie. the office). Recently, a new navigation method \cite{Bills2011} was introduced to navigate in the indoor environment based on single image perspective cues. This is in contrast with previous approaches where a 3D model is built before planning and control. This method first classifies the type of indoor environment and then the MAV navigates in the environment using vision algorithms based on perspective cue to estimate the desired direction. The environment is detected by using a confidence classifier, where estimates of the stair and corridor algorithm are used to compute the confidence values. The highest confidence value above a threshold is deemed as the current environment. The corridor and stair algorithm both use the the Canny edge detector and Probabilistic Hough Transform to acquire the line segments. The corridor algorithm then tries to determine the vanishing point in the image. The stair algorithm on the other hand tries to determine the middle of the stairs by looking at horizontal line segments of the stairs.
+
+These vision-based methods allow MAVs to traverse corridors, stairs and corners on the basis of a small, light-weight camera, which makes it suitable for MAV with payload and power restrictions.
+
+\item[Power Line Inspection]
+
+\item[Bio-inspired intelligence] \cite{Gerke2011]
+\end{description}
+
+%We consider the problem of autonomously flying Miniature Aerial Vehicles (MAVs) in indoor environments such as home and office buildings. The primary long range sensor in these MAVs is a miniature camera. While previous approaches first try to build a 3D model in order to do planning and control, our method neither attempts to build nor requires a 3D model. Instead, our method first classifies the type of indoor environment the MAV is in, and then uses vision algorithms based on perspective cues to estimate the desired direction to fly. We test our method on two MAV platforms: a co-axial miniature helicopter and a toy quadrotor. Our experiments show that our vision algorithms are quite reliable, and they enable our MAVs to fly in a variety of corridors and staircases.
+
+%One of the essential requirements of a autonomous robot is the ability of navigation in the real world environment. One of the main problems in navigation is that no sensor is reliable enough to function in every environment. The most commonly used sensor currently for outside navigation is the GPS. GPS receiver requires to receive data signals from at least four different satellites to be able to localize itself. Additionally, the measurements can contain errors due to the influences (ie. signal reflection) of the surrounding environment. Due to these restrictions GPS cannot operate inside buildings and in several outdoor urban environments. Therefore, to navigate through these environments other sensors and navigation techniques have to be investigated.
 
 More to be written.
 Comments:

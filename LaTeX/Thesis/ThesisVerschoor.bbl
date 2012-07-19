@@ -5,6 +5,13 @@ Bajaj, R., Ranaweera, S., and Agrawal, D. (2002).
 \newblock Gps: location-tracking technology.
 \newblock {\em Computer}, 35(4):92 --94.
 
+\bibitem[Bills et~al., 2011]{Bills2011}
+Bills, C., Chen, J., and Saxena, A. (2011).
+\newblock Autonomous mav flight in indoor environments using single image
+  perspective cues.
+\newblock In {\em Robotics and Automation (ICRA), 2011 IEEE International
+  Conference on}, pages 5776 --5783.
+
 \bibitem[Bradski and Kaehler, 2008]{Bradski2008}
 Bradski, G. and Kaehler, A. (2008).
 \newblock {\em Learning OpenCV}.
