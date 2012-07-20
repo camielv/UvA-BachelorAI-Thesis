@@ -270,6 +270,7 @@ This is the final of the Canny Edge Detector and results into a boolean image re
 Motion detection is a tool in Computer Vision that is applied to detect whether an object has changed its position relative to its surroundings or the surroundings have changed relative to an object. Motion can be detected by mechanical and electronic methods. This is done by various sensors such as: sound, ultrasonic and opacity. Motion can be detected electrically via optical or acoustical detection. This thesis focuses on optical motion detection from the front camera as the platform has only a limited sensor suite (see chapter \ref{platform}). This paper will focus on motion detection via optical flow and via background subtraction.
 
 \subsubsection{Optical Flow}
+\label{opticalflow}
 Optical flow is the apparent motion between an observer and the environment. 
 \subsubsection{Background Subtraction}
 To be written.
@@ -292,32 +293,27 @@ To be written.
 This chapter gives an overview of the related research that has been done regarding autonomous navigation unmanned aerial vehicles. Small stable quadcopters have become affordable and research on this platform is moving towards more intelligent and autonomous applications. Various autonomous navigation methods have already been investigated in the field.
 
 \begin{description}
-\item[Corridor and Stair Following] Corridor following is a behaviour/task performed by robots for autonomous navigation in indoor environments (ie. the office). Recently, a new navigation method \cite{Bills2011} was introduced to navigate in the indoor environment based on single image perspective cues. This is in contrast with previous approaches where a 3D model is built before planning and control. This method first classifies the type of indoor environment and then the MAV navigates in the environment using vision algorithms based on perspective cue to estimate the desired direction. The environment is detected by using a confidence classifier, where estimates of the stair and corridor algorithm are used to compute the confidence values. The highest confidence value above a threshold is deemed as the current environment. The corridor and stair algorithm both use the the Canny edge detector and Probabilistic Hough Transform to acquire the line segments. The corridor algorithm then tries to determine the vanishing point in the image. The stair algorithm on the other hand tries to determine the middle of the stairs by looking at horizontal line segments of the stairs.
+\item[Corridor and Stair Following] Corridor following is a task performed by robots for autonomous navigation in indoor environments (ie. the office). Recently, a new navigation method for the MAV \cite{Bills2011} was introduced to navigate in the indoor environment based on single image perspective cues. This is in contrast with previous approaches where a 3D model is built before planning and control. This method first classifies the type of indoor environment and then the MAV navigates through the environment using vision algorithms based on perspective cues to estimate the desired direction. The environment is detected through a confidence classifier, where estimates of the stair and corridor algorithms are used to compute the confidence values. The highest confidence value, above a threshold, is deemed as the current environment. The corridor and stair algorithm both use the the Canny edge detector and Probabilistic Hough Transform to acquire the line segments. The corridor algorithm then tries to determine the vanishing point in the image. The stair algorithm on the other hand tries to determine the middle of the stairs by looking at horizontal line segments of the stairs.
 
-These vision-based methods allow MAVs to traverse corridors, stairs and corners on the basis of a small, light-weight camera, which makes it suitable for MAV with payload and power restrictions.
+These vision-based methods allow MAVs to traverse corridors, stairs and corners on the basis of a small, light-weight camera, which makes them suitable for MAV with payload and power restrictions.
 
-\item[Power Line Inspection]
+\item[Power Line Inspection] Power line inspection is an essential task for the maintenance of the electric grids, which is difficult due to the range of grid distributions. Over last years rapid development has been made owing to the need for fast, accurate, safe and low-cost power line inspection \cite{Katrasnik2010}. One of the main requirements of power line inspection robot is to be able to maintain its position above the power line and to navigate over the power line. A vision-based power line following method has already been proposed \cite{Golightly2005}. This algorithm makes use of the Hough Transform to detect the line segments in the image. On the basis of the vertical line segments the position of the system is adjusted. The main advantage of power line inspection is that the MAV is able to follow three lines, namely, the conductor. Therefore, it is easier to navigate over power lines as when one of the conductors is not detected, the MAV can adjust its position according to the other two.
 
-\item[Bio-inspired intelligence] \cite{Gerke2011]
+Another recent approach \cite{Zhengrong2008} in power line following is to apply a Pulse-Coupled Neural Network (PCNN) to remove the background in the image. Thereafter use the Hough Transform to detect the line segments and then k-means clustering is employed to discriminate power lines from other straight lines. The PCCN filter is a biological inspired approach based on the understanding of visual cortical models of small mammals. The PCCN filter is a great potential due to the low computational costs.
+
+\item[Road-Following] Road-Following is a task performed by robots for autonomous navigation in outdoor environments. Small autonomous aircraft \cite{Frew2004} have already been able to follow a road based on real-time road detection and localization. The algorithm uses multiple vision-based method to detect the road and the lane markings. First the Bayesian Pixel Classifier is applied on every pixel to see whether it belongs to the road. The classifier makes use of a database of RGB values of over 20000 pixels. Then connected-component analysis is used by labelling pixels in order to remove noise in the image and detect connected regions. After detecting the road in the image the lane markings are detected by the Bayesian pixel classification algorithm. Then a Hough Transformation is applied to test multiple candidate lanes. This result in a rough discretization of the lan. Lastly, robust line fitting, least-trimmed square, is applied to finalize the position and orientation of the center lane markings. This resulted into encouraging results, however, improvements of the algorithm can still be made.
+
+\item[Obstacle avoidance] Obstacle avoidance is a task of satisfying some control objective subject to non-collision position constraints. In obstacle avoidance the UAV requires to navigate around the obstacle to its objective. A recent approach was to achieve obstacle avoidance by a visual Fuzzy Logic serving system \cite{Miguel2012}. The vehicle obtains images from the front camera and processes them with the Camshift algorithm, a algorithm that is used to track a defined colour. Depending on the output of the vision system the Fuzzy Logic controller gives controls to the UAV.
+
+Non-knowledge based methods have also been investigated for obstacle avoidance \cite{Jurriaans2011}. The proposed method, discussed in section \ref{opticalflow}, is able to navigate through corridors and to avoid obstacles. 
+
+\item[Elementary Motion Detectors] A approach last year during the IMAV competition by the BioMAV team \cite{Gerke2011} was to combine motion information provided by Elementary Movement Detectors (EMDs) with edge detection. EMDs are useful for UAVs due to the detection of temporal and motion effects caused by the flight. In combination with edge detection this method filters out noise caused by contrast differences in the image. From this cleaned image  objects were detected by using a hough transform.
 \end{description}
-
-%We consider the problem of autonomously flying Miniature Aerial Vehicles (MAVs) in indoor environments such as home and office buildings. The primary long range sensor in these MAVs is a miniature camera. While previous approaches first try to build a 3D model in order to do planning and control, our method neither attempts to build nor requires a 3D model. Instead, our method first classifies the type of indoor environment the MAV is in, and then uses vision algorithms based on perspective cues to estimate the desired direction to fly. We test our method on two MAV platforms: a co-axial miniature helicopter and a toy quadrotor. Our experiments show that our vision algorithms are quite reliable, and they enable our MAVs to fly in a variety of corridors and staircases.
-
-%One of the essential requirements of a autonomous robot is the ability of navigation in the real world environment. One of the main problems in navigation is that no sensor is reliable enough to function in every environment. The most commonly used sensor currently for outside navigation is the GPS. GPS receiver requires to receive data signals from at least four different satellites to be able to localize itself. Additionally, the measurements can contain errors due to the influences (ie. signal reflection) of the surrounding environment. Due to these restrictions GPS cannot operate inside buildings and in several outdoor urban environments. Therefore, to navigate through these environments other sensors and navigation techniques have to be investigated.
-
-More to be written.
-Comments:
-Ik mis o.a. Bills et al ICRA 2011 (following corridors with an AR.Drone) en de artikelen die naar Bills verwijzen.
-Een andere mogelijkheid is het onderzoek gerelateerd aan UUV die pipelines volgen.
-Ik wil in ieder geval hier een opsomming van de artikelen die je wil gaan bespreken.
-
 \newpage
 \section{Platform: Parrot AR.Drone}
 \label{platform}
 One of the basic steps for the development and testing of intelligent applications in robotics is to find an applicable robot platform for the defined problem. A common choice is to use a quadcopter, which is  mainly designed to be a Unmanned Aerial Vehicle (UAV). The small size and manoeuvrability allows both indoor and outdoor flights. Moreover, quadcopters have a simple design due to the fact that they do not require mechanical connections to vary the pitch angle of rotor blade.
-
 As a result of technological developments in aerospace engineering of UAV's, a small quadcopter with on-board stabilization can be purchased conveniently. Because of this, research regarding this platform is moving towards more intelligent applications, which demand information of the surrounding environment. The specific platform selected for the experiments in this research is the Parrot AR.Drone quadcopter. The advantages of this platform are its on-board stabilization, lightweight and the affordable price of the platform. The AR.Drone is carrying a front and bottom camera that provide live video streaming through the data link. Additionally, it has an ultrasound sensor and an inertial measurement unit that measures the pitch, roll, yaw and accelerations of the platform. The platform is controlled via WiFi, which allows the user to send commands and receive data of the platform.
-
 In this chapter, the AR.Drone platform is described. The operational part of te platform is discussed, the hardware the platform contains is described and the software development kit is briefly described.
 
 \subsection{Quadcopter}
@@ -402,6 +398,7 @@ Integrating a new module in the framework is simple as this basically expands th
 
 \newpage
 \section{Experiments}
+This chapter describes the experiments 
 \begin{itemize}
 \item Ontwerpbeslissing voor lijn vindenn
 \item Optimale configuratie camera
@@ -439,6 +436,7 @@ To be written.
 \item Tracking
 \item Evaluatie criterium navigatie
 \end{itemize}
+\subsection{Future works}
 \newpage
 \begin{appendices}
 \section{Source code}

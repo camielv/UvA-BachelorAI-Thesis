@@ -34,6 +34,27 @@ Dupuis, J. and Parizeau, M. (2006).
 \newblock In {\em Computer and Robot Vision, 2006. The 3rd Canadian Conference
   on}, page~75.
 
+\bibitem[Frew et~al., 2004]{Frew2004}
+Frew, E., McGee, T., Kim, Z., Xiao, X., Jackson, S., Morimoto, M., Rathinam,
+  S., Padial, J., and Sengupta, R. (2004).
+\newblock Vision-based road-following using a small autonomous aircraft.
+\newblock (3).
+
+\bibitem[Gerke et~al., 2011]{Gerke2011}
+Gerke, P., Langevoort, J., Lagarde, S., Bax, L., Grootswagers, T., Drenth,
+  R.-J., Slieker, V., Vuurpijl, L., Haselager, P., Sprinkhuizen-Kuyper, I.,
+  Otterlo, M., and de~Croon, G. (2011).
+\newblock Biomav: bio-inspired intelligence for autonomous flight.
+\newblock In {\em Proceedings of the International Micro Air Vehicle conference
+  and competitions, 12-15 September (IMAV 2011)}.
+
+\bibitem[Golightly and Jones, 2005]{Golightly2005}
+Golightly, I. and Jones, D. (2005).
+\newblock Visual control of an unmanned aerial vehicle for power line
+  inspection.
+\newblock In {\em Advanced Robotics, 2005. ICAR '05. Proceedings., 12th
+  International Conference on}, pages 288 --295.
+
 \bibitem[Grasmeyer et~al., 2001]{Grasmeyer2001}
 Grasmeyer, J.~M., Keennon, M.~T., and Inc, A. (2001).
 \newblock Development of the black widow micro air vehicle.
@@ -45,6 +66,11 @@ Jurriaans, R. (2011).
   navigation tasks.
 \newblock Bachelor's thesis, Universiteit van Amsterdam.
 
+\bibitem[Katrasnik et~al., 2010]{Katrasnik2010}
+Katrasnik, J., Pernus, F., and Likar, B. (2010).
+\newblock A survey of mobile robots for distribution power line inspection.
+\newblock {\em Power Delivery, IEEE Transactions on}, 25(1):485 --493.
+
 \bibitem[Kiryati et~al., 1991]{Kiryati1991}
 Kiryati, N., Eldar, Y., and Bruckstein, A. (1991).
 \newblock A probabilistic hough transform.
@@ -55,6 +81,21 @@ Krajn{\'\i}k, T., Von{\' a}sek, V., Fi{\v s}er, D., and Faigl, J. (2011).
 \newblock {AR-Drone as a Robotic Platform for Research and Education}.
 \newblock In {\em {International Conference on Research and Education in
   Robotics}}, Heidelberg. Springer.
+
+\bibitem[Li et~al., 2008]{Zhengrong2008}
+Li, Z., Liu, Y., Hayward, R., Zhang, J., and Cai, J. (2008).
+\newblock Knowledge-based power line detection for uav surveillance and
+  inspection systems.
+\newblock In {\em Image and Vision Computing New Zealand, 2008. IVCNZ 2008.
+  23rd International Conference}, pages 1 --6.
+
+\bibitem[Olivares-Mendez et~al., 2012]{Miguel2012}
+Olivares-Mendez, M.~A., Mejias, L., Campoy, P., and Mellado-Bataller, I.
+  (2012).
+\newblock Quadcopter see and avoid using a fuzzy controller.
+\newblock In {\em The 10th International FLINS Conference on Uncertainty
+  Modeling in Knowledge Engineering and Decision Making (FLINS 2012)},
+  Istanbul, Turkey. World Scientific.
 
 \bibitem[Sampei et~al., 1995]{Sampei1995}
 Sampei, M., Tamura, T., Kobayashi, T., and Shibui, N. (1995).
