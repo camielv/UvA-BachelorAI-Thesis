@@ -118,12 +118,13 @@ Photo by: \href{http://ardrone.parrot.com/album/}{Parrot SA}
 \thispagestyle{empty}
 \section*{Abstract}
 To be written.
+\vfill
 \section*{Acknowledgements}
 I would like to thank my supervisors Arnoud Visser and Gerald Poppinga for their support and guidance. Furthermore, I am grateful to Nick Dijkshoorn for the distribution of his development framework, AR.Drone SLAM, and his support installing it. I also like to thank Robrecht Jurriaans for borrowing his AR.Drone. Likewise, I would like to thank Rob van Holstein for the construction of a 3D model of the frame that is holing the mirror. Moreover, I like to thank Christian Muller for helping collecting the dataset and learning me to fly a quadcopter manually. Furthermore, I am grateful to the National Aerospace Lab for the internship and the visit to the International Micro Aerial Vehicle Conference and Competitions. Lastly, I am thankful to my girlfriend and my family for their support and encouragement.
 \newpage
 
 % TABLE OF CONTENTS
-%\thispagestyle{empty}
+\thispagestyle{empty}
 \tableofcontents
 \newpage
 \setcounter{page}{1}
@@ -161,6 +162,7 @@ The Parrot AR.Drone (figure \ref{ardrone}) is a wireless controlled flying quadc
 AR.Drone SLAM \cite{Dijkshoorn2012} is a development framework for the Parrot AR.Drone, a quadcopter, developed and proposed by N. Dijkshoorn. This framework contains a real-time Simultaneous Localization and Mapping (SLAM) implementation based on a down-pointing camera. Therefore, it allows a MAV to know its position and movement in the environment by generating a feature map of the environment so the MAV can localize itself on this map. Furthermore, the framework contains a 3D mouse controller, a keyboard controller, a visual map and an elevation map. Due to the framework the robot acquires more information of the environment compared to the software of the manufacturer. This information can aid the robot in navigation. In chapter \ref{platform} and \ref{framework} the platform and framework will be explained.
 
 \subsection{Research questions and objectives}
+\label{researchquestion}
 In robotics one goal is to develop mobile robots that can advance robustly and truly autonomously in real world situations. One of the main requirements is the ability to navigate autonomously. Since there is no sufficient GPS signal available in urban and indoor environment, robots need to rely on other sensors.
 
 Line-following is proven to be a simple navigation task for ground robots. However, this navigation task is not implemented yet on unmanned aerial vehicles. Since there are various linear structures in the environment, line-following should be a suitable navigation technique.
@@ -397,8 +399,19 @@ Integrating a new module in the framework is simple as this basically expands th
 \end{figure}
 
 \newpage
-\section{Experiments}
-This chapter describes the experiments 
+\section{Experiments and Methods}
+This chapter describes the experiments and methods that lead to autonomous line-following. The proposed experiments and methods aid to answer the determined research questions (see chapter \ref{researchquestion}). The various designer choices, configurations, datasets and evaluation criteria will be discussed in this chapter.
+
+\subsection{Optimal Camera Configuration}
+In order to perform vision-based line-following navigation the optimal camera configuration has to be determined. In the current configuration of the AR.Drone (see chapter \ref{platform}) it has a bottom and front camera. For optimal line-following navigation the camera has to point obliquely to the ground in front of the MAV. This for the reason that the platform should look ahead of itself so it can adjust itself on time. Neither the bottom or front camera provide this view as the bottom camera has a small field of view and the front camera looks to far ahead. This makes it impossible for the drone to navigate over a line as the platform cannot adjust itself in time to changes or not even able to detect the line. Therefore, the current configuration of the cameras is not suitable for navigation.
+
+Paragraaf over hoek e.d.
+
+This thesis tested the following two solutions to solve this problem:
+\begin{description}
+\item[Mirror construction] A mirror construction that changes the view of the front camera. This construction can be placed on top of the front camera. The mirror has an angle towards the ground, which gives the camera the mirrored ahead view.
+\item[Modification of AR.Drone] Modify the position of the front camera. Due to the fact that the AR.Drone is made from styrofoam its simple to modify the angle of the front camera. By cutting away some styrofoam its possible to set the camera under a certain angle.
+\end{description}
 \begin{itemize}
 \item Ontwerpbeslissing voor lijn vindenn
 \item Optimale configuratie camera
@@ -411,23 +424,29 @@ This chapter describes the experiments
 \item Vaste datasets om goed te kunnen evaluaren zodat ik niet onnauwkeurigheid navigatie meeneem.
 \end{itemize}
 
-To be written.
+\newpage 
 \section{Results}
 \begin{itemize}
 \item Tabellen met resultaten
 \item Gemiddelde afwijking
 \item Standaard derivatie
 \end{itemize}
+
+\newpage
 \section{Discussion}
 \begin{itemize}
 \item camera kijkt vooruit
 \item waarom resultaten zo zijn
 \end{itemize}
+
+\newpage
 \section{Conclusion}
 \begin{itemize}
 \item Optimaal algoritme bestaat niet
 \item Frame als indicatie gebruiken
-\item Future works
+\end{itemize}
+\subsection{Future works}
+\begin{itemize}
 \item Combinatie algoritme
 \item Testen in meer environments
 \item Meer algoritmes testen
@@ -436,7 +455,6 @@ To be written.
 \item Tracking
 \item Evaluatie criterium navigatie
 \end{itemize}
-\subsection{Future works}
 \newpage
 \begin{appendices}
 \section{Source code}
@@ -475,6 +493,7 @@ The most suitable kernel for an optimal convolution is the Gaussian function due
 G(x,y) = \frac{1}{2\pi\sigma^2}e^{\frac{x^2 + y^2}{2\sigma^2}}
 \end{equation*}
 
+\newpage
 \section{Ascending Technologies Pelican}
 \label{pelican}
 To be written.

@@ -23,12 +23,14 @@
 \BOOKMARK [1][-]{section.5}{Framework: AR.Drone SLAM}{}% 23
 \BOOKMARK [2][-]{subsection.5.1}{Functionalities}{section.5}% 24
 \BOOKMARK [2][-]{subsection.5.2}{Architecture}{section.5}% 25
-\BOOKMARK [1][-]{section.6}{Experiments}{}% 26
-\BOOKMARK [1][-]{section.7}{Results}{}% 27
-\BOOKMARK [1][-]{section.8}{Discussion}{}% 28
-\BOOKMARK [1][-]{section.9}{Conclusion}{}% 29
-\BOOKMARK [1][-]{section*.5}{Appendices}{}% 30
-\BOOKMARK [1][-]{Appendix.1.A}{Source code}{}% 31
-\BOOKMARK [1][-]{Appendix.1.B}{Gaussian Smoothing}{}% 32
-\BOOKMARK [1][-]{Appendix.1.C}{Ascending Technologies Pelican}{}% 33
-\BOOKMARK [1][-]{section.10}{Bibliography}{}% 34
+\BOOKMARK [1][-]{section.6}{Experiments and Methods}{}% 26
+\BOOKMARK [2][-]{subsection.6.1}{Optimal Camera Configuration}{section.6}% 27
+\BOOKMARK [1][-]{section.7}{Results}{}% 28
+\BOOKMARK [1][-]{section.8}{Discussion}{}% 29
+\BOOKMARK [1][-]{section.9}{Conclusion}{}% 30
+\BOOKMARK [2][-]{subsection.9.1}{Future works}{section.9}% 31
+\BOOKMARK [1][-]{section*.5}{Appendices}{}% 32
+\BOOKMARK [1][-]{Appendix.1.A}{Source code}{}% 33
+\BOOKMARK [1][-]{Appendix.1.B}{Gaussian Smoothing}{}% 34
+\BOOKMARK [1][-]{Appendix.1.C}{Ascending Technologies Pelican}{}% 35
+\BOOKMARK [1][-]{section.10}{Bibliography}{}% 36
