@@ -177,7 +177,7 @@ Therefore, the main research question is to find a robust vision-based approach 
 	\end{itemize}
 \item What is the performance and robustness of different vision-based methods to navigation over a linear structure in a indoor environment?
 \end{itemize}
-In order to perform line-following navigation, first, a line should be detected. Secondly, the angle between the quadrotor and the line is calculated. Finally, the quadrotor adjusts its movements in order to navigate over the line. These steps are repeated until the end of the line has been reached.
+In this paper the quality of a edge detection and a motion detection algorithm will be examined to provide an essential component to autonomous behaviour using one camera.
 
 % TODO: BETER
 \subsection{Outline}
@@ -259,23 +259,37 @@ The large intensity gradients are more probable to correlate to edges than small
 \end{itemize}
 This is the final of the Canny Edge Detector and results into a boolean image representing the edges in the image.
 
-\begin{figure}
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.3\textwidth]{images/gauss_orig.jpg}
+\includegraphics[width=0.3\textwidth]{images/gauss_21.png}
+\includegraphics[width=0.3\textwidth]{images/canny.png}
 
-[Insert image]
-
-\caption{Left: original image. Middle: smoothed image. Right: Edge image produced by the Canny Edge Detector}
+\caption{Left: Original image. Middle: Smoothed image. Right: Canny Edge Detector}
 \label{canny}
 \end{figure}
 
 
 \subsection{Motion Detector Algorithm}
-Motion detection is a tool in Computer Vision that is applied to detect whether an object has changed its position relative to its surroundings or the surroundings have changed relative to an object. Motion can be detected by mechanical and electronic methods. This is done by various sensors such as: sound, ultrasonic and opacity. Motion can be detected electrically via optical or acoustical detection. This thesis focuses on optical motion detection from the front camera as the platform has only a limited sensor suite (see chapter \ref{platform}). This paper will focus on motion detection via optical flow and via background subtraction.
+Motion detection is a tool in Computer Vision that is applied to detect whether an object has changed its position relative to its surroundings or the surroundings have changed relative to an object. Motion can be detected by mechanical and electronic methods. This is done by various sensors such as: sound, ultrasonic and opacity. Motion can be detected electrically via optical or acoustical detection. This thesis focuses on optical motion detection from the front camera as the platform has only a limited sensor suite (see chapter \ref{platform}). This paper will focus on a algorithm that has been investigated for obstacle avoidance for the AR-Drone \cite{Jurriaans2011}. In this approach the Optical Flow is calculated over a set of images. The resulting vectors were are to calculate the fundamental matrix using RANSAC, which serves as the input for the Hartley algorithm that generates a disparity map. This algorithm is explained in the following sections.
+
+\subsubsection{Shi-Thomasi}
+To find the optical flow in a set of images features have to be extracted from the current frame and be found in the next frame. An possible algorithm that can provide decent features is the Shi-Tomasi algorithm. It proposes the tracking of corners and defines a good feature in the same manner as Harris, which relies on second-derivatives of image intensities. Calculating the autocorrelation of the second derivative over small windows around each point gives description of the window. According to Shi and Tomasi a good corner could be described by their eigenvalues. A good corner has eigenvalues that are greater than a minimum threshold.
+
+As the images have a low resolution, the sub-pixel corner locations are calculated as the intensity peak is almost never centred on a pixel. By fitting a parabola on the intensity of the window and find the maximum of this parabola to determining the sub-pixel location.
 
 \subsubsection{Optical Flow}
 \label{opticalflow}
 Optical flow is the apparent motion between an observer and the environment. 
-\subsubsection{Background Subtraction}
+
+
+
+\subsubsection{RANSAC}
 To be written.
+
+\subsubsection{Hartley´s algorithm}
+To be written.
+
 \subsection{Probabilistic Hough Transform}
 The Probabilistic Hough Transform (PHT) \cite{Kiryati1991} is a feature extraction technique, which is similar to the Standard Hough Transform (SHT). This method is applied after the pre-processing stage, which is in this case is done by a edge detector or a motion detector. Due to noise caused by the image data or pre-processing stage there may be missing points on the desired curve in the image. The goal of PHT is to address this problem by grouping edges into object candidates by performing a voting procedure over a set of parametrized image objects. In PHT lines are described in polar coordinates, distance $r$ and angle $\theta$. In the polar coordinate system $r$ is the length of the vector and $\theta$ is the angle between the origin and the vector pointing to the closest point on the line. The representation of the line in the polar coordinate system is as follows:
 \begin{equation}
@@ -286,10 +300,12 @@ Every line is associated with a pair $(r,\theta)$, which is unique when $\theta 
 r(\theta) = x_0 \times \cos \theta + y_0 \times \sin \theta
 \end{equation}
 This results in a unique sinusoidal curve for every point in the $(r, \theta)$ plane. The sinusoidal curves of points that lay on the same line will have a joint intersection at the parameters for that line. All line candidates have to pass a threshold of intersections to be selected. In contrary with the SHT, PHT takes only a subset of the points found at the pre-processing stage. For this reason, PHT is computationally faster.
-\subsection{Tracking}
-To be written.
 \subsection{Navigation}
 To be written.
+
+\subsection{Tracking}
+To be written.
+
 \newpage
 \section{Related Work}
 This chapter gives an overview of the related research that has been done regarding autonomous navigation unmanned aerial vehicles. Small stable quadcopters have become affordable and research on this platform is moving towards more intelligent and autonomous applications. Various autonomous navigation methods have already been investigated in the field.
@@ -402,16 +418,31 @@ Integrating a new module in the framework is simple as this basically expands th
 \section{Methods and Experiments}
 This chapter describes the methods and experiments that lead to autonomous line-following. The proposed methods and experiments aid to answer the previously determined research questions (see chapter \ref{researchquestion}). The various designer choices, configurations, datasets and evaluation criteria will be discussed in this chapter.
 
+\subsection{Platform}
+For this paper, the Ascending Technologies Pelican (see appendix \ref{pelican}) and Parrot AR.Drone (see chapter \ref{platform}) were both considered for the evaluation of the vision-based algorithms. To evaluate the algorithms a stable platform with on-board stabilization was required. The Pelican has several advantages such as: on-board processing, modular design and high payload. However, the system has no indoor on-board stabilization and had technological difficulties with the wireless connection. Therefore, the Parrot AR.Drone was chosen to perform during the experiments.
+
 \subsection{Optimal Camera Configuration}
-In order to perform vision-based line-following navigation the optimal camera configuration has to be determined. In the current configuration of the AR.Drone (see chapter \ref{platform}) it has a bottom and front camera. For optimal line-following navigation the camera has to point obliquely to the ground in front of the MAV. This for the reason that the platform should look ahead of itself so it can adjust itself on time. Neither the bottom or front camera provide this view as the bottom camera has a small field of view and the front camera looks to far ahead. This makes it impossible for the drone to navigate over a line as the platform cannot adjust itself in time to changes or not even able to detect the line. Therefore, the current configuration of the cameras is not suitable for navigation.
+In order to perform vision-based line-following navigation the optimal camera configuration has to be determined. In the current configuration of the AR.Drone it has a bottom and front camera. For optimal line-following navigation the camera has to point obliquely to the ground in front of the MAV. This for the reason that the platform should look ahead of itself so it can adjust itself on time. Neither the bottom or front camera provide this view as the bottom camera has a small field of view and the front camera looks to far ahead. This makes it impossible for the drone to navigate over a line as the platform cannot adjust itself in time to changes or not even able to detect the line. Therefore, the current configuration of the cameras is not suitable for navigation.
 
-Paragraaf over hoek e.d.
-
-This thesis tested the following two solutions to solve this problem:
+The optimal solution for the camera configuration would be the pan-tilt camera of the Pelican. The pan-tilt camera can change the angle of the camera and therefore suitable for flying at various altitudes. Since the experiments are only indoors the platform only flies at altitudes between 1-2 metres. Therefore, a angle of approximately 45$^{\circ}$ is considered and tested in this paper. In order to change the angle this thesis constructed and tested the following two solutions to change the angle:
 \begin{description}
 \item[Mirror construction] A mirror construction that changes the view of the front camera. This construction can be placed on top of the front camera. The mirror has an angle towards the ground, which gives the camera the mirrored ahead view.
-\item[Modification of AR.Drone] Modify the position of the front camera. Due to the fact that the AR.Drone is made from styrofoam its simple to modify the angle of the front camera. By cutting away some styrofoam its possible to set the camera under a certain angle.
+\item[Modification of AR.Drone] Modify the position of the front camera. Due to the fact that the AR.Drone is made from styrofoam its simple to modify the angle of the front camera. By cutting away styrofoam its possible to set the camera under a different angle.
 \end{description}
+\subsection{Determining line to follow}
+
+\subsection{Experiments}
+To compare the two vision-based algorithms two types of experiments have been designed. The experiments (see figure \ref{experiments}) challenge both the algorithms. In experiment one the weakness of the motion detection algorithm is challenged by putting a orange line on the ground, while in experiment two the edge detection algorithm is challenged by hanging a blue coloured line in the air with a blue background.
+\begin{figure}
+\centering
+\includegraphics[width=0.3\textwidth]{images/experiment1.jpg}
+\includegraphics[width=0.3\textwidth]{images/experiment2.jpg}
+\caption{Left: Setup of experiment one. Right: Setup of experiment two}
+\label{experiments}
+\end{figure}
+\subsection{Evaluation Criteria}
+
+\subsection{Hypothesis}
 \begin{itemize}
 \item Ontwerpbeslissing voor lijn vindenn
 \item Optimale configuratie camera
@@ -425,15 +456,12 @@ This thesis tested the following two solutions to solve this problem:
 \end{itemize}
 
 \newpage 
-\section{Results}
+\section{Results and Discussion}
 \begin{itemize}
 \item Tabellen met resultaten
 \item Gemiddelde afwijking
 \item Standaard derivatie
 \end{itemize}
-
-\newpage
-\section{Discussion}
 \begin{itemize}
 \item camera kijkt vooruit
 \item waarom resultaten zo zijn
@@ -480,10 +508,10 @@ The integral expresses the amount of overlap of function $g(x)$
 due the shift over the other function $f(x)$. This causes one function to blend with the other. The convolution operator contains the following algebraic properties: commutativity, associativity and distributivity. Convolution is commonly applied in computer vision in order to detect edges in a image. In figure \ref{gaussianblur} a example of a convolution with the Gaussian Kernel is illustrated.
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.22\textwidth]{images/gaussianblur_before.jpg}
-\includegraphics[width=0.22\textwidth]{images/gaussianblur_after1.jpg}
-\includegraphics[width=0.22\textwidth]{images/gaussianblur_after2.jpg}
-\caption[Gaussian Blur]{Left: original. Middle and right: Gaussian Blur of 1.2 and 2.5 pixels. Images by \href{http://www.websupergoo.com/helpie/}{WebSupergoo}}.
+\includegraphics[width=0.3\textwidth]{images/gauss_orig.jpg}
+\includegraphics[width=0.3\textwidth]{images/gauss_11.png}
+\includegraphics[width=0.3\textwidth]{images/gauss_21.png}
+\caption[Gaussian Blur]{Left: original. Middle and right: Gaussian Blur of 11 and 22 pixels.}
 \label{gaussianblur}
 \end{figure}
 
