@@ -14,8 +14,8 @@
 \BOOKMARK [3][-]{subsubsection.2.2.4}{Hartley's algorithm}{subsection.2.2}
 \BOOKMARK [3][-]{subsubsection.2.2.5}{Stereo Matching}{subsection.2.2}
 \BOOKMARK [2][-]{subsection.2.3}{Probabilistic Hough Transform}{section.2}
-\BOOKMARK [2][-]{subsection.2.4}{Navigation}{section.2}
-\BOOKMARK [2][-]{subsection.2.5}{Tracking}{section.2}
+\BOOKMARK [2][-]{subsection.2.4}{Tracking}{section.2}
+\BOOKMARK [2][-]{subsection.2.5}{Navigation}{section.2}
 \BOOKMARK [1][-]{section.3}{Related Work}{}
 \BOOKMARK [1][-]{section.4}{Platform: Parrot AR.Drone}{}
 \BOOKMARK [2][-]{subsection.4.1}{Quadcopter}{section.4}

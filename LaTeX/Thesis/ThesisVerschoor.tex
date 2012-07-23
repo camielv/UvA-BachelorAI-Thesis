@@ -360,7 +360,7 @@ H_r = \begin{bmatrix}
 The homography of the left epipole can be determined by aligning the rows. Aligning by minimizing the total distance between all matching points in the frames.
 
 \subsubsection{Stereo Matching}
-After calculating the fundamental matrix the disparity map can be computed between the two frames. In order to compute the disparity map, a stereo matching algorithm has to be performed. This paper uses fast one-pass stereo matching algorithm [???]. The algorithm uses sliding sums of absolute differences between pixels in the left image, while the pixels in the right image are shifted by some varying amount of pixels.
+After calculating the fundamental matrix the disparity map can be computed between the two frames. In order to compute the disparity map, a stereo matching algorithm has to be performed. This paper uses a fast one-pass stereo matching algorithm [???]. The algorithm uses sliding sums of absolute differences between pixels in the left image, while the pixels in the right image are shifted by some varying amount of pixels.
 
 \subsection{Probabilistic Hough Transform}
 The Probabilistic Hough Transform (PHT) \cite{Kiryati1991} is a feature extraction technique, which is similar to the Standard Hough Transform (SHT). This method is applied after the pre-processing stage, which is in this case is done by a edge detector or a motion detector. Due to noise caused by the image data or pre-processing stage there may be missing points on the desired curve in the image. The goal of PHT is to address this problem by grouping edges into object candidates by performing a voting procedure over a set of parametrized image objects. In PHT lines are described in polar coordinates, distance $r$ and angle $\theta$. In the polar coordinate system $r$ is the length of the vector and $\theta$ is the angle between the origin and the vector pointing to the closest point on the line. The representation of the line in the polar coordinate system is as follows:
@@ -372,11 +372,20 @@ Every line is associated with a pair $(r,\theta)$, which is unique when $\theta 
 r(\theta) = x_0 \times \cos \theta + y_0 \times \sin \theta
 \end{equation}
 This results in a unique sinusoidal curve for every point in the $(r, \theta)$ plane. The sinusoidal curves of points that lay on the same line will have a joint intersection at the parameters for that line. All line candidates have to pass a threshold of intersections to be selected. In contrary with the SHT, PHT takes only a subset of the points found at the pre-processing stage. For this reason, PHT is computationally faster.
-\subsection{Navigation}
-To be written.
 
 \subsection{Tracking}
-To be written.
+Tracking is the process of locating a object in multiple images. In line-following navigation it is important to receive feedback from the environment. If the visual system gives rapid feedback the system is able to react faster. For instance, when the line changes direction the platform has to adjust its angle. In order to obtain rapid visual feedback the detection method of the object should be agile.
+
+In order to detect the line in a agile way a Region Of Interest (ROI) window is placed, once the line is found. A ROI is a selected subset of the image. The ROI is placed at the most probable place the line will appear in the next frame on the basis of the orientation of the line and motion of the platform. Since the platform is required to follow the line the ROI is frequently placed in the middle. A ROI decreases the computational costs of an algorithm as it minimizes the search window.
+
+\subsection{Navigation}
+After detecting a line in the image the platform is required to navigate towards the line and follow it. This process of monitoring and controlling the movement of the vehicle is called navigation. In order to navigate towards the line the trajectory has to be calculated. In order to not lose the line it is kept in the middle of the screen while navigating over it. This gives the system the following tasks:
+\begin{enumerate}
+\item Move towards the line in the correct orientation
+\item Navigate over the line while making adjustments to keep it in the middle of the screen.
+\end{enumerate}
+
+The line that is found gives coordinates $(x_1, y_1)$ and $(x_2, y_2)$. The linear equation $y = mx + b$ can be determined from these coordinates. Given the formula of the line the adjustment can be calculated, which result in a angle $\theta$ and a translation $x$. However, flying towards the line can be done in several ways. In this paper the platform first flies on top of the line and then correct its orientation parallel to the line. When the platform is hovering in the correct orientation above the line it will move forward, while correcting its orientation accordingly to the line. If the platform moves to far from the line the platform will do the above step again. This is the control strategy for line-following navigation.
 
 \newpage
 \section{Related Work}
