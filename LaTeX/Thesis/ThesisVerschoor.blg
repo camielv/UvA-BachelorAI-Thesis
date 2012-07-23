@@ -1,6 +1,12 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: ThesisVerschoor.aux
 The style file: apalike.bst
 Database file #1: references.bib
+I was expecting a `,' or a `}'---line 366 of file references.bib
+ : 
+ : @INPROCEEDINGS{Zhang2008,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Trucco1988"
 Warning--empty journal in Frew2004
 Warning--there's a number but no volume in Frew2004
-(There were 2 warnings)
+(There was 1 error message)

@@ -60,6 +60,12 @@ Grasmeyer, J.~M., Keennon, M.~T., and Inc, A. (2001).
 \newblock Development of the black widow micro air vehicle.
 \newblock In {\em 39th AIAA Aerospace Sciences Meeting and Exhibit}.
 
+\bibitem[Harris and Stephens, 1988]{Harris1988}
+Harris, C. and Stephens, M. (1988).
+\newblock {A Combined Corner and Edge Detection}.
+\newblock In {\em Proceedings of The Fourth Alvey Vision Conference}, pages
+  147--151.
+
 \bibitem[Jurriaans, 2011]{Jurriaans2011}
 Jurriaans, R. (2011).
 \newblock Flow based obstacle avoidance for real world autonomous aerial
@@ -95,6 +101,18 @@ Sampei, M., Tamura, T., Kobayashi, T., and Shibui, N. (1995).
   nonlinear control theory.
 \newblock {\em Control Systems Technology, IEEE Transactions on}, 3(1):125
   --131.
+
+\bibitem[Shi and Tomasi, 1994]{Shi1994}
+Shi, J. and Tomasi, C. (1994).
+\newblock Good features to track.
+
+\bibitem[Zhang et~al., 2008]{Zhang2008}
+Zhang, T., Wu, H., Borst, E., Kühnlenz, K., Buss, M., and München, T.~U.
+  (2008).
+\newblock An fpga implementation of insect-inspired motion detector for
+  high-speed vision systems.
+\newblock In {\em IEEE International Conference on Robotics and Automation
+  (ICRA}, pages 335--340.
 
 \bibitem[Ziou and Tabbone, 1998]{Ziou1998}
 Ziou, D. and Tabbone, S. (1998).
