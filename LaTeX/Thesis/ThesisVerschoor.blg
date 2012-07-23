@@ -1,48 +1,6 @@
-This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
-The top-level auxiliary file: ThesisVerschoor.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: ThesisVerschoor.aux
 The style file: apalike.bst
 Database file #1: references.bib
 Warning--empty journal in Frew2004
 Warning--there's a number but no volume in Frew2004
-You've used 18 entries,
-            1935 wiz_defined-function locations,
-            594 strings with 7326 characters,
-and the built_in function-call counts, 7803 in all, are:
-= -- 740
-> -- 371
-< -- 11
-+ -- 134
-- -- 128
-* -- 647
-:= -- 1338
-add.period$ -- 56
-call.type$ -- 18
-change.case$ -- 153
-chr.to.int$ -- 18
-cite$ -- 20
-duplicate$ -- 311
-empty$ -- 535
-format.name$ -- 154
-if$ -- 1560
-int.to.chr$ -- 1
-int.to.str$ -- 0
-missing$ -- 17
-newline$ -- 93
-num.names$ -- 54
-pop$ -- 168
-preamble$ -- 1
-purify$ -- 154
-quote$ -- 0
-skip$ -- 217
-stack$ -- 0
-substring$ -- 459
-swap$ -- 51
-text.length$ -- 4
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 106
-warning$ -- 2
-while$ -- 50
-width$ -- 0
-write$ -- 232
 (There were 2 warnings)
