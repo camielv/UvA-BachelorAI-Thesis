@@ -270,25 +270,97 @@ This is the final of the Canny Edge Detector and results into a boolean image re
 \end{figure}
 
 
-\subsection{Motion Detector Algorithm}
-Motion detection is a tool in Computer Vision that is applied to detect whether an object has changed its position relative to its surroundings or the surroundings have changed relative to an object. Motion can be detected by mechanical and electronic methods. This is done by various sensors such as: sound, ultrasonic and opacity. Motion can be detected electrically via optical or acoustical detection. This thesis focuses on optical motion detection from the front camera as the platform has only a limited sensor suite (see chapter \ref{platform}). This paper will focus on a algorithm that has been investigated for obstacle avoidance for the AR-Drone \cite{Jurriaans2011}. In this approach the Optical Flow is calculated over a set of images. The resulting vectors were are to calculate the fundamental matrix using RANSAC, which serves as the input for the Hartley algorithm that generates a disparity map. This algorithm is explained in the following sections.
+\subsection{Motion Detection Algorithm}
+Motion detection is a tool in Computer Vision that is applied to detect whether an object has changed its position relative to its surroundings or the surroundings have changed relative to an object. Motion can be detected by mechanical and electronic methods. This is done by various sensors such as: sound, ultrasonic and opacity. Motion can be detected electrically via optical or acoustical detection. This thesis focuses on optical motion detection from the front camera as the platform has only a limited sensor suite (see chapter \ref{platform}). This paper will focus on a algorithm that has been investigated for obstacle avoidance for the AR-Drone \cite{Jurriaans2011}. In this approach optical flow is calculated to determine the disparity map with monocular stereo vision. This is done by using the resulting vectors of optical flow to calculate the fundamental matrix using RANSAC. The fundamental matrix serves as the input for the Hartley algorithm that generates a disparity map. This approach is explained in the following sections.
 
 \subsubsection{Shi-Thomasi}
-To find the optical flow in a set of images features have to be extracted from the current frame and be found in the next frame. An possible algorithm that can provide decent features is the Shi-Tomasi algorithm. It proposes the tracking of corners and defines a good feature in the same manner as Harris, which relies on second-derivatives of image intensities. Calculating the autocorrelation of the second derivative over small windows around each point gives description of the window. According to Shi and Tomasi a good corner could be described by their eigenvalues. A good corner has eigenvalues that are greater than a minimum threshold.
+To find the optical flow in a set of images features have to be extracted from the current frame and be found in the next frame. A possibility that can provide decent features is the Shi-Tomasi algorithm. It tracks corners and defines a good feature in a similar approach as Harris, which depends on second-derivatives of image intensities. Calculating the autocorrelation of the second derivative over small windows around each point give a description of the window. According to Shi and Tomasi a good corner could be described by their eigenvalues as a good corner has eigenvalues that are greater than a minimum threshold.
 
-As the images have a low resolution, the sub-pixel corner locations are calculated as the intensity peak is almost never centred on a pixel. By fitting a parabola on the intensity of the window and find the maximum of this parabola to determining the sub-pixel location.
+As the images have a low resolution (see chapter \ref{platform}), the sub-pixel corner locations are calculated as the intensity peak is almost never centred on a pixel. By fitting a parabola on the intensity of the window and find the maximum of this parabola to determining the sub-pixel location.
 
 \subsubsection{Optical Flow}
 \label{opticalflow}
-Optical flow is the apparent motion between an observer and the environment. 
+Optical flow is the apparent motion between an observer and the environment. A example of calculated optical flow can be seen in figure \ref{opticflow}. The algorithm tries to find the location of each pixel from one frame in the second. However, it is a challenging task to find corresponding pixels as many have the same colour and similar surrounding pixels. In order to calculate the optical flow mostly the assumption is made there is only a small movement between frames. In sparse optical flow, the most identical features are tracked across the images. Lucas-Kanade is an algorithm that makes this assumption, nonetheless it is able to track features over any distance due its pyramidal implementation.\\
 
+\noindent\textbf{Lucas-Kanade Pyramidal approach}\\
+The Lucas-Kanade algorithms makes the assumption that there is only small movement in frames in order to hold equation \ref{of_equation} when small windows are taken.
+\begin{equation}
+\label{of_equation}
+\begin{matrix}
+I_x(q_1)V_x + I_y(q_1)V - y = -I_t(q_1)\\
+I_x(q_2)V_x + I_y(q_2)V - y = -I_t(q_2)\\
+\vdots\\
+I_x(q_n)V_x + I_y(q_n)V - y = -I_t(q_n)
+\end{matrix}
+\end{equation}
+In this equation $q_i$ stands for the pixels, $I_x(q_i)$, $I_y(q_i)$ and $I_t(q_i)$ are the partial derivatives of the image $I$ for positions $x$, $y$ and time $t$ for $q_i$. These equations can be put in matrix form as is shown in equation \ref{of_matrice}.
+\begin{equation}
+\label{of_matrice}
+\begin{matrix}
+Av = b\\\\
+A = \begin{bmatrix}
+I_x(q_1) & I_y(q_1)\\
+I_x(q_2) & I_y(q_2)\\
+\vdots & \vdots\\
+I_x(q_n) & I_y(q_n)
+\end{bmatrix}\\\\
+v = \begin{bmatrix}
+V_x\\
+V_y
+\end{bmatrix}\\\\
+b = \begin{bmatrix}
+-I_t(q_1)\\
+-I_t(q_2)\\
+\vdots\\
+-I_t(q_n)
+\end{bmatrix}
 
+\end{matrix}
+\end{equation}
 
-\subsubsection{RANSAC}
-To be written.
+This system is usually over-determined because it has more equations than unknowns. Lucas-Kanade algorithm obtains a compromise solution given by the least-square fit (see equation \ref{of_least_square}).
+\begin{equation}
+\label{of_least_square}
+v = (A^T A)^{-1} A^T b
+\end{equation}
+The least square fit gives the same importance to each pixel in the window. However, practice has shown that generally it is more efficient to increase the weight of the centre pixels in the window. This is done by adding a weight matrix $W$, which is a matrix containing all the weights for each pixel. This results in equation \ref{of_weighted}.
+\begin{equation}
+\label{of_weighted}
+v = (A^T W A)^{-1} A^T W b
+\end{equation}
 
-\subsubsection{Hartley´s algorithm}
-To be written.
+By gradually increasing the size of the window the optical flow over larger distances can be calculated as a least squares fit is found. A example of optical flow can be seen in figure \ref{opticflow}.
+
+\begin{figure}[!ht]
+\centering
+\caption{Left: Frame one. Middle: Frame two. Right: Optical flow.}
+\label{opticflow}
+\end{figure}
+
+\subsubsection{Fundamental Matrix with RANSAC}
+The fundamental matrix relates to the correspondence of each pixel location in two frames. This means that it can give the location of each pixel in one frame to the location of that pixel in the other. Together with the physical relation between two frames, the fundamental matrix can be used to calculate the essential matrix that provides information about the physical coordinates.
+
+In order to determine the fundamental matrix RANdom SAmple Consensus (RANSAC) is used to discriminate outliers. RANSAC takes a subset of the points and fits a model on this subset. The model is evaluated by calculating whether the remaining points are inliers or outliers. When a sufficient amount of inliers is found the model is re-determined based on all the inliers of the model. This model is then evaluated by comparing it to other models of different iterations. The model with the smallest error is kept and will be used as model. The advantage of RANSAC is that it performs well with outliers in the data.
+
+\subsubsection{Hartley's algorithm}
+After determining the fundamental matrix the images can be rectified without calibrations by using Hartley's algorithm. Hartley's approach attempts to find homographies that map epipoles to infinity while minimizing the computed disparities. This achieved by matching point between the two frames, which implicitly contain the camera intrinsics. The probelm of Hartley's approach is that it does not calculate scale. This causes 3-Dimensional reconstructions to be determined by a projective transformation. This means 
+that different projections of an object can appear the same to the human eye, when looking at the configuration of feature points.
+
+Hartley first calculates the epipoles using the relations $Fe_1 = 0$ for the left epipole and $(e_r)^T F = 0$. for the right epipole. Homography $H_r$ will map the right epipole to the 2-Dimensional homogeneous point at infinity. The homography has seven contraints since scale cannot be computed. The four degrees of freedom require only three constraint to map to infinity. The four degrees have to be selected cautiously because most choices result in distorted images. 
+To calculate translate $T$ that will take a selected point of interest to the origin of the right image and the rotation $R$ that will take the epipole to $(e_r)^T = ( f,0,1)$ can be calculated as shown in equation \ref{hartley}.
+
+\begin{equation}
+\label{hartley}
+H_r = \begin{bmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+-1/k & 0 1
+\end{bmatrix}RT
+\end{equation}
+The homography of the left epipole can be determined by aligning the rows. Aligning by minimizing the total distance between all matching points in the frames.
+
+\subsubsection{Stereo Matching}
+After calculating the fundamental matrix the disparity map can be computed between the two frames. In order to compute the disparity map, a stereo matching algorithm has to be performed. This paper uses fast one-pass stereo matching algorithm [???]. The algorithm uses sliding sums of absolute differences between pixels in the left image, while the pixels in the right image are shifted by some varying amount of pixels.
 
 \subsection{Probabilistic Hough Transform}
 The Probabilistic Hough Transform (PHT) \cite{Kiryati1991} is a feature extraction technique, which is similar to the Standard Hough Transform (SHT). This method is applied after the pre-processing stage, which is in this case is done by a edge detector or a motion detector. Due to noise caused by the image data or pre-processing stage there may be missing points on the desired curve in the image. The goal of PHT is to address this problem by grouping edges into object candidates by performing a voting procedure over a set of parametrized image objects. In PHT lines are described in polar coordinates, distance $r$ and angle $\theta$. In the polar coordinate system $r$ is the length of the vector and $\theta$ is the angle between the origin and the vector pointing to the closest point on the line. The representation of the line in the polar coordinate system is as follows:
