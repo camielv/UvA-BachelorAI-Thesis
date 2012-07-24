@@ -12,33 +12,34 @@
 \BOOKMARK [2][-]{subsection.3.2}{Motion Detection Algorithm}{section.3}% 12
 \BOOKMARK [3][-]{subsubsection.3.2.1}{Shi-Thomasi}{subsection.3.2}% 13
 \BOOKMARK [3][-]{subsubsection.3.2.2}{Optical Flow}{subsection.3.2}% 14
-\BOOKMARK [3][-]{subsubsection.3.2.3}{Fundamental Matrix with RANSAC}{subsection.3.2}% 15
-\BOOKMARK [3][-]{subsubsection.3.2.4}{Hartley's algorithm}{subsection.3.2}% 16
-\BOOKMARK [3][-]{subsubsection.3.2.5}{Stereo Matching}{subsection.3.2}% 17
-\BOOKMARK [2][-]{subsection.3.3}{Probabilistic Hough Transform}{section.3}% 18
-\BOOKMARK [2][-]{subsection.3.4}{Tracking}{section.3}% 19
-\BOOKMARK [2][-]{subsection.3.5}{Navigation}{section.3}% 20
-\BOOKMARK [1][-]{section.4}{Algorithm}{}% 21
-\BOOKMARK [1][-]{section.5}{Experiments}{}% 22
-\BOOKMARK [2][-]{subsection.5.1}{Platform}{section.5}% 23
-\BOOKMARK [2][-]{subsection.5.2}{Optimal Camera Configuration}{section.5}% 24
-\BOOKMARK [2][-]{subsection.5.3}{Experiments}{section.5}% 25
-\BOOKMARK [2][-]{subsection.5.4}{Evaluation Criteria}{section.5}% 26
-\BOOKMARK [2][-]{subsection.5.5}{Hypothesis}{section.5}% 27
-\BOOKMARK [1][-]{section.6}{Results and Discussion}{}% 28
-\BOOKMARK [1][-]{section.7}{Conclusion}{}% 29
-\BOOKMARK [2][-]{subsection.7.1}{Future works}{section.7}% 30
-\BOOKMARK [1][-]{section*.5}{Appendices}{}% 31
-\BOOKMARK [1][-]{Appendix.1.A}{Source code}{}% 32
-\BOOKMARK [1][-]{Appendix.1.B}{Gaussian Smoothing}{}% 33
-\BOOKMARK [1][-]{Appendix.1.C}{Platform: Parrot AR.Drone}{}% 34
-\BOOKMARK [2][-]{subsection.1.C.1}{Quadcopter}{Appendix.1.C}% 35
-\BOOKMARK [2][-]{subsection.1.C.2}{Hardware}{Appendix.1.C}% 36
-\BOOKMARK [3][-]{subsubsection.1.C.2.1}{AR.Drone 1.0}{subsection.1.C.2}% 37
-\BOOKMARK [3][-]{subsubsection.1.C.2.2}{AR.Drone 2.0}{subsection.1.C.2}% 38
-\BOOKMARK [2][-]{subsection.1.C.3}{Software Development Kit}{Appendix.1.C}% 39
-\BOOKMARK [1][-]{Appendix.1.D}{Framework: AR.Drone SLAM}{}% 40
-\BOOKMARK [2][-]{subsection.1.D.1}{Functionalities}{Appendix.1.D}% 41
-\BOOKMARK [2][-]{subsection.1.D.2}{Architecture}{Appendix.1.D}% 42
-\BOOKMARK [1][-]{Appendix.1.E}{Ascending Technologies Pelican}{}% 43
-\BOOKMARK [1][-]{section.8}{Bibliography}{}% 44
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Monocular Stereo Vision}{subsection.3.2}% 15
+\BOOKMARK [3][-]{subsubsection.3.2.4}{Fundamental Matrix with RANSAC}{subsection.3.2}% 16
+\BOOKMARK [3][-]{subsubsection.3.2.5}{Hartley's algorithm}{subsection.3.2}% 17
+\BOOKMARK [3][-]{subsubsection.3.2.6}{Stereo Matching}{subsection.3.2}% 18
+\BOOKMARK [2][-]{subsection.3.3}{Probabilistic Hough Transform}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.4}{Tracking}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.5}{Navigation}{section.3}% 21
+\BOOKMARK [1][-]{section.4}{Algorithm}{}% 22
+\BOOKMARK [1][-]{section.5}{Experiments}{}% 23
+\BOOKMARK [2][-]{subsection.5.1}{Platform}{section.5}% 24
+\BOOKMARK [2][-]{subsection.5.2}{Optimal Camera Configuration}{section.5}% 25
+\BOOKMARK [2][-]{subsection.5.3}{Experiments}{section.5}% 26
+\BOOKMARK [2][-]{subsection.5.4}{Evaluation Criteria}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.5}{Hypothesis}{section.5}% 28
+\BOOKMARK [1][-]{section.6}{Results and Discussion}{}% 29
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 30
+\BOOKMARK [2][-]{subsection.7.1}{Future works}{section.7}% 31
+\BOOKMARK [1][-]{section*.5}{Appendices}{}% 32
+\BOOKMARK [1][-]{Appendix.1.A}{Source code}{}% 33
+\BOOKMARK [1][-]{Appendix.1.B}{Gaussian Smoothing}{}% 34
+\BOOKMARK [1][-]{Appendix.1.C}{Platform: Parrot AR.Drone}{}% 35
+\BOOKMARK [2][-]{subsection.1.C.1}{Quadcopter}{Appendix.1.C}% 36
+\BOOKMARK [2][-]{subsection.1.C.2}{Hardware}{Appendix.1.C}% 37
+\BOOKMARK [3][-]{subsubsection.1.C.2.1}{AR.Drone 1.0}{subsection.1.C.2}% 38
+\BOOKMARK [3][-]{subsubsection.1.C.2.2}{AR.Drone 2.0}{subsection.1.C.2}% 39
+\BOOKMARK [2][-]{subsection.1.C.3}{Software Development Kit}{Appendix.1.C}% 40
+\BOOKMARK [1][-]{Appendix.1.D}{Framework: AR.Drone SLAM}{}% 41
+\BOOKMARK [2][-]{subsection.1.D.1}{Functionalities}{Appendix.1.D}% 42
+\BOOKMARK [2][-]{subsection.1.D.2}{Architecture}{Appendix.1.D}% 43
+\BOOKMARK [1][-]{Appendix.1.E}{Ascending Technologies Pelican}{}% 44
+\BOOKMARK [1][-]{section.8}{Bibliography}{}% 45

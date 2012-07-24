@@ -12,6 +12,11 @@ Bills, C., Chen, J., and Saxena, A. (2011).
 \newblock In {\em Robotics and Automation (ICRA), 2011 IEEE International
   Conference on}, pages 5776 --5783.
 
+\bibitem[Bouguet, 2000]{Bouguet2000}
+Bouguet (2000).
+\newblock Pyramidal implementation of the lucas kanade feature tracker.
+\newblock {\em Intel Corporation, Microprocessor Research Labs}.
+
 \bibitem[Bradski and Kaehler, 2008]{Bradski2008}
 Bradski, G. and Kaehler, A. (2008).
 \newblock {\em Learning OpenCV}.
@@ -60,11 +65,21 @@ Grasmeyer, J.~M., Keennon, M.~T., and Inc, A. (2001).
 \newblock Development of the black widow micro air vehicle.
 \newblock In {\em 39th AIAA Aerospace Sciences Meeting and Exhibit}.
 
+\bibitem[Gutmann and Konolige, 2000]{Gutmann2000}
+Gutmann, J.-S. and Konolige, K. (2000).
+\newblock Incremental mapping of large cyclic environments.
+\newblock pages 318--325.
+
 \bibitem[Harris and Stephens, 1988]{Harris1988}
 Harris, C. and Stephens, M. (1988).
 \newblock {A Combined Corner and Edge Detection}.
 \newblock In {\em Proceedings of The Fourth Alvey Vision Conference}, pages
   147--151.
+
+\bibitem[Hartley and Zisserman, 2004]{Hartley2004}
+Hartley, R.~I. and Zisserman, A. (2004).
+\newblock {\em Multiple View Geometry in Computer Vision}.
+\newblock Cambridge University Press, ISBN: 0521540518, second edition.
 
 \bibitem[Jurriaans, 2011]{Jurriaans2011}
 Jurriaans, R. (2011).
@@ -105,6 +120,16 @@ Sampei, M., Tamura, T., Kobayashi, T., and Shibui, N. (1995).
 \bibitem[Shi and Tomasi, 1994]{Shi1994}
 Shi, J. and Tomasi, C. (1994).
 \newblock Good features to track.
+
+\bibitem[Trucco and Verri, 1998]{Trucco1998}
+Trucco, E. and Verri, A. (1998).
+\newblock {\em Introductory Techniques for 3-D Computer Vision}.
+\newblock Prentice Hall PTR, Upper Saddle River, NJ, USA.
+
+\bibitem[Varga, 2005]{Varga2005}
+Varga, M. (2005).
+\newblock {\em Practical Image Processing And Computer Vision}.
+\newblock Halsted Press, New York, NY, USA.
 
 \bibitem[Zhang et~al., 2008]{Zhang2008}
 Zhang, T., Wu, H., Borst, E., Kühnlenz, K., Buss, M., and München, T.~U.

@@ -297,9 +297,8 @@ This is the final step of the Canny Edge Detector and results into a binary imag
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.3\textwidth]{images/gauss_orig.jpg}
-\includegraphics[width=0.3\textwidth]{images/gauss_21.png} INSERT IMAGE
-%\includegraphics[width=0.3\textwidth]{images/canny.png}
+\includegraphics[width=0.3\textwidth]{images/frame0.jpg}
+\includegraphics[width=0.3\textwidth]{images/gaussian_blur_3.png} \includegraphics[width=0.3\textwidth]{images/canny.png}
 
 \caption{Left: Original image. Middle: Smoothed image. Right: Canny Edge Detector}
 \label{canny}
@@ -308,7 +307,7 @@ This is the final step of the Canny Edge Detector and results into a binary imag
 
 \subsection{Motion Detection Algorithm}
 \label{MOTION_DETECTION}
-Motion detection is a tool in Computer Vision that is applied to detect whether an object has changed its position relative to its surroundings or the surroundings have changed relative to an object. Motion can be detected by mechanical and electronic methods. This is done by various sensors such as: sound, ultrasonic and opacity. Motion can be detected electrically via optical or acoustical detection. This thesis focuses on optical motion detection from the front camera as the platform has only a limited sensor suite (see chapter \ref{PLATFORM}). This paper will focus on a algorithm that has been investigated for obstacle avoidance for the AR-Drone \cite{Jurriaans2011}. In this approach optical flow is calculated to determine the disparity map with monocular stereo vision. The disparity map indicates whether objects in the environment are close to the camera. If a object is close to the camera it will show up brighter on the disparity map as the object has greater motion indicating lesser distance. Due to the fact that we follow a certain linear structure in the environment it can be assumed that this structure is at a certain distance. For instance, power lines hang above the ground and will be detected closer if the platform is flying over them.
+Motion detection is a tool in Computer Vision that is applied to detect whether an object has changed its position relative to its surroundings or the surroundings have changed relative to an object. Motion can be detected by mechanical and electronic methods. This is done by various sensors such as: sound, ultrasonic and opacity. Motion can be detected electrically via optical or acoustical detection. This thesis focuses on optical motion detection from the front camera as the platform has only a limited sensor suite (see chapter \ref{PLATFORM}). This paper will focus on a algorithm that has been investigated for obstacle avoidance for the AR-Drone \cite{Jurriaans2011}. In this approach optical flow is calculated to determine the disparity map (see figure \ref{disparitymap}) with monocular stereo vision. The disparity map indicates whether objects in the environment are close to the camera. If a object is close to the camera it will show up brighter on the disparity map as the object has greater motion indicating lesser distance. Due to the fact that in case of this thesis the platform follows a certain linear structure in the environment it can be assumed that this structure is at a certain distance. For instance, power lines hang above the ground and will be detected closer if the platform is flying over them.
 The disparity map is determined by using the resulting vectors of optical flow to calculate the fundamental matrix, which is needed to rectify images without calibration, using RANSAC. The fundamental matrix serves as the input for the Hartley algorithm that rectifies images. Finally, stereo matching is performed on the rectified images to generate a disparity map. This approach is explained in the following sections.
 
 \subsubsection{Shi-Thomasi}
@@ -318,6 +317,14 @@ As the images have a low resolution (see appendix \ref{PLATFORM}), the sub-pixel
 
 \subsubsection{Optical Flow}
 Optical flow is the apparent motion between an observer and the environment. A example of calculated optical flow can be seen in figure \ref{opticflow}. The algorithm tries to find the location of each pixel from one frame in the second. However, it is a challenging task to find corresponding pixels as many have the same colour and similar surrounding pixels. In order to calculate the optical flow mostly the assumption is made there is only a small movement between frames. In sparse optical flow, the most identical features are tracked across the images. Lucas-Kanade is an algorithm that makes this assumption, nonetheless it is able to track features over any distance due its pyramidal implementation.\\
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.3\textwidth]{images/frame0.jpg}
+\includegraphics[width=0.3\textwidth]{images/frame1.jpg} \includegraphics[width=0.3\textwidth]{images/optical_flow.png}
+\caption{Left: Frame one. Middle: Frame two. Right: Optical flow.}
+\label{opticflow}
+\end{figure}
 
 \noindent\textbf{Lucas-Kanade Pyramidal approach}\\
 The Lucas-Kanade \cite{Bouguet2000} algorithm makes the assumption that there is only small movement in frames in order to hold equation \ref{of_equation} when small windows are taken.
@@ -368,14 +375,12 @@ v = (A^T W A)^{-1} A^T W b
 
 By gradually increasing the size of the window the optical flow over larger distances can be calculated as a least squares fit is found. A example of optical flow can be seen in figure \ref{opticflow}.
 
-\begin{figure}[!ht]
-\centering
-\caption{Left: Frame one. Middle: Frame two. Right: Optical flow.}
-\label{opticflow}
-\end{figure}
+\subsubsection{Monocular Stereo Vision}
+In order to compute the disparity map with only one camera Monocular Stereo Vision is required. Stereo vision with only one camera is possible when the assumption is made that environment is static. This means that the time between the frames is not important and that the frames have to behave as if they were taken by two cameras. This assumption limits the algorithm as any moving object will violate this. To compute the disparity map the fundamental matrix has to be estimated. In stereo vision with two cameras the configuration is fixed and it is only necessary to calculate the fundamental matrix once.  However, in the case of Monocular Stereo Vision there is only one camera and because pf that it is required to find transformation between the frames for every new frame. This means that the fundamental matrix has to be found for every two frames. This is a computation complex task and difficult as for finding the fundamental matrix it is required to find points in both frames and link them together to estimate the transformation. Finding corresponding points and using them for stereo vision is known as structure from motion \cite{Varga2005}. A possible approach of finding these corresponding points is optical flow, which finds the position of a pixel in the next frame.
 
 \subsubsection{Fundamental Matrix with RANSAC}
-The fundamental matrix relates to the correspondence of each pixel location in two frames. This means that it can give the location of each pixel in one frame to the location of that pixel in the other. Together with the physical relation between two frames, the fundamental matrix can be used to calculate the essential matrix that provides information about the physical coordinates.
+
+The fundamental matrix relates to the correspondence of each pixel location in two frames. This means that it can give the location of each pixel in one frame to the location of that pixel in the other. Together with the physical relation between two frames, the fundamental matrix can be used to calculate the essential matrix \cite{Hartley2004} that provides information about the physical coordinates. The essential matrix is a specialization of the fundamental matrix. 
 
 In order to determine the fundamental matrix RANdom SAmple Consensus (RANSAC) is used to discriminate outliers. RANSAC takes a subset of the points and fits a model on this subset. The model is evaluated by calculating whether the remaining points are inliers or outliers. When a sufficient amount of inliers is found the model is re-determined based on all the inliers of the model. This model is then evaluated by comparing it to other models of different iterations. The model with the smallest error is kept and will be used as model. The advantage of RANSAC is that it performs well with outliers in the data.
 
@@ -397,7 +402,16 @@ H_r = \begin{bmatrix}
 The homography of the left epipole can be determined by aligning the rows. Aligning by minimizing the total distance between all matching points in the frames.
 
 \subsubsection{Stereo Matching}
-After calculating the fundamental matrix, the disparity map can be computed between the two frames. In order to compute the disparity map, a stereo matching algorithm has to be performed. This paper uses a fast one-pass stereo matching algorithm [???]. The algorithm uses sliding sums of absolute differences between pixels in the left image, while the pixels in the right image are shifted by some varying amount of pixels.
+After calculating the fundamental matrix and rectifying the images, the disparity map shown in figure \ref{disparitymap} can be computed between the two frames. In order to compute the disparity map, a stereo matching algorithm has to be performed. This paper uses a fast one-pass stereo matching algorithm \cite{Gutmann2000}. The algorithm uses sliding sums of absolute differences between pixels in the left image, while the pixels in the right image are shifted by some varying amount of pixels.
+
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.3\textwidth]{images/lamp_left.jpg}
+\includegraphics[width=0.3\textwidth]{images/lamp_right.jpg} \includegraphics[width=0.3\textwidth]{images/lamp_disparity.jpg}
+\caption[Disparity map]{Left: Left frame. Middle: Right frame. Right: Disparity map. Images by \href{http://vision.stanford.edu/~birch/p2p/}{Stanford University}}
+\label{disparitymap}
+\end{figure}
 
 \subsection{Probabilistic Hough Transform}
 The Probabilistic Hough Transform (PHT) \cite{Kiryati1991} is a feature extraction technique, which is similar to the Standard Hough Transform (SHT). This method is applied after the pre-processing stage, which is in this case is done by a edge detector or a motion detector. Due to noise caused by the image data or pre-processing stage there may be missing points on the desired curve in the image. The goal of PHT is to address this problem by grouping edges into object candidates by performing a voting procedure over a set of parametrized image objects. In PHT lines are described in polar coordinates, distance $r$ and angle $\theta$. In the polar coordinate system $r$ is the length of the vector and $\theta$ is the angle between the origin and the vector pointing to the closest point on the line. The representation of the line in the polar coordinate system is as follows:
@@ -422,7 +436,7 @@ After detecting a line in the image the platform is required to navigate towards
 \item Navigate over the line while making adjustments to keep it in the middle of the screen.
 \end{enumerate}
 
-The line that is found gives coordinates $(x_1, y_1)$ and $(x_2, y_2)$. The linear equation $y = mx + b$ can be determined from these coordinates. Given the formula of the line the adjustment can be calculated, which result in a angle $\theta$ and a translation $x$. However, flying towards the line can be done in several ways. In this paper the platform first flies on top of the line and then correct its orientation parallel to the line. When the platform is hovering in the correct orientation above the line it will move forward, while correcting its orientation accordingly to the line. If the platform moves to far from the line the platform will do the above step again. This is the control strategy for line-following navigation.
+The line that is found gives coordinates $(x_1, y_1)$ and $(x_2, y_2)$. The linear equation $y = mx + b$ can be determined from these coordinates. Given the formula of the line the adjustment can be calculated, which results in a angle $\theta$ and a translation $x$. However, flying towards the line can be done in several ways. In this paper the platform first flies on top of the line and then correct its orientation parallel to the line. When the platform is hovering in the correct orientation above the line it will move forward, while correcting its orientation accordingly to the line. If the platform moves to far from the line the platform will do the above step again. This is the control strategy for line-following navigation.
 
 \newpage
 \section{Algorithm}
