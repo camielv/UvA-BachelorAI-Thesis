@@ -403,7 +403,7 @@ H_r = \begin{bmatrix}
 The homography of the left epipole can be determined by aligning the rows. Aligning by minimizing the total distance between all matching points in the frames.
 
 \subsubsection{Stereo Matching}
-After calculating the fundamental matrix and rectifying the images, the disparity map shown in figure \ref{disparitymap} can be computed between the two frames. In order to compute the disparity map, a stereo matching algorithm has to be performed. This paper uses a fast one-pass stereo matching algorithm \cite{Gutmann2000}. The algorithm uses sliding sums of absolute differences between pixels in the left image, while the pixels in the right image are shifted by some varying amount of pixels.
+After calculating the fundamental matrix and rectifying the images, the disparity map shown in figure \ref{disparitymap} can be computed between the two frames. In order to compute the disparity map, a stereo matching algorithm has to be performed. This thesis uses a fast one-pass stereo matching algorithm \cite{Gutmann2000}. The algorithm uses sliding sums of absolute differences between pixels in the left image, while the pixels in the right image are shifted by some varying amount of pixels.
 
 
 \begin{figure}[!ht]
@@ -451,7 +451,7 @@ The main approach of this thesis for line-following navigation consists of three
 \item[Feature extraction] The feature extraction phase extracts objects, in this case lines, from the pre-processed image by using a Probabilistic Hough Transform.
 \item[Navigation] In the navigation phase, the lines found are interpreted and controls are given to the platform.
 \end{description}
-The system is a closed loop system, as shown in figure \ref{system_overview}, and will loop through these phases in order to keep on following the line. The approach is integrated in the AR.Drone SLAM \cite{Dijkshoorn2012} development framework (see appendix \ref{FRAMEWORK}) and can be activated by a press on the button. In this thesis the edge and motion detection were independently implemented in order to examine their strengths and weaknesses. In the following sections these phases will be described.
+The system is a closed loop system, as shown in figure \ref{system_overview}, and will loop through these phases in order to keep on following the line. The approach is real-time and integrated in the AR.Drone SLAM \cite{Dijkshoorn2012} development framework (see appendix \ref{FRAMEWORK}) and can be activated by a press on the button. In this thesis the edge and motion detection were independently implemented in order to examine their strengths and weaknesses. In the following sections these phases will be described.
 
 \begin{figure}[!ht]
 \centerline{
@@ -476,20 +476,33 @@ In this thesis edge detection is implemented in the following way:
 \item[Canny Edge Detector] Subsequently, the Canny Edge detector is applied to the image in order to find the edges indicated in a binary image. The Canny Edge Detector was chosen as it already was successful in previous studies regarding MAV navigation \cite{Bills2011}. For this reason, this method is suitable to be surveyed for use in combination with motion detection.
 \item[Combining] The resulting images of the Colour Filter and Canny Edge Detector are combined in a image that indicates the place of the line. Combining the two techniques filters out noisy edges.
 \end{description}
-The result of this algorithm is a binary image containing the most probable place of the line.
+The result of this algorithm is a binary image containing the edges of the images. On this binary image feature extraction will be applied.
 \subsubsection{Motion Detection}
-Motion detection is implemented in the following way:
+In this thesis motion detection is implemented in the following way:
 \begin{description}
-\item[Finding features] Shi-Tomasi and Sub-Pixel corner.
-\item[Optical Flow] Lucas-Kanade.
-\item[Fundamental Matrix] RANSAC.
-\item[Rectification] Hartley's algorithm
-\item[Stereo Matching]
-\item[Threshold]
+\item[Finding features] The Shi-Tomasi algorithm \cite{Shi1994} is applied on the image in order to find good features. This for the reason that the optical flow implementation of Lucas-Kanade tracks features and this algorithm has a decent feature definition. Due to the low resolution in the images provided by the platform, the sub-pixel corner locations are calculated as the intensity peak is never centred on a pixel. The resulting features are provided for the calculation of Optical Flow.
+
+\item[Optical Flow] The found features will be provided to te the Lucas-Kanade pyramidal implementation in order to find these features in the next frame. Due to the pyramidal implementation, the algorithm can find features with any distance between them. This circumvents the assumption that motion between frames is very small. This algorithm results in a set of feature pairs. The average optical flow is also computed to examine the average motione.
+
+\item[Fundamental Matrix] Thereafter, the fundamental matrix is determined in order to rectify the images. The fundamental matrix is determined in combination with the RANSAC algorithm as the optical flow algorithm can provide noisy data. RANSAC filters out this noise and tries to find the best model for the given set of features. This results in a optimal fundamental matrix for the given features.
+
+\item[Rectification] The fundamental matrix is required for rectifying the images without calibration. The algorithm used for this is Hartley's algorithm, which attempts to find homographies that map epipoles to infinity while minimizing the computed disparities. Resulting into rectified frames of the original frames.
+
+\item[Stereo Matching] After determining the fundamental matrix and rectification of the original frames a fast pass stereo matching algorithm \cite{Gutmann2000} is applied to compute the disparity map. This in order to keep the implementation real-time. This step results into a disparity map indicating foreground object brighter denoting greater motion and lesser distance.
+
+\item[Threshold] A certain threshold is taken over the disparity map in order to find the foreground object, which in this case is the line.
 \end{description}
+The result of this image is a binary image containing the foreground objects that have passed the threshold. On this binary image feature extraction will be applied.
+
 \subsection{Feature Extraction}
+The feature extraction method that is applied in this thesis is the Probabilistic Hough Transform. This method is computationally fast and deals with noise cause by the pre-processing stage. Related work (see chapter \ref{RELATED_WORK}) shows that Hough Transform is a decent method for extracting features. In the case of this thesis the probabilistic form of the Hough Transform\cite{Kiryati1991} is used to  extract lines from the image. This form takes a only a subset of the found edges to extract features. The algorithm results into a array of lines that satisfy the criteria of the method.
 
 \subsection{Navigation}
+In order to determine the controls for the platform the found lines examined. In this thesis a simple algorithm is used that merges lines that have a similar slope and a short distance between them. The merging is done by taking the average of both lines. This reduces the amount of lines found in the image by the feature extraction method. Thereafter, the line that is the longest and has most confidence. This is measured by calculating the length of the line and counting the amount of lines this line represents. The weighted sum is taken to determine the best line found in the image.
+
+The best line is then used to determine the trajectory of the platform. The rotation and translation towards the line are calculated so the platform ends up above the line. If the platform is already above the line it will only adjusts its orientation parallel to the line and move forward. The calculated controls will be send to the platform, which results into line-following.
+
+Furthermore, a Region Of Interest is defined if the line is found based on the movement of the platform and location of the line. This is done to speed up the algorithm by decreasing the data it processes.
 \newpage
 \section{Experiments}
 \label{EXPERIMENTS}
@@ -587,10 +600,10 @@ The integral expresses the amount of overlap of function $g(x)$
 due the shift over the other function $f(x)$. This causes one function to blend with the other. The convolution operator contains the following algebraic properties: commutativity, associativity and distributivity. Convolution is commonly applied in computer vision in order to detect edges in a image. In figure \ref{gaussianblur} a example of a convolution with the Gaussian Kernel is illustrated.
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.3\textwidth]{images/gauss_orig.jpg}
-\includegraphics[width=0.3\textwidth]{images/gauss_11.png}
-\includegraphics[width=0.3\textwidth]{images/gauss_21.png}
-\caption[Gaussian Blur]{Left: original. Middle and right: Gaussian Blur of 11 and 22 pixels.}
+\includegraphics[width=0.3\textwidth]{images/frame1.jpg}
+\includegraphics[width=0.3\textwidth]{images/gaussian_blur_3.png}
+\includegraphics[width=0.3\textwidth]{images/gaussian_blur_11.png}
+\caption[Gaussian Blur]{Left: original. Middle and right: Gaussian Blur of 3 and 11 pixels.}
 \label{gaussianblur}
 \end{figure}
 
