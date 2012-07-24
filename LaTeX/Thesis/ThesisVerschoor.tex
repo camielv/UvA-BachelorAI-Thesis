@@ -95,8 +95,7 @@ July 24th, 2012\\
 
 \begin{figure*}[!ht]
 \centering
-\includegraphics[width=\textwidth]{images/title.jpg}
-Photo by: \href{http://ardrone.parrot.com/album/}{Parrot SA}
+\includegraphics[width=\textwidth]{images/front.png}
 \end{figure*}
 
 \subsubsection*{A Bachelor Thesis by Camiel R. Verschoor}
@@ -502,51 +501,80 @@ In order to determine the controls for the platform the found lines examined. In
 
 The best line is then used to determine the trajectory of the platform. The rotation and translation towards the line are calculated so the platform ends up above the line. If the platform is already above the line it will only adjusts its orientation parallel to the line and move forward. The calculated controls will be send to the platform, which results into line-following.
 
-Furthermore, a Region Of Interest is defined if the line is found based on the movement of the platform and location of the line. This is done to speed up the algorithm by decreasing the data it processes.
+Furthermore, a Region Of Interest is defined when the line is found based on the movement of the platform and location of the line. This is done to speed up the algorithm by decreasing the data it processes.
 \newpage
 \section{Experiments}
 \label{EXPERIMENTS}
-This chapter describes the methods and experiments that lead to autonomous line-following. The proposed methods and experiments aid to answer the previously determined research questions (see chapter \ref{researchquestion}). The various designer choices, configurations, datasets and evaluation criteria will be discussed in this chapter.
+This chapter investigates the experimental settings that demonstrate the strength and weaknesses of both algorithms clearly. The proposed experiments aid to answer the previously determined research questions (see chapter \ref{researchquestion}). The various configurations, experiments and evaluation criteria will be discussed in this chapter.
 
 \subsection{Platform}
-For this paper, the Ascending Technologies Pelican (see appendix \ref{PELICAN}) and Parrot AR.Drone (see chapter \ref{PLATFORM}) were both considered for the evaluation of the vision-based algorithms. To evaluate the algorithms a stable platform with on-board stabilization was required. The Pelican has several advantages such as: on-board processing, modular design and high payload. However, the system has no indoor on-board stabilization and had technological difficulties with the wireless connection. Therefore, the Parrot AR.Drone was chosen to perform during the experiments.
+For this thesis, the Ascending Technologies Pelican (see appendix \ref{PELICAN}) and Parrot AR.Drone (see chapter \ref{PLATFORM}) were both considered for the evaluation of the vision-based algorithms. To evaluate the algorithms a stable platform with on-board stabilization was required. The Pelican has several advantages such as: on-board processing, modular design and high payload. However, the system has no indoor on-board stabilization and had technological difficulties with the wireless connection. Therefore, the Parrot AR.Drone was chosen to perform during the experiments.
 
 \subsection{Optimal Camera Configuration}
-In order to perform vision-based line-following navigation the optimal camera configuration has to be determined. In the current configuration of the AR.Drone it has a bottom and front camera. For optimal line-following navigation the camera has to point obliquely to the ground in front of the MAV. This for the reason that the platform should look ahead of itself so it can adjust itself on time. Neither the bottom or front camera provide this view as the bottom camera has a small field of view and the front camera looks to far ahead. This makes it impossible for the drone to navigate over a line as the platform cannot adjust itself in time to changes or not even able to detect the line. Therefore, the current configuration of the cameras is not suitable for navigation.
+In order to perform vision-based line-following navigation the optimal camera configuration has to be determined. In the current configuration of the AR.Drone it has a bottom and front camera. For optimal line-following navigation the camera has to point obliquely to the ground in front of the MAV. This for the reason that the platform should look ahead of itself so it can adjust itself on time. Neither the bottom or front camera provide this view as the bottom camera has a small field of view and the front camera looks to far ahead. This makes it impossible for the platform to navigate over a line as the platform cannot adapt itself to changes in time and some cases it is not even able to detect the line. Therefore, the current configuration of the cameras is not suitable for 
+navigation.
 
-The optimal solution for the camera configuration would be the pan-tilt camera of the Pelican. The pan-tilt camera can change the angle of the camera and therefore suitable for flying at various altitudes. Since the experiments are only indoors the platform only flies at altitudes between 1-2 metres. Therefore, a angle of approximately 45$^{\circ}$ is considered and tested in this paper. In order to change the angle this thesis constructed and tested the following two solutions to change the angle:
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.3\textwidth]{images/mirror_construction.jpg}
+\includegraphics[width=0.3\textwidth]{images/ardrone_mod.jpg}
+\caption{Possible solutions to solve the camera configuration problem, the mirror construction (left) and the modification of the AR.Drone (right)}
+\label{camera_configuration}
+\end{figure}
+
+The optimal solution for the camera configuration would be the pan-tilt camera of the Pelican. The pan-tilt camera can change the angle of the camera and therefore its suitable for flying at various altitudes. Since the experiments are only indoors the platform only flies at low altitudes between 1-2 metres. Therefore, a angle of approximately 45$^{\circ}$ is considered and tested in this thesis. In order to change the angle this thesis constructed and tested the following two solutions (see figure \ref{camera_configuration}) to change the angle:
 \begin{description}
 \item[Mirror construction] A mirror construction that changes the view of the front camera. This construction can be placed on top of the front camera. The mirror has an angle towards the ground, which gives the camera the mirrored ahead view.
 \item[Modification of AR.Drone] Modify the position of the front camera. Due to the fact that the AR.Drone is made from styrofoam its simple to modify the angle of the front camera. By cutting away styrofoam its possible to set the camera under a different angle.
 \end{description}
 
 \subsection{Experiments}
-To compare the two vision-based algorithms two types of experiments have been designed. The experiments (see figure \ref{experiments}) challenge both the algorithms. In experiment one the weakness of the motion detection algorithm is challenged by putting a orange line on the ground, while in experiment two the edge detection algorithm is challenged by hanging a blue coloured line in the air with a blue background.
-\begin{figure}
+In order to investigate the strengths and weaknesses of both vision algorithms this thesis examined two type of experiments. The experiments (see figure \ref{experiments}) challenge both the algorithms. The following experiments examine the strengths and weaknesses of both algorithms:
+\begin{description}
+\item[Experiment One] In experiment one the weakness of the motion detection algorithm is challenged by a orange line on the ground
+\item[Experiment Two] In experiment two the edge detection algorithm is challenged by a hanging blue coloured line in the air with a blue background.
+\end{description}
+\begin{figure}[!ht]
 \centering
 \includegraphics[width=0.3\textwidth]{images/experiment1.jpg}
 \includegraphics[width=0.3\textwidth]{images/experiment2.jpg}
-\caption{Left: Setup of experiment one. Right: Setup of experiment two}
+\caption{On the left the setup of experiment and on the right the setup of experiment two}
 \label{experiments}
 \end{figure}
+These experiments are challenges for both algorithms as the motion detection algorithm finds the line on the basis of distance. In contrast with the edge detection algorithm, which finds differences in brightness intensity. The strengths are also illustrated by these two experiments. In experiment one there is high contrast between the object and the background and in experiment two there is difference in height of the object and the background. These are possible situations where the two algorithms can strengthen each others weaknesses.
+
 \subsection{Evaluation Criteria}
+To evaluate the edge and motion detection algorithms criteria are set in order to compare their performance. In this thesis the methods are evaluated based on the following two criteria:
+\begin{description}
+\item[Detection of lines] The number of lines the algorithm detects in the image.
+\item[Direction of line] The number of lines with the correct direction.
+\end{description}
+Both algorithms will be evaluated on the same recorded datasets so both algorithms experience the same circumstances. The datasets are recorded, while flying the platform manually in order to prevent inaccuracies caused by navigation errors of the simple navigation method.
 
-\subsection{Hypothesis}
-\begin{itemize}
-\item Ontwerpbeslissing voor lijn vindenn
-\item Optimale configuratie camera
-\item Opstellingen
-\item Evaluatie criteria
-\begin{itemize}
-\item Frames met lijn
-\item Nauwkeurigheid directie van de lijn
-\end{itemize}
-\item Vaste datasets om goed te kunnen evaluaren zodat ik niet onnauwkeurigheid navigatie meeneem.
-\end{itemize}
-
-\newpage 
 \section{Results and Discussion}
 \label{RESULTS_DISCUSSION}
+In this chapter the results of the various experiments will be presented and discussed.
+
+\subsection{Camera Configuration}
+Before carrying out the experiments the optimal camera configuration of the platform was determined. This because the standard camera configuration is not suitable for line-following. Two solutions were constructed and tested in this thesis.\\
+
+\noindent\textbf{Mirror Construction}\\
+The mirror construction was designed and made on the basis of the field of view of the AR.Drone. The construction consists of a tailor made mirror that is mounted to a 3-Dimensional printed frame. The frame is placed on top of the AR.Drone as shown in figure \ref{camera_configuration}. This configuration had the following results:
+\begin{description}
+\item[Distorted images] The image where distorted during flight.
+\item[No optimal angle] The angle of the camera towards the ground was not optimal.
+\end{description}
+The distorted images were caused by the vibrations of the platform during flight. The material of the frame is constructed with a thermoplastic material called Acrylonitrile butadiene styrene (ABS). The ABS material is flexible, which causes the mirror to vibrate more. Furthermore, the camera cannot be set to a angle of 45$^{\circ}$ without losing part of the image as the field of view of the camera is to large for this angle. Due to this the camera overlaps with the bottom camera and a smaller area is covered by the camera.\\
+
+\noindent\textbf{Modification of AR.Drone}\\
+The modification to the AR.Drone was based on the field of view of the AR.Drone. For the modification the styrofoam of the AR.Drone was cutted away under a angle of 45$^{\circ}$. This gave the AR.Drone the configuration as shown in figure \ref{camera_configuration}. This configuration had the following results:
+\begin{description}
+\item[Sharp images] The image where clear during flight.
+\item[Optimal angle] The angle of the camera towards the ground was optimal.
+\end{description}
+The styrofoam compensates for the vibrations of the platform. Therefore, the platform takes sharper images comparing to the mirror construction.
+
+
 \begin{itemize}
 \item Tabellen met resultaten
 \item Gemiddelde afwijking
@@ -561,11 +589,13 @@ To compare the two vision-based algorithms two types of experiments have been de
 \section{Conclusion}
 \label{CONCLUSION}
 \begin{itemize}
+\item Camera Configuration
 \item Optimaal algoritme bestaat niet
 \item Frame als indicatie gebruiken
 \end{itemize}
 \subsection{Future works}
 \begin{itemize}
+\item Localization
 \item Combinatie algoritme
 \item Testen in meer environments
 \item Meer algoritmes testen
@@ -582,7 +612,11 @@ All the source code is available at the GitHub repository:\\ \url{https://github
 The recorded datasets are available here:\\
 \url{https://github.com/camielv/ThesisVerschoor/Datasets}\\
 A research log can be found here:\\
-\url{http://camielv.nl/thesis}
+\url{http://camielv.nl/thesis}\\
+The following videos show the results of the algorithms:\\
+Edge detection on dataset: \url{http://youtu.be/GqdAJ3AUrmg}\\
+Motion detection on dataset: \url{http://youtu.be/cSdcYHPiah4}\\
+Line-following navigation: \url{http://youtu.be/MmxhRnjHIv4}
 
 \newpage
 \section{Gaussian Smoothing}
@@ -636,14 +670,14 @@ In order to fly, the quadcopter relies on differences in thrust and torque. Pitc
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/plane.jpg}
-	\caption{Diagram of pitch, roll and yaw rotations on an aerial vehicle}
+	\caption[plane]{Diagram of pitch, roll and yaw rotations on an aerial vehicle. By \href{http://mtp.mjmahoney.net/www/notes/pointing/pointing.html}{M. J. Mahoney}}
 	\label{plane}
 \end{figure}
 
 Vertical movements are accomplished by changing the thrust from each rotor alike, which is causing the resulting thrust to change and the differential torque to remain zero. Moreover, when the thrust is kept constant the vertical velocity remains the same. Horizontal movements are caused by changing the pitch and roll angle. Angular accelerations over the pitch and roll angles can be generated independently. Each pair of opposing rotors controls either pitch or roll rotation of the platform. A torque balance is kept for yaw stability during differential torque over the roll and pitch by increasing the speed of one rotor, while decreasing the speed of the opposing rotor.
 
 \subsection{Hardware}
-The AR.Drone is a remote-controlled quadcopter developed by the french company Parrot SA for consumer use. The main frame is made of carbon fibre and high resistance plastic. The AR.Drone has an indoor and outdoor hull, which is used for protection of the system. The rotors are powered by motors, whom are connected to a lithium battery allowing the system to fly approximately ten minutes.
+The AR.Drone is a remote-controlled quadcopter developed by the French company Parrot SA for consumer use. The main frame is made of carbon fibre and high resistance plastic. The AR.Drone has an indoor and outdoor hull, which is used for protection of the system. The rotors are powered by motors, whom are connected to a lithium battery allowing the system to fly approximately ten minutes.
 
 The AR.Drone has a sensor suite containing an six degrees of freedom Inertial Measurement Unit (IMU), a bottom camera and a ultrasound altimeter used for automatic stabilization. The IMU consists of a three axis accelerometer, a two axis roll and pitch gyrometer and a single axis yaw gyrometer. The IMU reports on the system its velocity, orientation and gravitational forces. The ultrasound altimeter measure the altitude of the system and in combination with the bottom camera it calculates the optical flow of the system. All the above sensors contribute to the on-board stabilization module of the quadcopter, which allows the quadcopter to hover in one place.
 
@@ -653,7 +687,7 @@ The AR.Drone has an on-board computer running a custom Linux operating system. A
 The horizontal camera has approximately 75$^{\circ}$ x 60$^{\circ}$ field of view and provides 640 x 480 pixel color images. The bottom camera provides color images with 176 x 144 pixels and its field of view is approximately 45$^{\circ}$ x 35$^{\circ}$ \cite{Krajnik2011}.
 
 \subsubsection{AR.Drone 2.0}
-Recently, Parrot brought a new platform on the market, the AR.Drone 2.0. This new platform has a similar configuration as its predecessor, however, most of the components have been improved. The new on-board technology gives better stabilization and more precise sensor measurement comparing to their previous platform. The AR.Drone two carries a horizontal camera with a resolution of 1280 x 720 pixels and the vertical camera a resolution of 320 x 240 pixels. These improvements aid intelligent vision-based applications as more detailed images give more information about the environment.
+Recently, Parrot brought a new platform on the market, the AR.Drone 2.0. This new platform has a similar configuration as its predecessor, however, most of the components have been improved. The new on-board technology gives better stabilization and more precise sensor measurement comparing to their previous platform. The AR.Drone two carries a horizontal camera with a resolution of 1280 x 720 pixels and the vertical camera a resolution of 320 x 240 pixels. Furthermore, it has an electronic compass. These improvements aid intelligent vision-based applications as more detailed images give more information about the environment.
 
 \subsection{Software Development Kit}
 Parrot created a open source Software Development Kit (SDK) providing developers the opportunity to create intelligent applications for their platform. The SDK comes with source code, multiplatform examples and documentation. The SDK does not provide software that is embedded on the AR.Drone itself. The SDK implements the following three channels of communications with the platform:
@@ -662,7 +696,7 @@ Parrot created a open source Software Development Kit (SDK) providing developers
 \item Status of the platform (ie. altitude, attitude and speed).
 \item Video stream.
 \end{enumerate}
-These four channels of communication can be used for designing intelligent applications for the AR.Drone.
+These three channels of communication can be used for designing intelligent applications for the AR.Drone.
 
 \newpage
 \section{Framework: AR.Drone SLAM}
@@ -681,7 +715,7 @@ The framework has the following main functionalities:
 \item Simple communication with AR.Drone
 \item Access to Computer Vision library OpenCV.
 \end{itemize}
-The simulated environment the framework has access to is  USARSim\footnote{\url{http://usarsim.sourceforge.net}}. USARSim is is a high-fidelity simulation of robots and environments based on the Unreal Tournament game engine. In USARSim a model of the AR.Drone is available and new environments can be created easily. Therefore, it allows methods to be evaluated in various environments. Furthermore, the framework has access to the AR.Drone via the provided SDK. This gives full control over the drone.
+The simulated environment the framework has access to is  USARSim \cite{Visser2011}. USARSim is is a high-fidelity simulation of robots and environments based on the Unreal Tournament game engine. In USARSim a model of the AR.Drone is available and new environments can be created easily. Therefore, it allows methods to be evaluated in various environments. Furthermore, the framework has access to the AR.Drone via the provided SDK. This gives full control over the drone.
 
 Due to the functionalities of the framework it is suitable for developing and testing vision-based methods. This for the reason that a new module can simple be integrated into the framework. After the integration the method can then first be evaluated in simulation before testing it in real. This provides more certainty whether the developed method will work in real. Furthermore, the resources (ie. localization) the framework provides can aid the methods of navigation.
 

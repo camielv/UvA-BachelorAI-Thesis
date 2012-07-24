@@ -131,6 +131,13 @@ Varga, M. (2005).
 \newblock {\em Practical Image Processing And Computer Vision}.
 \newblock Halsted Press, New York, NY, USA.
 
+\bibitem[Visser et~al., 2011]{Visser2011}
+Visser, A., Dijkshoorn, N., van~der Veen, M., and Jurriaans, R. (2011).
+\newblock Closing the gap between simulation and reality in the sensor and
+  motion models of an autonomous ar.drone.
+\newblock In {\em Proceedings of the International Micro Air Vehicle Conference
+  and Flight Competition (IMAV11)}.
+
 \bibitem[Zhang et~al., 2008]{Zhang2008}
 Zhang, T., Wu, H., Borst, E., K\"uhnlenz, K., Buss, M., and M\"unchen, T.~U.
   (2008).
