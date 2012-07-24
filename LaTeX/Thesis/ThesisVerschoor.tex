@@ -10,6 +10,7 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage[all]{xy}
 \usepackage[toc,page]{appendix}
 \usepackage[T1]{fontenc}   
 
@@ -213,10 +214,10 @@ Another recent approach \cite{Zhengrong2008} in power line following is to apply
 
 \newpage
 
-\item[Obstacle avoidance] Obstacle avoidance is a task of satisfying some control objective subject to non-collision position constraints. In obstacle avoidance the UAV requires to navigate around the obstacle to its objective. A recent approach uses a motion detection based algorithm to avoid obstacles in a corridor \cite{Jurriaans2011}. The approach is based on monocular stereo vision that computes the disparity map between two images. The disparity map shows the difference in motion. Obstacles that are close by have a greater motion than objects that are further away. Due to the different distances of objects the platform is able to detect and avoid them. The proposed method motion detection algorithm is discussed in section \ref{MOTION_DETECTION}.
+\item[Obstacle avoidance] Obstacle avoidance is a task of satisfying some control objective subject to non-collision position constraints. In obstacle avoidance the UAV requires to navigate around the obstacle to its objective. A recent approach uses a motion detection based algorithm to avoid obstacles in a corridor \cite{Jurriaans2011}. The approach is based on monocular stereo vision that computes the disparity map between two images. The disparity map shows the difference in motion in the environment. Obstacles that are close by have a greater motion than objects that are further away. Due to the different distances of objects the platform is able to detect and avoid them. The proposed motion detection algorithm is discussed in section \ref{MOTION_DETECTION}.
 \end{description}
 
-The above related research shows that the Hough Transform is a suitable algorithm for feature extraction as nearly all approaches use a Hough Transform stage. Furthermore, edge detection and motion detection have been suitable pre-processing techniques for successful navigation. Last year, the combination of edge and motion detection gave promising results. Given the above facts, this thesis proposes a two stage approach, where edge and motion detection will be combined to strengthen each other and the Probabilistic Hough Transform will be used for object recognition. The next chapter will describe the theory of the techniques.
+The above related research shows that the Hough Transform is a suitable algorithm for feature extraction as nearly all approaches use a Hough Transform stage. Furthermore, edge detection and motion detection have been suitable pre-processing techniques for successful navigation \cite{Bills2011, Jurriaans2011}. In last year's IMAV competition, the combination of edge and motion detection gave promising results \cite{Gerke2011}. Given the above facts, this thesis proposes a two stage approach, where edge and motion detection will be combined to strengthen each other and the Probabilistic Hough Transform will be used for object recognition. The next chapter will describe the theory of the techniques.
 
 \newpage
 \section{Theory: Vision and Navigation}
@@ -376,7 +377,7 @@ v = (A^T W A)^{-1} A^T W b
 By gradually increasing the size of the window the optical flow over larger distances can be calculated as a least squares fit is found. A example of optical flow can be seen in figure \ref{opticflow}.
 
 \subsubsection{Monocular Stereo Vision}
-In order to compute the disparity map with only one camera Monocular Stereo Vision is required. Stereo vision with only one camera is possible when the assumption is made that environment is static. This means that the time between the frames is not important and that the frames have to behave as if they were taken by two cameras. This assumption limits the algorithm as any moving object will violate this. To compute the disparity map the fundamental matrix has to be estimated. In stereo vision with two cameras the configuration is fixed and it is only necessary to calculate the fundamental matrix once.  However, in the case of Monocular Stereo Vision there is only one camera and because pf that it is required to find transformation between the frames for every new frame. This means that the fundamental matrix has to be found for every two frames. This is a computation complex task and difficult as for finding the fundamental matrix it is required to find points in both frames and link them together to estimate the transformation. Finding corresponding points and using them for stereo vision is known as structure from motion \cite{Varga2005}. A possible approach of finding these corresponding points is optical flow, which finds the position of a pixel in the next frame.
+In order to compute the disparity map with only one camera, Monocular Stereo Vision is required. Stereo vision with only one camera is possible when the assumption is made that environment is static. This means that the time between the frames is not important and that the frames have to behave as if they were taken by two cameras. This assumption limits the algorithm as any moving object will violate this. To compute the disparity map the fundamental matrix has to be estimated. In stereo vision with two cameras the configuration is fixed and it is only necessary to calculate the fundamental matrix once.  However, in the case of Monocular Stereo Vision there is only one camera and because pf that it is required to find transformation between the frames for every new frame. This means that the fundamental matrix has to be found for every two frames. This is a computation complex task and difficult as for finding the fundamental matrix it is required to find points in both frames and link them together to estimate the transformation. Finding corresponding points and using them for stereo vision is known as structure from motion \cite{Varga2005}. A possible approach of finding these corresponding points is optical flow, which finds the position of a pixel in the next frame.
 
 \subsubsection{Fundamental Matrix with RANSAC}
 
@@ -441,6 +442,54 @@ The line that is found gives coordinates $(x_1, y_1)$ and $(x_2, y_2)$. The line
 \newpage
 \section{Algorithm}
 \label{ALGORITHM}
+In this chapter the various algorithms that are used for edge and motion detection for this thesis are discussed.
+
+\subsection{Main Approach}
+The main approach of this thesis for line-following navigation consists of three phases. These are the following phases:
+\begin{description}
+\item[Pre-processing] In the pre-processing phase, the edge and motion detection algorithms, Canny Edge Detector and Monocular Stereo Vision, are applied to the image in preparation for the feature extraction stage.
+\item[Feature extraction] The feature extraction phase extracts objects, in this case lines, from the pre-processed image by using a Probabilistic Hough Transform.
+\item[Navigation] In the navigation phase, the lines found are interpreted and controls are given to the platform.
+\end{description}
+The system is a closed loop system, as shown in figure \ref{system_overview}, and will loop through these phases in order to keep on following the line. The approach is integrated in the AR.Drone SLAM \cite{Dijkshoorn2012} development framework (see appendix \ref{FRAMEWORK}) and can be activated by a press on the button. In this thesis the edge and motion detection were independently implemented in order to examine their strengths and weaknesses. In the following sections these phases will be described.
+
+\begin{figure}[!ht]
+\centerline{
+\xymatrix{Camera \ar[rrrr]_{Frame} & & & & Pre-processing \ar[dd]_{Binary\ image}\\
+& & & &\\
+World \ar[uu]_{Input} & & & & Feature\ extraction \ar[dd]_{Line\ segments}\\
+& & & &\\
+Flight\ controller \ar[uu]_{Flying} & & & & Navigation \ar[llll]_{Controls}}
+}
+\caption{Schematic overview of the approach}
+\label{system_overview}
+\end{figure}
+
+\subsection{Pre-processing}
+There are two types of pre-processing method implemented in this thesis. In this section the implementation of the edge and motion detection, Canny Edge Detector and Monocular Stereo Vision, will be described.
+
+\subsubsection{Edge Detection}
+In this thesis edge detection is implemented in the following way:
+\begin{description}
+\item[Colour Filter] The colour filter is applied to the image and filters for the colour of the line. The resulting binary image is combined with the result of the Canny Edge Detector. A colour filter was chosen as this thesis focuses on simple linear structures. However, a texture filter would also be a appropriate choice since the system flies at a low altitude, textures can easily be detected.
+\item[Gaussian Smoothing] Gaussian Smoothing is applied to prepare the image for the Canny Edge Detector in order to remove small distortions. The resulting image is provided to the Canny Edge Detector.
+\item[Canny Edge Detector] Subsequently, the Canny Edge detector is applied to the image in order to find the edges indicated in a binary image. The Canny Edge Detector was chosen as it already was successful in previous studies regarding MAV navigation \cite{Bills2011}. For this reason, this method is suitable to be surveyed for use in combination with motion detection.
+\item[Combining] The resulting images of the Colour Filter and Canny Edge Detector are combined in a image that indicates the place of the line. Combining the two techniques filters out noisy edges.
+\end{description}
+The result of this algorithm is a binary image containing the most probable place of the line.
+\subsubsection{Motion Detection}
+Motion detection is implemented in the following way:
+\begin{description}
+\item[Finding features] Shi-Tomasi and Sub-Pixel corner.
+\item[Optical Flow] Lucas-Kanade.
+\item[Fundamental Matrix] RANSAC.
+\item[Rectification] Hartley's algorithm
+\item[Stereo Matching]
+\item[Threshold]
+\end{description}
+\subsection{Feature Extraction}
+
+\subsection{Navigation}
 \newpage
 \section{Experiments}
 \label{EXPERIMENTS}
