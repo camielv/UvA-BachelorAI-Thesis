@@ -138,6 +138,11 @@ Visser, A., Dijkshoorn, N., van~der Veen, M., and Jurriaans, R. (2011).
 \newblock In {\em Proceedings of the International Micro Air Vehicle Conference
   and Flight Competition (IMAV11)}.
 
+\bibitem[Welch and Bishop, 1995]{Welch1995}
+Welch, G. and Bishop, G. (1995).
+\newblock An introduction to the kalman filter.
+\newblock Technical report, Chapel Hill, NC, USA.
+
 \bibitem[Zhang et~al., 2008]{Zhang2008}
 Zhang, T., Wu, H., Borst, E., K\"uhnlenz, K., Buss, M., and M\"unchen, T.~U.
   (2008).
