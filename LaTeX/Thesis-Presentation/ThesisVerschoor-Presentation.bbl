@@ -1,0 +1,48 @@
+\begin{thebibliography}{}
+
+\bibitem[Bills et~al., 2011]{Bills2011}
+Bills, C., Chen, J., and Saxena, A. (2011).
+\newblock Autonomous mav flight in indoor environments using single image
+  perspective cues.
+\newblock In {\em Robotics and Automation (ICRA), 2011 IEEE International
+  Conference on}, pages 5776 --5783.
+
+\bibitem[Dijkshoorn, 2012]{Dijkshoorn2012}
+Dijkshoorn, N. (2012).
+\newblock Simultaneous localization and mapping with the ar.drone.
+\newblock Master's thesis, Universiteit van Amsterdam.
+
+\bibitem[Gerke et~al., 2011]{Gerke2011}
+Gerke, P., Langevoort, J., Lagarde, S., Bax, L., Grootswagers, T., Drenth,
+  R.-J., Slieker, V., Vuurpijl, L., Haselager, P., Sprinkhuizen-Kuyper, I.,
+  Otterlo, M., and de~Croon, G. (2011).
+\newblock Biomav: bio-inspired intelligence for autonomous flight.
+\newblock In {\em Proceedings of the International Micro Air Vehicle conference
+  and competitions, 12-15 September (IMAV 2011)}.
+
+\bibitem[Golightly and Jones, 2005]{Golightly2005}
+Golightly, I. and Jones, D. (2005).
+\newblock Visual control of an unmanned aerial vehicle for power line
+  inspection.
+\newblock In {\em Advanced Robotics, 2005. ICAR '05. Proceedings., 12th
+  International Conference on}, pages 288 --295.
+
+\bibitem[Jurriaans, 2011]{Jurriaans2011}
+Jurriaans, R. (2011).
+\newblock Flow based obstacle avoidance for real world autonomous aerial
+  navigation tasks.
+\newblock Bachelor's thesis, Universiteit van Amsterdam.
+
+\bibitem[Katrasnik et~al., 2010]{Katrasnik2010}
+Katrasnik, J., Pernus, F., and Likar, B. (2010).
+\newblock A survey of mobile robots for distribution power line inspection.
+\newblock {\em Power Delivery, IEEE Transactions on}, 25(1):485 --493.
+
+\bibitem[Li et~al., 2008]{Zhengrong2008}
+Li, Z., Liu, Y., Hayward, R., Zhang, J., and Cai, J. (2008).
+\newblock Knowledge-based power line detection for uav surveillance and
+  inspection systems.
+\newblock In {\em Image and Vision Computing New Zealand, 2008. IVCNZ 2008.
+  23rd International Conference}, pages 1 --6.
+
+\end{thebibliography}
