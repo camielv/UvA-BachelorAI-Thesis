@@ -1,0 +1,13 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: test.aux
+The style file: apalike.bst
+Database file #1: references.bib
+I was expecting a `,' or a `}'---line 366 of file references.bib
+ : 
+ : @INPROCEEDINGS{Zhang2008,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty journal in Frew2004
+Warning--there's a number but no volume in Frew2004
+Warning--empty booktitle in Gutmann2000
+Warning--empty institution in Welch1995
+(There was 1 error message)

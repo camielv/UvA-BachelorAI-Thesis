@@ -1,0 +1,160 @@
+\begin{thebibliography}{}
+
+\bibitem[Bajaj et~al., 2002]{Bajaj2002}
+Bajaj, R., Ranaweera, S., and Agrawal, D. (2002).
+\newblock Gps: location-tracking technology.
+\newblock {\em Computer}, 35(4):92 --94.
+
+\bibitem[Bills et~al., 2011]{Bills2011}
+Bills, C., Chen, J., and Saxena, A. (2011).
+\newblock Autonomous mav flight in indoor environments using single image
+  perspective cues.
+\newblock In {\em Robotics and Automation (ICRA), 2011 IEEE International
+  Conference on}, pages 5776 --5783.
+
+\bibitem[Bouguet, 2000]{Bouguet2000}
+Bouguet (2000).
+\newblock Pyramidal implementation of the lucas kanade feature tracker.
+\newblock {\em Intel Corporation, Microprocessor Research Labs}.
+
+\bibitem[Bradski and Kaehler, 2008]{Bradski2008}
+Bradski, G. and Kaehler, A. (2008).
+\newblock {\em Learning OpenCV}.
+\newblock O{\textquoteright}Reilly Media Inc.
+
+\bibitem[Canny, 1986]{Canny1986}
+Canny, J. (1986).
+\newblock A computational approach to edge detection.
+\newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, PAMI-8(6):679 --698.
+
+\bibitem[Dijkshoorn, 2012]{Dijkshoorn2012}
+Dijkshoorn, N. (2012).
+\newblock Simultaneous localization and mapping with the ar.drone.
+\newblock Master's thesis, Universiteit van Amsterdam.
+
+\bibitem[Dupuis and Parizeau, 2006]{Dupuis2006}
+Dupuis, J. and Parizeau, M. (2006).
+\newblock Evolving a vision-based line-following robot controller.
+\newblock In {\em Computer and Robot Vision, 2006. The 3rd Canadian Conference
+  on}, page~75.
+
+\bibitem[Frew et~al., 2004]{Frew2004}
+Frew, E., McGee, T., Kim, Z., Xiao, X., Jackson, S., Morimoto, M., Rathinam,
+  S., Padial, J., and Sengupta, R. (2004).
+\newblock Vision-based road-following using a small autonomous aircraft.
+\newblock (3).
+
+\bibitem[Gerke et~al., 2011]{Gerke2011}
+Gerke, P., Langevoort, J., Lagarde, S., Bax, L., Grootswagers, T., Drenth,
+  R.-J., Slieker, V., Vuurpijl, L., Haselager, P., Sprinkhuizen-Kuyper, I.,
+  Otterlo, M., and de~Croon, G. (2011).
+\newblock Biomav: bio-inspired intelligence for autonomous flight.
+\newblock In {\em Proceedings of the International Micro Air Vehicle conference
+  and competitions, 12-15 September (IMAV 2011)}.
+
+\bibitem[Golightly and Jones, 2005]{Golightly2005}
+Golightly, I. and Jones, D. (2005).
+\newblock Visual control of an unmanned aerial vehicle for power line
+  inspection.
+\newblock In {\em Advanced Robotics, 2005. ICAR '05. Proceedings., 12th
+  International Conference on}, pages 288 --295.
+
+\bibitem[Grasmeyer et~al., 2001]{Grasmeyer2001}
+Grasmeyer, J.~M., Keennon, M.~T., and Inc, A. (2001).
+\newblock Development of the black widow micro air vehicle.
+\newblock In {\em 39th AIAA Aerospace Sciences Meeting and Exhibit}.
+
+\bibitem[Gutmann and Konolige, 2000]{Gutmann2000}
+Gutmann, J.-S. and Konolige, K. (2000).
+\newblock Incremental mapping of large cyclic environments.
+\newblock pages 318--325.
+
+\bibitem[Harris and Stephens, 1988]{Harris1988}
+Harris, C. and Stephens, M. (1988).
+\newblock {A Combined Corner and Edge Detection}.
+\newblock In {\em Proceedings of The Fourth Alvey Vision Conference}, pages
+  147--151.
+
+\bibitem[Hartley and Zisserman, 2004]{Hartley2004}
+Hartley, R.~I. and Zisserman, A. (2004).
+\newblock {\em Multiple View Geometry in Computer Vision}.
+\newblock Cambridge University Press, ISBN: 0521540518, second edition.
+
+\bibitem[Jurriaans, 2011]{Jurriaans2011}
+Jurriaans, R. (2011).
+\newblock Flow based obstacle avoidance for real world autonomous aerial
+  navigation tasks.
+\newblock Bachelor's thesis, Universiteit van Amsterdam.
+
+\bibitem[Katrasnik et~al., 2010]{Katrasnik2010}
+Katrasnik, J., Pernus, F., and Likar, B. (2010).
+\newblock A survey of mobile robots for distribution power line inspection.
+\newblock {\em Power Delivery, IEEE Transactions on}, 25(1):485 --493.
+
+\bibitem[Kiryati et~al., 1991]{Kiryati1991}
+Kiryati, N., Eldar, Y., and Bruckstein, A. (1991).
+\newblock A probabilistic hough transform.
+\newblock {\em Pattern Recognition}, 24(4):303 -- 316.
+
+\bibitem[Krajn{\'\i}k et~al., 2011]{Krajnik2011}
+Krajn{\'\i}k, T., Von{\' a}sek, V., Fi{\v s}er, D., and Faigl, J. (2011).
+\newblock {AR-Drone as a Robotic Platform for Research and Education}.
+\newblock In {\em {International Conference on Research and Education in
+  Robotics}}, Heidelberg. Springer.
+
+\bibitem[Li et~al., 2008]{Zhengrong2008}
+Li, Z., Liu, Y., Hayward, R., Zhang, J., and Cai, J. (2008).
+\newblock Knowledge-based power line detection for uav surveillance and
+  inspection systems.
+\newblock In {\em Image and Vision Computing New Zealand, 2008. IVCNZ 2008.
+  23rd International Conference}, pages 1 --6.
+
+\bibitem[Sampei et~al., 1995]{Sampei1995}
+Sampei, M., Tamura, T., Kobayashi, T., and Shibui, N. (1995).
+\newblock Arbitrary path tracking control of articulated vehicles using
+  nonlinear control theory.
+\newblock {\em Control Systems Technology, IEEE Transactions on}, 3(1):125
+  --131.
+
+\bibitem[Shi and Tomasi, 1994]{Shi1994}
+Shi, J. and Tomasi, C. (1994).
+\newblock Good features to track.
+
+\bibitem[Trucco and Verri, 1998]{Trucco1998}
+Trucco, E. and Verri, A. (1998).
+\newblock {\em Introductory Techniques for 3-D Computer Vision}.
+\newblock Prentice Hall PTR, Upper Saddle River, NJ, USA.
+
+\bibitem[Varga, 2005]{Varga2005}
+Varga, M. (2005).
+\newblock {\em Practical Image Processing And Computer Vision}.
+\newblock Halsted Press, New York, NY, USA.
+
+\bibitem[Visser et~al., 2011]{Visser2011}
+Visser, A., Dijkshoorn, N., van~der Veen, M., and Jurriaans, R. (2011).
+\newblock Closing the gap between simulation and reality in the sensor and
+  motion models of an autonomous ar.drone.
+\newblock In {\em Proceedings of the International Micro Air Vehicle Conference
+  and Flight Competition (IMAV11)}.
+
+\bibitem[Welch and Bishop, 1995]{Welch1995}
+Welch, G. and Bishop, G. (1995).
+\newblock An introduction to the kalman filter.
+\newblock Technical report, Chapel Hill, NC, USA.
+
+\bibitem[Zhang et~al., 2008]{Zhang2008}
+Zhang, T., Wu, H., Borst, E., K\"uhnlenz, K., Buss, M., and M\"unchen, T.~U.
+  (2008).
+\newblock An fpga implementation of insect-inspired motion detector for
+  high-speed vision systems.
+\newblock In {\em IEEE International Conference on Robotics and Automation
+  (ICRA}, pages 335--340.
+
+\bibitem[Ziou and Tabbone, 1998]{Ziou1998}
+Ziou, D. and Tabbone, S. (1998).
+\newblock Edge detection techniques - an overview.
+\newblock {\em International Journal of Pattern Recognition and Image
+  Analysis}, 8:537--559.
+
+\end{thebibliography}

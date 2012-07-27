@@ -1,0 +1,53 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{International Micro Aerial Vehicle Conference and Competitions}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Platform and Framework}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Research questions and objectives}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{Outline}{section.1}% 5
+\BOOKMARK [1][-]{section.2}{Related Work}{}% 6
+\BOOKMARK [2][-]{subsection.2.1}{Overview}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Theory: Vision and Navigation}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Edge Detector Algorithm}{section.3}% 9
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Colour Filter}{subsection.3.1}% 10
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Canny Edge Detector}{subsection.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.2}{Motion Detection Algorithm}{section.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Shi-Thomasi}{subsection.3.2}% 13
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Optical Flow}{subsection.3.2}% 14
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Monocular Stereo Vision}{subsection.3.2}% 15
+\BOOKMARK [3][-]{subsubsection.3.2.4}{Fundamental Matrix with RANSAC}{subsection.3.2}% 16
+\BOOKMARK [3][-]{subsubsection.3.2.5}{Hartley's algorithm}{subsection.3.2}% 17
+\BOOKMARK [3][-]{subsubsection.3.2.6}{Stereo Matching}{subsection.3.2}% 18
+\BOOKMARK [2][-]{subsection.3.3}{Probabilistic Hough Transform}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.4}{Tracking}{section.3}% 20
+\BOOKMARK [1][-]{section.4}{Algorithm}{}% 21
+\BOOKMARK [2][-]{subsection.4.1}{Main Approach}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.2}{Pre-processing}{section.4}% 23
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Edge Detection}{subsection.4.2}% 24
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Motion Detection}{subsection.4.2}% 25
+\BOOKMARK [2][-]{subsection.4.3}{Feature Extraction}{section.4}% 26
+\BOOKMARK [2][-]{subsection.4.4}{Navigation}{section.4}% 27
+\BOOKMARK [1][-]{section.5}{Experiments}{}% 28
+\BOOKMARK [2][-]{subsection.5.1}{Platform}{section.5}% 29
+\BOOKMARK [2][-]{subsection.5.2}{Optimal Camera Configuration}{section.5}% 30
+\BOOKMARK [2][-]{subsection.5.3}{Experiments}{section.5}% 31
+\BOOKMARK [2][-]{subsection.5.4}{Evaluation Criteria}{section.5}% 32
+\BOOKMARK [1][-]{section.6}{Results and Discussion}{}% 33
+\BOOKMARK [2][-]{subsection.6.1}{Camera Configuration}{section.6}% 34
+\BOOKMARK [2][-]{subsection.6.2}{Edge Detection}{section.6}% 35
+\BOOKMARK [2][-]{subsection.6.3}{Motion Detection}{section.6}% 36
+\BOOKMARK [2][-]{subsection.6.4}{Experiment One}{section.6}% 37
+\BOOKMARK [2][-]{subsection.6.5}{Experiment Two}{section.6}% 38
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 39
+\BOOKMARK [1][-]{section.8}{Future Research}{}% 40
+\BOOKMARK [1][-]{section*.4}{Appendices}{}% 41
+\BOOKMARK [1][-]{Appendix.1.A}{Source code}{}% 42
+\BOOKMARK [1][-]{Appendix.1.B}{Gaussian Smoothing}{}% 43
+\BOOKMARK [1][-]{Appendix.1.C}{Platform}{}% 44
+\BOOKMARK [2][-]{subsection.1.C.1}{Quadcopter}{Appendix.1.C}% 45
+\BOOKMARK [2][-]{subsection.1.C.2}{Hardware}{Appendix.1.C}% 46
+\BOOKMARK [3][-]{subsubsection.1.C.2.1}{AR.Drone 1.0}{subsection.1.C.2}% 47
+\BOOKMARK [3][-]{subsubsection.1.C.2.2}{AR.Drone 2.0}{subsection.1.C.2}% 48
+\BOOKMARK [2][-]{subsection.1.C.3}{Software Development Kit}{Appendix.1.C}% 49
+\BOOKMARK [1][-]{Appendix.1.D}{Framework: AR.Drone SLAM}{}% 50
+\BOOKMARK [2][-]{subsection.1.D.1}{Functionalities}{Appendix.1.D}% 51
+\BOOKMARK [2][-]{subsection.1.D.2}{Architecture}{Appendix.1.D}% 52
+\BOOKMARK [1][-]{section.9}{Bibliography}{}% 53
