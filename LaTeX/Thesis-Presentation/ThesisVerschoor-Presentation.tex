@@ -127,7 +127,7 @@ NLR is the main knowledge enterprise in the Netherlands in the field of aviation
 \begin{itemize}
 \item Top and bottom camera.
 \end{itemize}
-\item[Framework] AR.Drone SLAM\footnote{\cite{Dijkshoorn2012}} a development framework
+\item[Framework] AR.Drone SLAM\footnote{\cite{Dijkshoorn2012}} a development framework.
 \end{description}
 \end{block}
 \begin{center}
@@ -139,10 +139,10 @@ NLR is the main knowledge enterprise in the Netherlands in the field of aviation
 \begin{frame}
 \begin{block}{Related Work}
 \begin{itemize}
-\item Corridor and Stair Following \cite{Bills2011}
-\item Power Line Detection \cite{Golightly2005, Zhengrong2008, Katrasnik2010}
-\item Obstacle Avoidance \cite{Jurriaans2011}
-\item Elementary Motion Detectors \cite{Gerke2011}
+\item Corridor and Stair Following \cite{Bills2011}.
+\item Power Line Detection \cite{Golightly2005, Zhengrong2008, Katrasnik2010}.
+\item Obstacle Avoidance \cite{Jurriaans2011}.
+\item Elementary Motion Detectors \cite{Gerke2011}.
 \end{itemize}
 \end{block}
 \end{frame}
@@ -158,7 +158,7 @@ NLR is the main knowledge enterprise in the Netherlands in the field of aviation
 \begin{block}{Related Work}
 \begin{itemize}
 \item Nearly all proposed methods use Hough Transform for feature extraction.
-\item Edge and Motion detection have been suitable techniques for navigation 
+\item Edge and Motion detection have been suitable techniques for navigation .
 \item Combination of Edge and Motion detection gave promising results.
 \end{itemize}
 \end{block}
@@ -179,16 +179,16 @@ Flight\ controller \ar[uu]_{Flying} & & & & Navigation \ar[llll]_{Controls}}
 \begin{frame}
 \begin{block}{Main Approach}
 \begin{itemize}
-\item Pre-processing 
+\item Pre-processing. 
 \begin{itemize}
-\item Canny edge detector (Brightness changes)
-\item Monocular stereo vision (Apparent motion)
+\item Canny edge detector (Brightness changes).
+\item Monocular stereo vision (Apparent motion).
 \end{itemize}
-\item Feature extraction
+\item Feature extraction.
 \begin{itemize}
-\item Probabilistic Hough Transform
+\item Probabilistic Hough Transform.
 \end{itemize}
-\item Navigation
+\item Navigation.
 \end{itemize}
 \end{block}
 \end{frame}
@@ -197,9 +197,83 @@ Flight\ controller \ar[uu]_{Flying} & & & & Navigation \ar[llll]_{Controls}}
 \begin{frame}
 \begin{block}{Pre-processing}
 \begin{itemize}
-\item Canny edge detector (Brightness changes)
-\item Monocular stereo vision (Apparent motion)
+\item Canny edge detector (Brightness changes).
+\item Monocular stereo vision (Apparent motion).
 \end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Edge detection}
+\begin{itemize}
+\item Colour filter.
+\item Gaussian Smoothing (Removes noise).
+\item Canny edge detector (Brightness changes).
+\end{itemize}
+\end{block}
+\begin{block}{Result}
+Binary image.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Edge detection}
+\begin{center}
+\includegraphics[width=0.3\textwidth]{images/canny_image.png}
+\includegraphics[width=0.3\textwidth]{images/canny_image_filter.png}\\
+\includegraphics[width=0.3\textwidth]{images/canny_detector.png}
+\includegraphics[width=0.3\textwidth]{images/canny_combine.png}
+\end{center}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Monocular Stereo Vision}
+\begin{center}
+\includegraphics[width=0.3\textwidth]{images/lamp_left.jpg}
+\includegraphics[width=0.3\textwidth]{images/lamp_right.jpg}
+\includegraphics[width=0.3\textwidth]{images/lamp_disparity.jpg}
+\end{center}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\begin{block}{Monocular Stereo Vision}
+\begin{itemize}
+\item Find features \cite{Shi1994}.
+\item Optical Flow.
+\item Determining fundamental matrix (mapping between frames).
+\item Rectify images.
+\item Stereo matching.
+\item Thresholding.
+\end{itemize}
+\end{block}
+\begin{block}{Result}
+Binary image
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Optical Flow}
+\begin{center}
+\includegraphics[width=0.3\textwidth]{images/frame0.jpg}
+\includegraphics[width=0.3\textwidth]{images/frame1.jpg}
+\includegraphics[width=0.3\textwidth]{images/optical_flow.png}
+\end{center}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Monocular Stereo Vision}
+\begin{center}
+\includegraphics[width=0.3\textwidth]{images/stereo_image.png}
+\includegraphics[width=0.3\textwidth]{images/stereo_optical_flow.png}
+\includegraphics[width=0.3\textwidth]{images/stereo_disparity.png}\\
+\includegraphics[width=0.3\textwidth]{images/stereo_left.png}
+\includegraphics[width=0.3\textwidth]{images/stereo_right.png}
+\includegraphics[width=0.3\textwidth]{images/stereo_disparity_cut.png}
+\end{center}
 \end{block}
 \end{frame}
 
@@ -207,16 +281,32 @@ Flight\ controller \ar[uu]_{Flying} & & & & Navigation \ar[llll]_{Controls}}
 \begin{frame}
 \begin{block}{Feature extraction}
 \begin{itemize}
-\item To be written
+\item Probabilistic Hough Transform \cite{Kiryati1991}.
+\begin{itemize}
+\item Grouping points of parametrized image objects.
+\item Voting procedure.
+\item Takes only subset of the found points.
 \end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Probabilistic Hough Transform}
+\begin{center}
+\includegraphics[width=0.3\textwidth]{images/canny_PHT.png}
+\includegraphics[width=0.3\textwidth]{images/stereo_PHT.png}
+\end{center}
 \end{block}
 \end{frame}
 
 \subsection{Navigation}
 \begin{frame}
-\begin{block}{Evaluation}
+\begin{block}{Navigation}
 \begin{itemize}
-\item To be written\end{itemize}
+\item Fly towards line.
+\item Fly over it.
+\end{itemize}
 \end{block}
 \end{frame}
 
@@ -246,7 +336,10 @@ Flight\ controller \ar[uu]_{Flying} & & & & Navigation \ar[llll]_{Controls}}
 \subsection{Evaluation Criteria}
 \begin{frame}
 \begin{block}{Evaluation Criteria}
-To be written.
+\begin{itemize}
+\item Detection of line.
+\item Direction of line.
+\end{itemize}
 \end{block}
 \end{frame}
 
@@ -254,7 +347,19 @@ To be written.
 \subsection{Camera Configuration}
 \begin{frame}
 \begin{block}{Camera Configuration}
-To be written.
+\begin{block}{Mirror Construction}
+\begin{itemize}
+\item Distorted images.
+\item No optimal angle.
+\end{itemize}
+\end{block}
+
+\begin{block}{Modification}
+\begin{itemize}
+\item Sharp images.
+\item Optimal angle.
+\end{itemize}
+\end{block}
 \end{block}
 \end{frame}
 \subsection{Experiments}
@@ -287,7 +392,11 @@ Direction & 37 (6.9\%) & 503 (93.1\%)\\
 
 \begin{frame}
 \begin{block}{Conclusion Experiment 1}
-To be written.
+\begin{itemize}
+\item Shows the strength of edge detection.
+\item Shows the weakness of motion detection.
+\item Edge detection can strengthen motion detection.
+\end{itemize}
 \end{block}
 \end{frame}
 
@@ -322,7 +431,25 @@ Direction & 87 (36.6\%) & 137 (63.4\%) \\
 
 \begin{frame}
 \begin{block}{Conclusion Experiment 2}
-To be written.
+\begin{itemize}
+\item Shows the weakness of edge detection.
+\item Motion detection worked suboptimal\\\textbf{Possible solutions}
+\begin{itemize}
+\item Look at average motion.
+\item Other datasets.
+\item Other algorithms, Elementary Motion Detectors \cite{Gerke2011}.
+\end{itemize}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{}
+\begin{block}{Video}
+\begin{itemize}
+\item \href{http://youtu.be/MmxhRnjHIv4}{AR.Drone follows line.}
+\item \href{http://youtu.be/cSdcYHPiah4}{Monocular Stereo Vision}
+\end{itemize}
+
 \end{block}
 \end{frame}
 
@@ -331,7 +458,9 @@ To be written.
 \begin{frame}
 \begin{block}{Conclusion}
 \begin{itemize}
-\item To be written
+\item \textbf{Camera configuration:} Modification was the most optimal solution.
+\item \textbf{Experimental settings:} Contrasting line on the ground and low contrast line in the air.
+\item \textbf{Performance and robustness:}  Algorithms can strengthen each other, improvements can be made.
 \end{itemize}
 \end{block}
 \end{frame}
